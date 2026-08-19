@@ -1,44 +1,46 @@
-<script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
-const route = useRoute()
-
-const items = computed<NavigationMenuItem[]>(() => [
-  {
-    label: 'Home',
-    to: '/',
-    active: route.path === '/'
-  },
-  {
-    label: 'About',
-    to: '/about',
-    active: route.path.startsWith('/about')
-  },
-  {
-    label: 'Test',
-    to: '/test',
-    active: route.path.startsWith('/test')
-  },
-
-])
-</script>
-
 <template>
   <UHeader>
     <template #title>
-      <span class="font-bold text-xl">
-          Monz
+      <span class="font-bold text-2xl">
+        Monz
       </span>
     </template>
 
-    <UNavigationMenu :items="items" />
+    <UNavigationMenu
+      :items="items"
+    />
 
     <template #right>
       <UColorModeButton />
     </template>
+
+    <template #body>
+      <UNavigationMenu
+        :items="items"
+        orientation="vertical"
+      />
+    </template>
   </UHeader>
 </template>
 
+<script setup lang="ts">
+import type { NavigationMenuItem } from '@nuxt/ui'
 
+const router = useRouter()
 
-
+const items = computed<NavigationMenuItem[]>(() =>
+  router.getRoutes()
+    .filter(route =>
+      route.path !== '/' &&
+      route.path !== '/:all(.*)*' &&
+      route.path !== '/404'
+    )
+    .map(route => ({
+      label: route.path
+        .slice(1)
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, char => char.toUpperCase()),
+      to: route.path
+    }))
+)
+</script>
