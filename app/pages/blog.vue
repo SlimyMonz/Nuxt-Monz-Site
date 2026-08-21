@@ -1,44 +1,30 @@
 <template>
-  <main class="mx-auto max-w-3xl px-6 py-12">
+  <UPage>
+    <UPageBody>
       <UPagination
         v-model:page="page"
         :items-per-page="itemsPerPage"
         :total="sortedBlogPosts.length"
         show-edges
-        class="justify-center mb-16"
       />
-    <article
-      v-for="post in paginatedBlogPosts"
-      class="mb-16"
-    >
-      <header>
-        <h1 class="text-4xl font-bold tracking-tight">
-          {{ post.title }}
-        </h1>
 
-        <time
-          :datetime="post.date.toISOString()"
-          class="mt-2 block"
-        >
-          {{ formatDate(post.date) }}
-        </time>
-      </header>
-
-      <hr class="my-6">
-
-      <p class="text-lg leading-relaxed">
-        {{ post.body }}
-      </p>
-    </article>
-
-    <UPagination
-      v-model:page="page"
-      :items-per-page="itemsPerPage"
-      :total="sortedBlogPosts.length"
-      show-edges
-      class="justify-center"
-    />
-  </main>
+      <UBlogPost
+        v-for="post in paginatedBlogPosts"
+        :key="post.id"
+        :title="post.title"
+        :date="post.date + 'T00:00:00-04:00'"
+        :description="post.body"
+        orientation="vertical"
+      />
+      <div class="flex-1"/>
+      <UPagination
+        v-model:page="page"
+        :items-per-page="itemsPerPage"
+        :total="sortedBlogPosts.length"
+        show-edges
+      />
+    </UPageBody>
+  </UPage>
 </template>
 
 <script setup lang="ts">
@@ -49,14 +35,13 @@ const itemsPerPage = 10
 
 const sortedBlogPosts = computed(() => {
   return [...BlogPosts].sort(
-    (a, b) => b.date.getTime() - a.date.getTime()
+    (a, b) => b.date.localeCompare(a.date)
   )
 })
 
 const paginatedBlogPosts = computed(() => {
   const start = (page.value - 1) * itemsPerPage
   const end = start + itemsPerPage
-
   return sortedBlogPosts.value.slice(start, end)
 })
 </script>

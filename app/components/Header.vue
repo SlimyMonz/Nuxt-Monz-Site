@@ -7,7 +7,7 @@
     </template>
 
     <UNavigationMenu
-      :items="items"
+      :items="headerItems"
     />
 
     <template #right>
@@ -16,7 +16,7 @@
 
     <template #body>
       <UNavigationMenu
-        :items="items"
+        :items="headerItems"
         orientation="vertical"
       />
     </template>
@@ -28,7 +28,7 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 
 const router = useRouter()
 
-const items = computed<NavigationMenuItem[]>(() =>
+const headerItems = computed<NavigationMenuItem[]>(() =>
   router.getRoutes()
     .filter(route =>
       route.path !== '/' &&
