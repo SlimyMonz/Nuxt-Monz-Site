@@ -1,5 +1,5 @@
 <template>
     <div>
-        <p>about.vue</p>
+        <p>WORK IN PROGRESS!</p>
     </div>
 </template>
