@@ -23,7 +23,7 @@ export const BlogPosts: BlogPost[] = [
     Sure, I can use a <code>v-for</code> loop to make each gallery, but honestly copy/pasting a <code>div</code> isn't as hard as writing 700 lines just to model photo URLs and directories.
     There's an easier way to generate a manifest on build, but I low key got confused by it and I didn't want to spend a whole week troubleshooting a simple idea.
     Basically: <strong>It's my fault! Oh well!</strong></p><br>
-    <p>If you want, you can look at the source code for the art page: 
+    <p>If you want, you can look at the source code for the art page:
         <a
             href="https://codeberg.org/Monz/nuxt-monz-site/src/branch/main/app/pages/art.vue"
             target="_blank"
@@ -34,5 +34,25 @@ export const BlogPosts: BlogPost[] = [
         </a>
     </p>
     <p>Oh also you'll probably notice I'm using some fancier styling here in the post already~ <strong>THE POWER OF HTML!</strong> </p>`,
+  },
+
+  {
+    id: 2,
+    title: "Two posts in one day!",
+    date: "2026-08-22",
+    body: `<p>I really REALLY wanted to get the Album Gallery thing working in the Photos section. You can check that out
+    <a
+        href="/photos"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="color: red; font-weight: bold;"
+    >
+        [ HERE ]
+    </a></p><br>
+    <p>Otherwise, not much else! I did add some theming, too. It's supposed to match my Monz colors with the black/red/white and some purple.
+    Nothing is purple, yet! But that's because I don't think a lot of my stuff uses secondary colors. No big deal!</p><br>
+    <p>OH YEAH. I did add some links in the footer. FurAffinity especially: I was suprised they had an icon in the simple-icons pack! Very very cool.
+    Scroll on down to the footer at the bottom of the page to check it out~</p>
+    `,
   },
 ];

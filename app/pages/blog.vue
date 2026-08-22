@@ -37,7 +37,7 @@ const page = ref(1);
 const itemsPerPage = 10;
 
 const sortedBlogPosts = computed(() => {
-    return [...BlogPosts].sort((a, b) => b.date.localeCompare(a.date));
+    return [...BlogPosts].sort((a, b) => b.id - a.id);
 });
 
 const paginatedBlogPosts = computed(() => {
