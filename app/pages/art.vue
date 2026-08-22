@@ -1,7 +1,8 @@
 <template>
-    <div v-for="gallery in artManifest" :key="gallery.title" class="my-12">
+    <UPageHero headline="No AI" title="Digital Art Gallery" description="A collection of stuff I created in Photoshop, Affinity, or Pixelmator Pro over the years. Click an image to see the full size!" />
+    <div v-for="gallery in artManifest" :key="gallery.title" class="mb-24">
         <div class="mb-6 flex items-center gap-5">
-            <h2 class="text-4xl font-bold">
+            <h2 class="text-5xl font-bold">
                 {{ gallery.title }}
             </h2>
 
@@ -10,18 +11,18 @@
 
         <UPageGrid class="sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             <button
-                v-for="file in gallery.files"
-                :key="file.id"
-                class="aspect-square w-full overflow-hidden rounded-lg border border-default transition hover:opacity-80"
-                @click="openImage(gallery.title, file)"
+              v-for="file in gallery.files"
+              :key="file.id"
+              class="group aspect-square w-full overflow-hidden rounded-lg border border-default shadow-md transition-all duration-200 hover:scale-105 hover:shadow-xl"
+              @click="openImage(gallery.title, file)"
             >
-                <img
-                    :src="file.thumb"
-                    :alt="`${gallery.title} artwork ${file.id}`"
-                    class="size-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                />
+              <img
+                :src="file.thumb"
+                :alt="`${gallery.title} artwork ${file.id}`"
+                class="size-full object-cover transition-transform duration-200 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
             </button>
         </UPageGrid>
     </div>
