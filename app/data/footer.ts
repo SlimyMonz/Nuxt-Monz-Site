@@ -25,22 +25,22 @@ export const footerLinks: NavigationMenuItem[] = [
 
 export const footerButtons = [
   {
-    icon: 'i-simple-icons-bluesky',
+    icon: 'simple-icons:bluesky',
     to: 'https://bsky.app/profile/monz.us',
     label: 'Bluesky'
   },
   {
-    icon: 'i-simple-icons-codeberg',
+    icon: 'simple-icons:codeberg',
     to: 'https://codeberg.org/Monz?tab=overview',
     label: 'Codeberg'
   },
   {
-    icon: 'i-lucide-mail',
-    to: 'mailto:website@monz.us',
-    label: 'Email'
+    icon: 'simple-icons:furaffinity',
+    to: 'https://www.furaffinity.net/user/slimymonz',
+    label: 'FurAffinity'
   },
   {
-    icon: 'i-simple-icons-mastodon',
+    icon: 'simple-icons:mastodon',
     to: 'https://yiff.life/@slimymonz',
     label: 'Mastodon'
   }
