@@ -13,9 +13,12 @@
                 :key="post.id"
                 :title="post.title"
                 :date="post.date + 'T00:00:00-04:00'"
-                :description="post.body"
                 orientation="vertical"
-            />
+            >
+                <template #description>
+                    <div v-html="post.body" />
+                </template>
+            </UBlogPost>
             <div class="flex-1" />
             <UPagination
                 v-model:page="page"
