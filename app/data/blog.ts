@@ -1,8 +1,8 @@
-import type { TableOfContents } from "~/types/toc";
-
-interface BlogPost extends TableOfContents {
-  date: string;
-  body: string;
+interface BlogPost {
+  id: number,
+  title: string,
+  date: string,
+  body: string,
 }
 
 export const BlogPosts: BlogPost[] = [
