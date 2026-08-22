@@ -1,9 +1,6 @@
-interface ManifestEntry {
-  id: string;
-  file: string;
-}
+import type { ManifestEntry } from "~/types/manifest";
 
-export const manifest: Record<string, ManifestEntry[]> = {
+export const artManifest: Record<string, ManifestEntry[]> = {
   "2009": [
     { id: "art_2009_1", file: "art_2009_1.jpg" },
     { id: "art_2009_2", file: "art_2009_2.jpg" },
