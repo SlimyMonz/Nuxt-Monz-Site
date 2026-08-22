@@ -28,7 +28,9 @@ export interface ActiveImage {
 const manifest: PhotoManifest = {
   root_dir: "/photos",
 
-  albums: [{ title: "Onyx", numberOfPhotos: 27 }],
+  albums: [
+    { title: "Onyx", numberOfPhotos: 27 },
+  ]
 };
 
 function buildPhotoFiles(rootDir: string, album: Album): PhotoFile[] {

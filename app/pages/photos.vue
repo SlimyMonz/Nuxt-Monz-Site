@@ -1,47 +1,103 @@
 <template>
-    <UPageHero headline="No AI" title="Digital Photo Albums" description="Albums of notable photographs I've taken over the years." />
-    <div v-for="gallery in photoManifest" :key="gallery.title" class="mb-24">
-        <div class="mb-6 flex items-center gap-5">
-            <h2 class="text-5xl font-bold">
-                {{ gallery.title }}
-            </h2>
+    <UPageHero
+        headline="No AI"
+        title="Digital Photo Albums"
+        description="Albums of notable photographs I've taken over the years."
+    />
 
-            <USeparator class="flex-1" />
-        </div>
-
-        <UPageGrid class="sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            <button
-              v-for="file in gallery.files"
-              :key="file.id"
-              class="group aspect-square w-full overflow-hidden rounded-lg border border-default shadow-md transition-all duration-200 hover:scale-105 hover:shadow-xl"
-              @click="openImage(gallery.title, file)"
+    <UPageGrid class="sm:grid-cols-3 md:grid-cols-4">
+        <template v-for="gallery in photoManifest" :key="gallery.title">
+            <div
+                v-if="expandedAlbum === gallery.title"
+                class="col-span-full mb-6"
             >
-              <img
-                :src="file.thumb"
-                :alt="`${gallery.title} artwork ${file.id}`"
-                class="size-full object-cover transition-transform duration-200 group-hover:scale-110"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-        </UPageGrid>
-    </div>
+                <div class="mb-6 flex items-center gap-5">
+                    <UButton
+                        :label="gallery.title"
+                        icon="lucide:chevron-left"
+                        variant="link"
+                        color="neutral"
+                        size="xl"
+                        class="p-0 text-5xl font-bold [&>span]:text-5xl"
+                        :ui="{ leadingIcon: 'size-8 shrink-0' }"
+                        @click="toggleAlbum(gallery.title)"
+                    />
+                    <USeparator class="flex-1" />
+                </div>
+
+                <UPageGrid class="sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                    <UCard
+                        v-for="file in gallery.files"
+                        :key="file.id"
+                        :ui="{
+                            root: 'size-full',
+                            body: 'p-0 sm:p-0 size-full flex items-center justify-center',
+                        }"
+                        class="group aspect-square w-full cursor-pointer overflow-hidden transition-all duration-200 hover:scale-105 hover:shadow-xl"
+                        @click="openImage(gallery.title, file)"
+                    >
+                        <img
+                            :src="file.thumb"
+                            :alt="`${gallery.title} photo ${file.id}`"
+                            class="size-full object-cover transition-transform duration-200 group-hover:scale-110"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </UCard>
+                </UPageGrid>
+            </div>
+
+            <UCard
+                v-else
+                :ui="{ body: 'p-0 sm:p-0', root: 'flex flex-col' }"
+                class="group cursor-pointer overflow-hidden text-left transition-all duration-200 hover:scale-105 hover:shadow-xl"
+                @click="toggleAlbum(gallery.title)"
+            >
+                <div
+                    class="grid aspect-square w-full grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden bg-default"
+                >
+                    <div
+                        v-for="thumb in previewThumbs(gallery)"
+                        :key="thumb.id"
+                        class="aspect-square size-full overflow-hidden"
+                    >
+                        <img
+                            :src="thumb.thumb"
+                            :alt="`${gallery.title} preview`"
+                            class="size-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                </div>
+                <div class="p-3">
+                    <h3 class="truncate text-lg font-semibold">
+                        {{ gallery.title }}
+                    </h3>
+                    <p class="text-sm text-muted">
+                        {{ gallery.files.length }} photos
+                    </p>
+                </div>
+            </UCard>
+        </template>
+    </UPageGrid>
 
     <UModal
         v-model:open="isOpen"
         :title="activeImage?.title"
         :ui="{ content: 'bg-black/25 backdrop-blur-sm' }"
         fullscreen
+        @update:open="(value) => !value && closeImage()"
     >
         <template #body>
             <div
-                class="flex h-full items-center justify-center"
-                @click="isOpen = false"
+                class="relative flex h-full items-center justify-center"
+                @click="closeImage"
             >
                 <img
                     v-if="activeImage"
                     :src="activeImage.file.full"
-                    :alt="`${activeImage.title} artwork ${activeImage.file.id}`"
+                    :alt="`${activeImage.title} photo ${activeImage.file.id}`"
                     class="max-h-[85vh] max-w-full rounded-lg object-contain"
                     @click.stop
                 />
@@ -54,11 +110,30 @@
 import { photoManifest } from "~/data/photos";
 import type { ActiveImage, PhotoFile } from "~/data/photos";
 
-const isOpen = ref(false);
 const activeImage = ref<ActiveImage | null>(null);
+const expandedAlbum = ref<string | null>(null);
+
+const isOpen = computed({
+    get: () => activeImage.value !== null,
+    set: (value: boolean) => {
+        if (!value) activeImage.value = null;
+    },
+});
+
+function toggleAlbum(title: string) {
+    expandedAlbum.value = expandedAlbum.value === title ? null : title;
+}
+
+function previewThumbs(gallery: (typeof photoManifest)[number]) {
+    // preview up to the last 4 photos in the album.
+    return gallery.files.slice(-4);
+}
 
 function openImage(title: string, file: PhotoFile) {
     activeImage.value = { title, file };
-    isOpen.value = true;
+}
+
+function closeImage() {
+    activeImage.value = null;
 }
 </script>
