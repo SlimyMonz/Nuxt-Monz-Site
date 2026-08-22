@@ -1,4 +1,4 @@
-export const baseUrl = "https://mega.nz/folder/ha13FDAI#LeQHlDBWrwbz6rZLH8InxQ"
+export const baseUrl = "https://s3.g.megas4.com/reda2vxvgd2tcjeziyx5yjfoizlcthi5dza4x/Art";
 
 interface ManifestEntry {
   id: string;
