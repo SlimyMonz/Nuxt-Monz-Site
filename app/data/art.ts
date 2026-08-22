@@ -1,5 +1,3 @@
-export const baseUrl = "https://s3.g.megas4.com/reda2vxvgd2tcjeziyx5yjfoizlcthi5dza4x/Art";
-
 interface ManifestEntry {
   id: string;
   file: string;
