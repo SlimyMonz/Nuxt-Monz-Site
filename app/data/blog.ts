@@ -57,4 +57,18 @@ export const BlogPosts: BlogPost[] = [
     <p>UPDATE so I don't need to make another post: I made the ABOUT page, too! WOW!!!</p>
     `,
   },
+  
+  {
+    id: 3,
+    title: "SO MANY CODE CHANGES",
+    date: "2026-08-23",
+    body: `<p>I'm actually quite tired now, I spent my entire weekend writing up my website. Might take a break from work this upcoming week. Anyway, the new things!</p><br>
+    <p>First off: I updated the About, Art, and Photos pages. They weren't great on mobile, but now they are!</p>
+    <p>Second: Music page is pretty much done!
+    I never meant for it to be anything ultra-fancy, just wanted to share the music I REALLY like.
+    It's like... purely 10/10 albums.
+    I still need to add more, but for now this is good.</p>
+    
+    `
+  }
 ];

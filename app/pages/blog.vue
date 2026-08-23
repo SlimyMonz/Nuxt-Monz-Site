@@ -1,4 +1,11 @@
 <template>
+<UPageHero
+    id="top"
+    headline="Personal Blog"
+    title="Monster Talks"
+    description="News, ramblings, thoughts, etc."
+>
+</UPageHero>
     <UPage>
         <UPageBody>
             <UPagination
