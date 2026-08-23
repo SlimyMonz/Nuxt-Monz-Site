@@ -45,6 +45,7 @@ const manifest: ArtManifest = {
     { title: "2022", numberOfImages: 6 },
     { title: "2023", numberOfImages: 6 },
     { title: "2025", numberOfImages: 12 },
+    { title: "2026", numberOfImages: 1 },
   ],
 };
 

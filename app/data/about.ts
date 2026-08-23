@@ -1,7 +1,7 @@
 import type { ButtonProps, TimelineItem } from "@nuxt/ui";
 
 export const title = `Hello, I'm Monz!`;
-export const tagline = `Welcome to my Website~`;
+export const tagline = `Here are some contacts and a reference sheet~`;
 export const heroImage = "/about/monz_ref.jpg";
 export const sonaRef = "/about/monz_ref.png";
 export const sonaIcon = "/about/monz_icon.jpg";
@@ -119,7 +119,12 @@ export const interestCards = [
   },
 ];
 
+export const achievements = [
+  { title: "Microsoft Hater", description: "Avoids Microsoft at all costs.", img: "/about/achievements/stop_microsoft.gif" },
+
+]
 
 export const badges = [
-  { text: "Regal's Website", img: "/about/badges/cobra.monster.gif", url: "https://cobra.monster/" },
+  { text: "Aks Website", img: "/about/badges/akselmo.png", url: "https://akselmo.dev/"},
+  { text: "Regal Website", img: "/about/badges/cobra.monster.gif", url: "https://cobra.monster/" },
 ];

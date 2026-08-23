@@ -8,6 +8,7 @@ import {
     sonaFacts,
     timelineItems,
     interestCards,
+    achievements,
     badges,
 } from "~/data/about";
 </script>
@@ -80,23 +81,48 @@ import {
         </UPageSection>
 
         <USeparator />
-        
-        <!-- Future Idea: ACHIEVEMENTS | where it's like... PSN trophies etc -->
+
+        <UPageSection id="achievements" title="Achievements">
+            <UPageGrid>
+                <UCard
+                    v-for="(a, i) in achievements"
+                    :key="i"
+                    :ui="{ body: 'p-2 sm:p-2' }"
+                    variant="subtle"
+                >
+                    <div class="flex items-center gap-2">
+                        <img
+                            :src="a.img"
+                            :alt="a.title"
+                            width="88"
+                            height="31"
+
+                        />
+                        <div class="min-w-0">
+                            <h3 class="font-semibold text-highlighted text-sm truncate">{{ a.title }}</h3>
+                            <p class="text-muted text-xs truncate">{{ a.description }}</p>
+                        </div>
+                    </div>
+                </UCard>
+            </UPageGrid>
+        </UPageSection>
 
         <UPageSection id="badges" title="Badges">
             <div class="flex flex-wrap justify-center gap-2">
                 <a
-                    v-for="(badge, i) in badges"
+                    v-for="(b, i) in badges"
                     :key="i"
-                    :href="badge.url"
+                    :href="b.url"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="block"
                 >
                     <img
-                        :src="badge.img"
-                        :alt="badge.text"
-                        class="object-contain"
+                        :src="b.img"
+                        :alt="b.text"
+                        width="176"
+                        height="62"
+                        class="[image-rendering:pixelated]"
                     />
                 </a>
             </div>
