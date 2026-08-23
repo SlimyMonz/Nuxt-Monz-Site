@@ -2,40 +2,39 @@
 @import "@nuxt/ui";
 
 @theme static {
+    --color-grape-50: #fdf4ff;
+    --color-grape-100: #fae8ff;
+    --color-grape-200: #f3cffc;
+    --color-grape-300: #e7a8f7;
+    --color-grape-400: #d57fef;
+    --color-grape-500: #c15fe0;
+    --color-grape-600: #a544c4;
+    --color-grape-700: #8635a0;
+    --color-grape-800: #6d2c81;
+    --color-grape-900: #5a2569;
+    --color-grape-950: #3b1546;
 
-  --color-grape-50: #fdf4ff;
-  --color-grape-100: #fae8ff;
-  --color-grape-200: #f3cffc;
-  --color-grape-300: #e7a8f7;
-  --color-grape-400: #d57fef;
-  --color-grape-500: #c15fe0;
-  --color-grape-600: #a544c4;
-  --color-grape-700: #8635a0;
-  --color-grape-800: #6d2c81;
-  --color-grape-900: #5a2569;
-  --color-grape-950: #3b1546;
+    --color-ember-50: #fff1f1;
+    --color-ember-100: #ffe0e0;
+    --color-ember-200: #ffc7c7;
+    --color-ember-300: #ff9d9d;
+    --color-ember-400: #ff6161;
+    --color-ember-500: #f5303a;
+    --color-ember-600: #dc1f2c;
+    --color-ember-700: #b91627;
+    --color-ember-800: #971527;
+    --color-ember-900: #7d1526;
+    --color-ember-950: #440810;
 
-  --color-ember-50: #fff1f1;
-  --color-ember-100: #ffe0e0;
-  --color-ember-200: #ffc7c7;
-  --color-ember-300: #ff9d9d;
-  --color-ember-400: #ff6161;
-  --color-ember-500: #f5303a;
-  --color-ember-600: #dc1f2c;
-  --color-ember-700: #b91627;
-  --color-ember-800: #971527;
-  --color-ember-900: #7d1526;
-  --color-ember-950: #440810;
-
-  --color-ink-50: #f7f7f8;
-  --color-ink-100: #ededf0;
-  --color-ink-200: #d8d8de;
-  --color-ink-300: #b7b7c1;
-  --color-ink-400: #8f8f9c;
-  --color-ink-500: #6b6b78;
-  --color-ink-600: #4e4e59;
-  --color-ink-700: #38383f;
-  --color-ink-800: #232327;
-  --color-ink-900: #131316;
-  --color-ink-950: #0a0a0c;
+    --color-ink-50: #f7f7f8;
+    --color-ink-100: #ededf0;
+    --color-ink-200: #d8d8de;
+    --color-ink-300: #b7b7c1;
+    --color-ink-400: #8f8f9c;
+    --color-ink-500: #6b6b78;
+    --color-ink-600: #4e4e59;
+    --color-ink-700: #38383f;
+    --color-ink-800: #232327;
+    --color-ink-900: #131316;
+    --color-ink-950: #0a0a0c;
 }
