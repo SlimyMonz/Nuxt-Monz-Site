@@ -18,7 +18,7 @@
                         variant="link"
                         color="neutral"
                         size="xl"
-                        class="p-0 text-5xl font-bold [&>span]:text-5xl"
+                        class="p-0 text-4xl font-bold"
                         :ui="{ leadingIcon: 'size-8 shrink-0' }"
                         @click="toggleAlbum(gallery.title)"
                     />

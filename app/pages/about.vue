@@ -106,6 +106,8 @@ import {
             </UPageGrid>
         </UPageSection>
 
+        <USeparator />
+
         <UPageSection id="badges" title="Badges">
             <div class="flex flex-wrap justify-center gap-2">
                 <a
@@ -126,5 +128,7 @@ import {
                 </a>
             </div>
         </UPageSection>
+
+        <USeparator />
     </div>
 </template>
