@@ -96,7 +96,6 @@ import {
                             :alt="a.title"
                             width="88"
                             height="31"
-
                         />
                         <div class="min-w-0">
                             <h3 class="font-semibold text-highlighted text-sm truncate">{{ a.title }}</h3>
