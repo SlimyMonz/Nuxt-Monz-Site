@@ -9,7 +9,7 @@
             <USeparator class="flex-1" />
         </div>
 
-        <UPageGrid class="sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        <UPageGrid class="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
             <button
               v-for="file in gallery.files"
               :key="file.id"
@@ -19,7 +19,7 @@
               <img
                 :src="file.thumb"
                 :alt="`${gallery.title} artwork ${file.id}`"
-                class="size-full object-cover transition-transform duration-200 group-hover:scale-110"
+                class="size-full max-h-64 max-w-64 object-cover transition-transform duration-200 group-hover:scale-110"
                 loading="lazy"
                 decoding="async"
               />

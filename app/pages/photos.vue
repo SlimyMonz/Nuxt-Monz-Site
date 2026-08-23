@@ -5,7 +5,7 @@
         description="Albums of notable photographs I've taken over the years."
     />
 
-    <UPageGrid class="sm:grid-cols-3 md:grid-cols-4">
+    <UPageGrid class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         <template v-for="gallery in photoManifest" :key="gallery.title">
             <div
                 v-if="expandedAlbum === gallery.title"
@@ -25,7 +25,7 @@
                     <USeparator class="flex-1" />
                 </div>
 
-                <UPageGrid class="sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                <UPageGrid class="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
                     <UCard
                         v-for="file in gallery.files"
                         :key="file.id"
@@ -39,7 +39,7 @@
                         <img
                             :src="file.thumb"
                             :alt="`${gallery.title} photo ${file.id}`"
-                            class="size-full object-cover transition-transform duration-200 group-hover:scale-110"
+                            class="size-full max-h-64 max-w-64 object-cover transition-transform duration-200 group-hover:scale-110"
                             loading="lazy"
                             decoding="async"
                         />
