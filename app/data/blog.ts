@@ -53,6 +53,8 @@ export const BlogPosts: BlogPost[] = [
     Nothing is purple, yet! But that's because I don't think a lot of my stuff uses secondary colors. No big deal!</p><br>
     <p>OH YEAH. I did add some links in the footer. FurAffinity especially: I was suprised they had an icon in the simple-icons pack! Very very cool.
     Scroll on down to the footer at the bottom of the page to check it out~</p>
+    <br>
+    <p>UPDATE so I don't need to make another post: I made the ABOUT page, too! WOW!!!</p>
     `,
   },
 ];
