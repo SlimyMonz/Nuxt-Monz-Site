@@ -52,13 +52,16 @@ import {
         <USeparator />
 
         <UPageSection id="timeline" title="Timeline">
-            <UTimeline
-                :items="timelineItems"
-                :default-value="3"
-                color="secondary"
-                orientation="horizontal"
-                size="3xl"
-            />
+            <div class="overflow-x-auto pb-16 -mb-16">
+                <UTimeline
+                    :items="timelineItems"
+                    :default-value="3"
+                    color="secondary"
+                    orientation="horizontal"
+                    size="3xl"
+                    class="min-w-max"
+                />
+            </div>
         </UPageSection>
 
         <USeparator />
@@ -77,10 +80,11 @@ import {
         </UPageSection>
 
         <USeparator />
+        
+        <!-- Future Idea: ACHIEVEMENTS | where it's like... PSN trophies etc -->
 
-        <!-- BADGES -->
         <UPageSection id="badges" title="Badges">
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap justify-center gap-2">
                 <a
                     v-for="(badge, i) in badges"
                     :key="i"

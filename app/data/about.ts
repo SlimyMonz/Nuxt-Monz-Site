@@ -119,6 +119,7 @@ export const interestCards = [
   },
 ];
 
+
 export const badges = [
-  { text: "something will go here someday!", img: "", url: "" },
+  { text: "Regal's Website", img: "/about/badges/cobra.monster.gif", url: "https://cobra.monster/" },
 ];
