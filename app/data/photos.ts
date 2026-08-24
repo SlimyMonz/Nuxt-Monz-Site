@@ -30,6 +30,7 @@ const manifest: PhotoManifest = {
 
   albums: [
     { title: "Onyx", numberOfPhotos: 27 },
+    { title: "Dewey", numberOfPhotos: 10 },
   ]
 };
 
