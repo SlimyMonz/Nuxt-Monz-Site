@@ -31,7 +31,9 @@ const manifest: PhotoManifest = {
   albums: [
     { title: "Dewey", numberOfPhotos: 10 },
     { title: "Dunbar", numberOfPhotos: 20 },
+    { title: "Florida Garden", numberOfPhotos: 25 },
     { title: "Onyx", numberOfPhotos: 27 },
+    { title: "UCF", numberOfPhotos: 21 },
   ]
 };
 

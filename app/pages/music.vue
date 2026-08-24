@@ -4,11 +4,11 @@
             id="top"
             headline="Monster Jams!"
             title="Favorite Albums"
-            description="Everything that I personally love and highly recommend."
+            description="Click an album to check out samples."
         >
         </UPageHero>
         <UPageGrid
-            class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+            class="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
             <ULink
                 v-for="(album, i) in albums"
@@ -32,7 +32,7 @@
                             <div
                                 class="flex items-baseline justify-between gap-2"
                             >
-                                <span class="text-left">
+                                <span class="text-left truncate">
                                     {{ album.artist }}
                                 </span>
                                 <span class="text-right">
