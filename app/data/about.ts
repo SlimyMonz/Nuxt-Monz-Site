@@ -126,7 +126,4 @@ export const achievements = [
   { title: "Microsoft Hater", description: "Avoids Microsoft at all costs.", img: "/about/achievements/stop_microsoft.gif" },
 ]
 
-export const badges = [
-  { text: "Aks Website", img: "/about/badges/akselmo.png", url: "https://akselmo.dev/"},
-  { text: "Regal Website", img: "/about/badges/cobra.monster.gif", url: "https://cobra.monster/" },
-];
+

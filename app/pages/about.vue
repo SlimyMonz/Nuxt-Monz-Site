@@ -9,8 +9,8 @@ import {
     timelineItems,
     interestCards,
     achievements,
-    badges,
 } from "~/data/about";
+import { badges } from "~/data/badges";
 </script>
 
 <template>
@@ -98,8 +98,14 @@ import {
                             height="31"
                         />
                         <div class="min-w-0">
-                            <h3 class="font-semibold text-highlighted text-sm truncate">{{ a.title }}</h3>
-                            <p class="text-muted text-xs truncate">{{ a.description }}</p>
+                            <h3
+                                class="font-semibold text-highlighted text-sm truncate"
+                            >
+                                {{ a.title }}
+                            </h3>
+                            <p class="text-muted text-xs truncate">
+                                {{ a.description }}
+                            </p>
                         </div>
                     </div>
                 </UCard>
