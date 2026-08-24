@@ -29,8 +29,9 @@ const manifest: PhotoManifest = {
   root_dir: "/photos",
 
   albums: [
-    { title: "Onyx", numberOfPhotos: 27 },
     { title: "Dewey", numberOfPhotos: 10 },
+    { title: "Dunbar", numberOfPhotos: 20 },
+    { title: "Onyx", numberOfPhotos: 27 },
   ]
 };
 
