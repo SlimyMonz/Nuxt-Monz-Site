@@ -5,6 +5,7 @@ export interface PhotoManifest {
 
 export interface Album {
   title: string;
+  folder: string;
   numberOfPhotos: number;
 }
 
@@ -24,32 +25,28 @@ export interface ActiveImage {
   file: PhotoFile;
 }
 
-// Edit this when adding new photos or albums. Expects photos to be inside a folder and album with a unique name, have a thumbnail inside a nested "thumbs" folder, and be named 1.jpg, 2.jpg...etc.
+// Expects photos to be inside a folder and album with a unique name; have a thumbnail inside a nested "thumbs" folder, and be named 1.jpg, 2.jpg...etc.
 const manifest: PhotoManifest = {
   root_dir: "/photos",
-
   albums: [
-    { title: "Dewey", numberOfPhotos: 10 },
-    { title: "Dunbar", numberOfPhotos: 20 },
-    { title: "Florida Garden", numberOfPhotos: 25 },
-    { title: "Onyx", numberOfPhotos: 27 },
-    { title: "UCF", numberOfPhotos: 21 },
+    { title: "Dewey", folder: "dewey", numberOfPhotos: 10 },
+    { title: "Dunbar", folder: "dunbar", numberOfPhotos: 20 },
+    { title: "Florida Garden", folder: "florida-garden", numberOfPhotos: 25 },
+    { title: "Onyx", folder: "onyx", numberOfPhotos: 27 },
+    { title: "UCF", folder: "ucf", numberOfPhotos: 21 },
   ]
 };
 
 function buildPhotoFiles(rootDir: string, album: Album): PhotoFile[] {
   const files: PhotoFile[] = [];
-  const albumPath = `${rootDir}/${album.title}`;
+  const albumPath = `${rootDir}/${album.folder}`;
   for (let index = 1; index <= album.numberOfPhotos; index++) {
     const id = String(index);
-    const fullPath = `${albumPath}/${id}.jpg`;
-    const thumbnailPath = `${albumPath}/thumbs/${id}.jpg`;
-    const file: PhotoFile = {
-      id: id,
-      full: fullPath,
-      thumb: thumbnailPath,
-    };
-    files.push(file);
+    files.push({
+      id,
+      full: `${albumPath}/${id}.jpg`,
+      thumb: `${albumPath}/thumbs/${id}.jpg`,
+    });
   }
   return files;
 }
