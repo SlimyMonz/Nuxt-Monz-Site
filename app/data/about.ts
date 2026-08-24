@@ -57,7 +57,7 @@ export const sonaFacts = [
   { label: "Sexuality", value: "Aromantic-Asexual" },
   { label: "Politics", value: "Radically Leftist" },
   { label: "Occupation", value: "Software Developer" },
-  { label: "Neurodivergence", value: "AuDHD" },
+  { label: "Neurotype", value: "AuDHD" },
   { label: "Weaknesses", value: "Heat, Loud Noises" },
   { label: "Favorite Color", value: "Red" },
 ];
