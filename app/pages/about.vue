@@ -17,6 +17,7 @@ import { badges } from "~/data/badges";
     <div>
         <UPageHero
             id="top"
+            headline="Slime Time~"
             :title="title"
             :description="tagline"
             :links="heroLinks"

@@ -9,4 +9,9 @@ export default defineNuxtConfig({
       scan: true,
     },
   },
+  app: {
+    head: {
+      title: 'Monz Site',
+    }
+  }
 });
