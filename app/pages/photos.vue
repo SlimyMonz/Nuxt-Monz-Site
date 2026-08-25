@@ -35,13 +35,13 @@
                             root: 'size-full',
                             body: 'p-0 sm:p-0 size-full flex items-center justify-center',
                         }"
-                        class="group aspect-square w-full cursor-pointer overflow-hidden transition-all duration-200 hover:scale-105 hover:shadow-xl"
+                        class="group aspect-square w-full cursor-pointer overflow-hidden transition hover:ring-4 hover:ring-secondary"
                         @click="openImage(gallery.title, file)"
                     >
                         <img
                             :src="file.thumb"
                             :alt="`${gallery.title} photo ${file.id}`"
-                            class="size-full max-h-64 max-w-64 object-cover transition-transform duration-200 group-hover:scale-110"
+                            class="size-full object-cover"
                             loading="lazy"
                             decoding="async"
                         />
@@ -52,7 +52,7 @@
             <UCard
                 v-else
                 :ui="{ body: 'p-0 sm:p-0', root: 'flex flex-col' }"
-                class="group cursor-pointer overflow-hidden text-left transition-all duration-200 hover:scale-105 hover:shadow-xl"
+                class="group cursor-pointer overflow-hidden text-left transition hover:ring-4 hover:ring-secondary"
                 @click="toggleAlbum(gallery.title)"
             >
                 <div

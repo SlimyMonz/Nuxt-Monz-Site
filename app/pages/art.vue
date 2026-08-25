@@ -19,13 +19,13 @@
             <button
                 v-for="file in gallery.files"
                 :key="file.id"
-                class="group aspect-square w-full overflow-hidden rounded-lg border border-default shadow-md transition-all duration-200 hover:scale-105 hover:shadow-xl"
+                class="group aspect-square w-full overflow-hidden rounded-lg transition hover:ring-4 hover:ring-secondary"
                 @click="openImage(gallery.title, file)"
             >
                 <img
                     :src="file.thumb"
                     :alt="`${gallery.title} artwork ${file.id}`"
-                    class="size-full max-h-64 max-w-64 object-cover transition-transform duration-200 group-hover:scale-110"
+                    class="size-full max-h-64 max-w-64 object-cover transition hover:ring-4 hover:ring-secondary"
                     loading="lazy"
                     decoding="async"
                 />

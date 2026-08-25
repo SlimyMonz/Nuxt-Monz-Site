@@ -23,7 +23,7 @@
                         :alt="b.text"
                         width="176"
                         height="62"
-                        class="[image-rendering:pixelated]"
+                        class="[image-rendering:pixelated] transition hover:ring-4 hover:ring-secondary"
                     />
                 </a>
             </UTooltip>

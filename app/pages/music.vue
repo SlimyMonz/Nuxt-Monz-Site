@@ -19,7 +19,7 @@
                 class="block"
             >
                 <UCard
-                    class="h-full transition hover:ring-2 hover:ring-secondary"
+                    class="h-full transition hover:ring-4 hover:ring-secondary"
                     :ui="{ body: 'p-0 sm:p-0' }"
                 >
                     <template #header>

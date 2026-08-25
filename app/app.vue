@@ -3,7 +3,7 @@
         <!-- Header Content -->
         <UHeader toggle-side="left">
             <template #title>
-                <span class="font-bold text-2xl"> Monz </span>
+                <span class="font-bold px-5 py-2 text-2xl rounded-full transition hover:bg-primary/20"> Monz </span>
             </template>
 
             <UNavigationMenu
@@ -16,7 +16,7 @@
             />
 
             <template #right>
-                <UColorModeButton />
+                <UColorModeButton class="hover:bg-primary/20"/>
             </template>
 
             <template #body>

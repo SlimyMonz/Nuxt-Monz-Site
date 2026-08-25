@@ -11,7 +11,7 @@
             <UCard
                 v-for="recipe in recipes"
                 :key="recipe.title"
-                class="transition hover:ring-2 hover:ring-secondary"
+                class="transition hover:ring-4 hover:ring-secondary"
                 @click="selectRecipe(recipe)"
             >
                 <template #header>
