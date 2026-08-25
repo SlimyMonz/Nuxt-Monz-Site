@@ -87,7 +87,7 @@
     <UModal
         v-model:open="isOpen"
         :title="activeImage?.title"
-        :ui="{ content: 'bg-black/25 backdrop-blur-sm' }"
+        :ui="{ content: 'bg-0 backdrop-blur' }"
         fullscreen
         @update:open="(value) => !value && closeImage()"
     >

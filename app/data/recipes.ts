@@ -14,64 +14,10 @@ export interface Recipe {
 
 export const recipes: Recipe[] = [
   {
-    title: "Pastel De Papa",
-    img: "",
-    description: "Yummy potato, beefy, cheesy recipe! Sourced from Conop~",
-    ingredients: [
-      { quantity: 1, unit: "lb", name: "ground beef" },
-      { quantity: 2, name: "onions, chopped" },
-      { quantity: 3, name: "carrots, grated" },
-      { quantity: 2, name: "hard-boiled eggs" },
-      { quantity: 5, name: "peeled potatoes" },
-      { quantity: 2, unit: "tbsp", name: "butter" },
-      { quantity: 1, unit: "splash", name: "milk" },
-      { quantity: 1, name: "cumin, to taste" },
-      { quantity: 1, name: "salt and pepper, to taste" },
-      { quantity: 1, name: "crushed red pepper flakes, to taste" },
-    ],
-  
-    instructions: [
-      "Preheat the oven to 375°F.",
-      "Boil the potatoes until soft enough to mash. Drain and let cool.",
-      "Chop the onions into long, thin slices and cook the onions together with the ground beef in a heated pan with olive or canola oil.",
-      "Once the beef is fully cooked but not too dry, leaving some juice, add the grated carrots, olives, and chopped boiled eggs. Add the spices and mix together well.",
-      "Once the potatoes are cool enough to handle, mash them completely with a potato masher, removing as many chunks as possible. Add the butter, milk, and salt to taste.",
-      "In an oven-safe dish, place a first half-inch layer of mashed potatoes on the bottom. Apply all of the beef mixture on top of the potato layer, then add the second and final layer of mashed potatoes on top of the beef.",
-      "Top with small pieces of butter, parsley, and grated cheese if desired. Bake for 20 minutes, until the potato is browned and heated through.",
-    ],
-  },
-  {
-    title: "Sausage & Potato Soup",
-    description: "Extremely delicious and fairly easy to make! An all-time classic for me.",
-    img: "",
-    ingredients: [
-      { quantity: 1 / 2, unit: "lb", name: "mild italian sausage" },
-      { quantity: 1, unit: "stick", name: "butter" },
-      { quantity: 1, name: "onion, chopped" },
-      { quantity: 2, unit: "clove", name: "garlic, minced" },
-      { quantity: 3, name: "medium Russet potatoes, cubed" },
-      { quantity: 1, unit: "tsp", name: "salt" },
-      { quantity: 1, unit: "tsp", name: "pepper" },
-      { quantity: 2, unit: "tsp", name: "parsley" },
-      { quantity: 2, unit: "tsp", name: "flour" },
-      { quantity: 4, unit: "cup", name: "whole milk" },
-    ],
-
-    instructions: [
-      "Melt the butter in a large stockpot over medium-low heat.",
-      "Add the onion and cook, stirring frequently, until transparent.",
-      "Add the sausage and cook fully.",
-      "Add the flour and cook for a few minutes.",
-      "Add the garlic and potatoes.",
-      "Slowly add the milk while continuing to stir.",
-      "Bring to a boil, then reduce to a simmer and cook until the potatoes are tender.",
-      "Add and adjust salt, pepper, and parsley seasonings to taste.",
-    ],
-  },
-  {
-    title: "Tomato Cucumber Feta Salad",
-    description: "Perfect for hot weather when you want something cool and refreshing to eat. Pair with some cold, pre-cooked penne!",
-    img: "",
+    title: "Cucumber Feta Tomato Salad",
+    description:
+      "Perfect for hot weather when you want something cool and refreshing to eat. Pair with some cold, pre-cooked penne!",
+    img: "/recipes/cucumber_feta_tomato_salad.jpg",
     ingredients: [
       { quantity: 4, unit: "lb", name: "Roma tomatoes, chopped" },
       {
@@ -97,7 +43,97 @@ export const recipes: Recipe[] = [
       "In a small bowl, stir together the olive oil, lemon juice, pressed garlic, salt, pepper, and cumin.",
       "In a large mixing bowl, add the chopped tomatoes, sliced cucumber, feta cheese, sliced red onion, and chopped cilantro.",
       "Just before serving, drizzle with the dressing and toss to combine. Season to taste with additional salt if desired.",
-      "Refridgerate overnight for a stronger incorporation of flavors."
+      "Refridgerate overnight for a stronger incorporation of flavors.",
+    ],
+  },
+  {
+    title: "Haluski",
+    img: "/recipes/haluski.jpg",
+    description:
+      "Traditional Hungarian dish made with buttery egg noodles, fried cabbage, and onions.",
+    ingredients: [
+      { quantity: 4, unit: "oz", name: "bacon, diced small" },
+      { quantity: 6, unit: "tbsp", name: "unsalted butter, divided" },
+      { quantity: 2, unit: "cup", name: "yellow onion, diced" },
+      {
+        quantity: 1.5,
+        unit: "lb",
+        name: "cabbage, chopped into one-inch chunks",
+      },
+      { quantity: 1, unit: "tsp", name: "kosher salt" },
+      { quantity: 0.5, unit: "tsp", name: "black pepper" },
+      {
+        quantity: 6,
+        unit: "oz",
+        name: "cooked and drained egg noodles or wide pasta",
+      },
+    ],
+
+    instructions: [
+      "In a nonstick medium pot, cook the bacon until crisp over medium heat.",
+      "Remove the bacon with a spider or strainer and leave one tablespoon of bacon fat in the pan. Discard the rest.",
+      "Keep the heat on medium and add two tablespoons of butter and the onions. Cook for two minutes.",
+      "Add another two tablespoons of butter, the cabbage, salt, and pepper. Once heated, add the cooked bacon, cover, and cook for ten minutes over medium-low heat or until the cabbage is tender.",
+      "While the cabbage is cooking, cook the egg noodles according to the package instructions.",
+      "Once the cabbage is tender, add the drained cooked noodles along with the remaining two tablespoons of butter.",
+      "Heat to serving temperature, taste for additional salt and pepper, and serve.",
+      "This dish is traditionally served heavy on black pepper, but adjust to your taste.",
+    ],
+  },
+  {
+    title: "Pastel De Papa",
+    img: "/recipes/pastel_de_papa.jpg",
+    description: "Delicious Argentina version of a Shepard's Pie with a ton of flavor. Sourced lovingly from Conop~",
+    ingredients: [
+      { quantity: 1, unit: "lb", name: "ground beef" },
+      { quantity: 2, name: "onions, chopped" },
+      { quantity: 3, name: "carrots, grated" },
+      { quantity: 2, name: "hard-boiled eggs" },
+      { quantity: 5, name: "peeled potatoes" },
+      { quantity: 2, unit: "tbsp", name: "butter" },
+      { quantity: 1, unit: "splash", name: "milk" },
+      { quantity: 1, name: "cumin, to taste" },
+      { quantity: 1, name: "salt and pepper, to taste" },
+      { quantity: 1, name: "crushed red pepper flakes, to taste" },
+    ],
+
+    instructions: [
+      "Preheat the oven to 375°F / 190°C.",
+      "Boil the potatoes until soft enough to mash. Drain and let cool.",
+      "Chop the onions into long, thin slices and cook the onions together with the ground beef in a heated pan with olive or canola oil.",
+      "Once the beef is fully cooked but not too dry, leaving some juice, add the grated carrots, olives, and chopped boiled eggs. Add the spices and mix together well.",
+      "Once the potatoes are cool enough to handle, mash them completely with a potato masher, removing as many chunks as possible. Add the butter, milk, and salt to taste.",
+      "In an oven-safe dish, place a first half-inch layer of mashed potatoes on the bottom. Apply all of the beef mixture on top of the potato layer, then add the second and final layer of mashed potatoes on top of the beef.",
+      "Top with small pieces of butter, parsley, and grated cheese if desired. Bake for 20 minutes, until the potato is browned and heated through.",
+    ],
+  },
+  {
+    title: "Sausage & Potato Soup",
+    description:
+      "A comforting and warm home-cooked meal with flavorful sausage and potato. An all-time classic for me.",
+    img: "/recipes/sausage_potato_soup.jpg",
+    ingredients: [
+      { quantity: 1 / 2, unit: "lb", name: "mild italian sausage" },
+      { quantity: 1, unit: "stick", name: "butter" },
+      { quantity: 1, name: "onion, chopped" },
+      { quantity: 2, unit: "clove", name: "garlic, minced" },
+      { quantity: 3, name: "medium Russet potatoes, cubed" },
+      { quantity: 1, unit: "tsp", name: "salt" },
+      { quantity: 1, unit: "tsp", name: "pepper" },
+      { quantity: 2, unit: "tsp", name: "parsley" },
+      { quantity: 2, unit: "tsp", name: "flour" },
+      { quantity: 4, unit: "cup", name: "whole milk" },
+    ],
+
+    instructions: [
+      "Melt the butter in a large stockpot over medium-low heat.",
+      "Add the onion and cook, stirring frequently, until transparent.",
+      "Add the sausage and cook fully.",
+      "Add the flour and cook for a few minutes.",
+      "Add the garlic and potatoes.",
+      "Slowly add the milk while continuing to stir.",
+      "Bring to a boil, then reduce to a simmer and cook until the potatoes are tender.",
+      "Add and adjust salt, pepper, and parsley seasonings to taste.",
     ],
   },
 ];

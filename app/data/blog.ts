@@ -12,7 +12,6 @@ export const BlogPosts: BlogPost[] = [
     date: "2026-08-20",
     body: "This is my first blog post! I wanted to have this here for some data until I make more of the site. This should be good for now until I do more!",
   },
-
   {
     id: 1,
     title: "Second post!?",
@@ -35,7 +34,6 @@ export const BlogPosts: BlogPost[] = [
     </p>
     <p>Oh also you'll probably notice I'm using some fancier styling here in the post already~ <strong>THE POWER OF HTML!</strong> </p>`,
   },
-
   {
     id: 2,
     title: "Two posts in one day!",
@@ -57,7 +55,6 @@ export const BlogPosts: BlogPost[] = [
     <p>UPDATE so I don't need to make another post: I made the ABOUT page, too! WOW!!!</p>
     `,
   },
-
   {
     id: 3,
     title: "SO MANY CODE CHANGES",
@@ -68,7 +65,17 @@ export const BlogPosts: BlogPost[] = [
     I never meant for it to be anything ultra-fancy, just wanted to share the music I REALLY like.
     It's like... purely 10/10 albums.
     I still need to add more, but for now this is good.</p>
-
+    `,
+  },
+  {
+    id: 4,
+    title: "Building the website still!",
+    date: "2026-08-25",
+    body: `<p>Currently stuck in meetings at work. Instead of letting time slip by as people talk about information that isn't directly related to me, I felt the need to stay productive.</p>
+    <p>Generally, I don't have a very strong "grindset-mindset" attitude, but I really don't like sitting around doing nothing when I know I can do literally anything else.</p>
+    <br>
+    <p>Anyway! I have finished working on two pages. The first one seems kinda sad, but I made it because I want to remember people: an Obituary page.</p>
+    <p>The other page I made is the Recipes page. Only four on there so far. I need to source more recipes! If you have any: <a href="mailto:web_recipe@monz.us" style="color: red; font-weight: bold;">send me an email.</a></p>
     `,
   },
 ];
