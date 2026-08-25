@@ -27,7 +27,7 @@
                     <template #footer>
                         <div class="flex flex-col gap-2 text-center">
                             <p
-                                class="text-sm font-medium text-muted uppercase tracking-wide"
+                                class="font-medium text-muted uppercase tracking-wide"
                             >
                                 {{ obituary.dates }}
                             </p>
@@ -37,7 +37,7 @@
                             </p>
 
                             <p
-                                class="mt-2 w-full text-sm leading-relaxed text-toned border-t border-default pt-3 px-2 text-left"
+                                class="mt-2 w-full leading-relaxed text-toned border-t border-default pt-3 px-2 text-left"
                             >
                                 {{ obituary.memento }}
                             </p>

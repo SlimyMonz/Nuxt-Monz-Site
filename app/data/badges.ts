@@ -1,16 +1,16 @@
 export const badges = [
   {
-    text: "and Null Website",
+    text: "and Null",
     img: "/badges/null_sheep.png",
     url: "https://www.sheeeeeeeep.art/",
   },
   {
-    text: "Aks Website",
+    text: "Aks",
     img: "/badges/akselmo.png",
     url: "https://akselmo.dev/",
   },
   {
-    text: "Regal Website",
+    text: "Regal",
     img: "/badges/cobra.monster.gif",
     url: "https://cobra.monster/",
   },

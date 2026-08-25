@@ -69,7 +69,6 @@
 
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
-import type { highlight } from "@nuxt/ui/runtime/utils/search.js";
 
 const router = useRouter();
 
