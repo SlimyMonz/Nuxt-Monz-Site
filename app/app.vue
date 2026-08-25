@@ -6,24 +6,29 @@
                 <span class="font-bold text-2xl"> Monz </span>
             </template>
 
-            <UNavigationMenu :items="headerItems" highlight
-
-            class="bg-muted/50 backdrop-blur rounded-full px-1.75 border border-muted/50"
-            :ui="{
-              link: 'px-3 py-1 text-md before:rounded-full hover:before:bg-primary/20' ,
-            }"/>
+            <UNavigationMenu
+                :items="headerItems"
+                highlight
+                class="bg-muted/50 backdrop-blur rounded-full px-1.75 border border-muted/50"
+                :ui="{
+                    link: 'px-3 py-1 text-md before:rounded-full hover:before:bg-primary/20',
+                }"
+            />
 
             <template #right>
                 <UColorModeButton />
             </template>
 
             <template #body>
-              <UNavigationMenu :items="headerItems" highlight orientation="vertical"
-                :ui="{
-                  list: 'gap-5',
-                  link: 'px-4 py-4 my-4 text-4xl justify-center text-center before:rounded-full before:bg-muted',
-                }"
-              />
+                <UNavigationMenu
+                    :items="headerItems"
+                    highlight
+                    orientation="vertical"
+                    :ui="{
+                        list: 'gap-5',
+                        link: 'px-4 py-4 my-4 text-4xl justify-center text-center before:rounded-full before:bg-muted',
+                    }"
+                />
             </template>
         </UHeader>
         <!-- Page Body Content -->

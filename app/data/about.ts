@@ -120,10 +120,24 @@ export const interestCards = [
 ];
 
 export const achievements = [
-  { title: "2Woke4U", description: "Human rights are important.", img: "/about/achievements/antinazi.gif" },
-  { title: "Cozy Gaymer", description: "Loves playing Animal Crossing.", img: "/about/achievements/bobbutton.gif" },
-  { title: "Linux User", description: "Main desktop runs KDE Fedora.", img: "/about/achievements/fedora.gif" },
-  { title: "Microsoft Hater", description: "Avoids Microsoft at all costs.", img: "/about/achievements/stop_microsoft.gif" },
-]
-
-
+  {
+    title: "2Woke4U",
+    description: "Human rights are important.",
+    img: "/about/achievements/antinazi.gif",
+  },
+  {
+    title: "Cozy Gaymer",
+    description: "Loves playing Animal Crossing.",
+    img: "/about/achievements/bobbutton.gif",
+  },
+  {
+    title: "Linux User",
+    description: "Main desktop runs KDE Fedora.",
+    img: "/about/achievements/fedora.gif",
+  },
+  {
+    title: "Microsoft Hater",
+    description: "Avoids Microsoft at all costs.",
+    img: "/about/achievements/stop_microsoft.gif",
+  },
+];

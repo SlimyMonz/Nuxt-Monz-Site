@@ -70,7 +70,7 @@ export const albums: Album[] = [
     year: "2010",
     img: "/music/miami_horror_illumination.jpg",
     url: "https://miamihorror.bandcamp.com/album/illumination",
-    body: 'Vibes are immaculate and nothing can stop me from having a good time when listening to this top tier album.',
+    body: "Vibes are immaculate and nothing can stop me from having a good time when listening to this top tier album.",
   },
   {
     title: "I Can Feel You Forgetting Me",
@@ -78,7 +78,7 @@ export const albums: Album[] = [
     year: "2020",
     img: "/music/neon_trees_forgetting_me.jpg",
     url: "https://music.apple.com/us/album/i-can-feel-you-forgetting-me/1512431266",
-    body: 'Drowning in the 2020s misery, this alternative album makes you go to existential destinations without the dread.',
+    body: "Drowning in the 2020s misery, this alternative album makes you go to existential destinations without the dread.",
   },
   {
     title: "Surface Sound",

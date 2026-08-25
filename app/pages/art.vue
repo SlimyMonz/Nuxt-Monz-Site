@@ -1,5 +1,9 @@
 <template>
-    <UPageHero headline="No AI" title="Digital Art Gallery" description="A collection of stuff I created in Photoshop, Affinity, or Pixelmator Pro over the years. Click an image to see the full size!" />
+    <UPageHero
+        headline="No AI"
+        title="Digital Art Gallery"
+        description="A collection of stuff I created in Photoshop, Affinity, or Pixelmator Pro over the years. Click an image to see the full size!"
+    />
     <div v-for="gallery in artManifest" :key="gallery.title" class="mb-24">
         <div class="mb-6 flex items-center gap-5">
             <h2 class="text-5xl font-bold">
@@ -9,20 +13,22 @@
             <USeparator class="flex-1" />
         </div>
 
-        <UPageGrid class="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+        <UPageGrid
+            class="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+        >
             <button
-              v-for="file in gallery.files"
-              :key="file.id"
-              class="group aspect-square w-full overflow-hidden rounded-lg border border-default shadow-md transition-all duration-200 hover:scale-105 hover:shadow-xl"
-              @click="openImage(gallery.title, file)"
+                v-for="file in gallery.files"
+                :key="file.id"
+                class="group aspect-square w-full overflow-hidden rounded-lg border border-default shadow-md transition-all duration-200 hover:scale-105 hover:shadow-xl"
+                @click="openImage(gallery.title, file)"
             >
-              <img
-                :src="file.thumb"
-                :alt="`${gallery.title} artwork ${file.id}`"
-                class="size-full max-h-64 max-w-64 object-cover transition-transform duration-200 group-hover:scale-110"
-                loading="lazy"
-                decoding="async"
-              />
+                <img
+                    :src="file.thumb"
+                    :alt="`${gallery.title} artwork ${file.id}`"
+                    class="size-full max-h-64 max-w-64 object-cover transition-transform duration-200 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                />
             </button>
         </UPageGrid>
     </div>

@@ -34,7 +34,7 @@ const manifest: PhotoManifest = {
     { title: "Florida Garden", folder: "florida-garden", numberOfPhotos: 25 },
     { title: "Onyx", folder: "onyx", numberOfPhotos: 27 },
     { title: "UCF", folder: "ucf", numberOfPhotos: 21 },
-  ]
+  ],
 };
 
 function buildPhotoFiles(rootDir: string, album: Album): PhotoFile[] {

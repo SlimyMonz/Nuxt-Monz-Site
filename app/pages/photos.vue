@@ -25,7 +25,9 @@
                     <USeparator class="flex-1" />
                 </div>
 
-                <UPageGrid class="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+                <UPageGrid
+                    class="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+                >
                     <UCard
                         v-for="file in gallery.files"
                         :key="file.id"
