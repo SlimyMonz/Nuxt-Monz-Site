@@ -78,4 +78,10 @@ export const BlogPosts: BlogPost[] = [
     <p>The other page I made is the Recipes page. Only four on there so far. I need to source more recipes! If you have any: <a href="mailto:web_recipe@monz.us" style="color: red; font-weight: bold;">send me an email.</a></p>
     `,
   },
+  {
+    id: 5,
+    title: "At last... almost!",
+    date: "2026-08-26",
+    body: `Created the books and movies pages!!! Gonna keep this a short post because I still have the ACTUAL HOME PAGE to complete. But all of the others done! Now I can make the home page look real nice.`
+  },
 ];
