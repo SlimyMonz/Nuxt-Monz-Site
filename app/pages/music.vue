@@ -15,7 +15,6 @@
                 :key="i"
                 :to="album.url"
                 target="_blank"
-                rel="noopener noreferrer"
                 class="block"
             >
                 <UCard
