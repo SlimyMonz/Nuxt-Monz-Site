@@ -31,5 +31,5 @@
     </UPageSection>
 </template>
 <script setup lang="ts">
-import { badges } from "~/data/badges";
+import { badges } from "~/data/index";
 </script>

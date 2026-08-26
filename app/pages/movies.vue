@@ -4,7 +4,7 @@
             id="top"
             headline="Absolute Cinema"
             title="Monster Movies"
-            description="A collection of movies I consider to be a 5-star experience. Click to see a trailer or watch on Apple TV!"
+            description="Movies I consider to be a 5-star experience sorted by year. Click to see a trailer or watch on Apple TV!"
         />
         <UPageGrid>
             <ULink
@@ -21,7 +21,7 @@
                     <template #header>
                         <div class="flex flex-col gap-0.5">
                             <h2
-                                class="text-left text-lg font-bold text-highlighted truncate"
+                                class="text-left uppercase text-lg font-bold text-highlighted truncate"
                             >
                                 {{ movie.title }}
                             </h2>
