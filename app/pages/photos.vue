@@ -26,7 +26,7 @@
                 </div>
 
                 <UPageGrid
-                    class="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+                    class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
                 >
                     <UCard
                         v-for="file in gallery.files"
@@ -56,7 +56,7 @@
                 @click="toggleAlbum(gallery.title)"
             >
                 <div
-                    class="grid aspect-square w-full grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden bg-default"
+                    class="grid aspect-square w-full grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden"
                 >
                     <div
                         v-for="thumb in previewThumbs(gallery)"

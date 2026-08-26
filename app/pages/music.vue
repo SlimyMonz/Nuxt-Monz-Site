@@ -7,9 +7,7 @@
             description="Click an album to check out samples."
         >
         </UPageHero>
-        <UPageGrid
-            class="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-        >
+        <UPageGrid class="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <ULink
                 v-for="(album, i) in albums"
                 :key="i"
