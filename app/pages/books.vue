@@ -4,7 +4,7 @@
             id="top"
             headline="Do not eat!"
             title="Monster Reads"
-            description="A collection of books I've read and enjoyed. Click one to buy on Apple Books!"
+            description="A collection of books I've read and enjoyed sorted by release year. Click one to buy on Apple Books!"
         />
 
         <UPageGrid>
