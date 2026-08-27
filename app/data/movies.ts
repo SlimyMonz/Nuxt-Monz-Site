@@ -41,6 +41,14 @@ export const movies: Movie[] = [
     url: "https://tv.apple.com/us/movie/nightcrawler/umc.cmc.1h8fjzqshxpg22pa0bm7iho27",
   },
   {
+    title: "Triangle",
+    director: "Christopher Smith",
+    date: "2008",
+    img: "/movies/triangle.jpg",
+    description: `Shocking and tragic. What is supposed to be a vacation away from the pressures of life ends up becoming something worse.`,
+    url: "https://tv.apple.com/us/movie/triangle/umc.cmc.5hcljk35jquf4c354pht2p8fw",
+  },
+  {
     title: "The Thing",
     director: "John Carpenter",
     date: "1982",
