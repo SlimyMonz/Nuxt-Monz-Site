@@ -3,7 +3,7 @@
         <div class="space-y-8">
             <div class="space-y-2">
                 <h1 class="text-3xl font-bold">Terms of Use</h1>
-                <p class="text-sm text-gray-500 dark:text-gray-400">
+                <p>
                     Last updated: August 27th, 2026
                 </p>
             </div>
@@ -32,12 +32,11 @@
 
             <section class="space-y-3">
                 <h2 class="text-xl font-semibold">
-                    3. Open Source &amp; Original Content
+                    3. Open Source & Original Content
                 </h2>
                 <p>
-                    Except where otherwise noted (including the third-party
-                    content described below), the original content, code, and
-                    design of this website are free to use and open-source,
+                    Except where otherwise noted, the original content, code,
+                    and design of this website are free to use and open-source,
                     generally made available under a license such as the GNU
                     Affero General Public License v3.0 (AGPLv3) or a similarly
                     permissive license that allows free, non-commercial use.
@@ -50,14 +49,12 @@
 
             <section class="space-y-3">
                 <h2 class="text-xl font-semibold">
-                    4. Third-Party Content &amp; Trademarks
+                    4. Third-Party Content & Trademarks
                 </h2>
                 <p>
-                    This website may display third-party-owned images or media —
-                    such as movie posters, music album covers, or book covers —
+                    This website may display third-party-owned images or media
                     solely for the purpose of illustrating and linking to the
-                    external works they represent (e.g., a review,
-                    recommendation, or reference). These images remain the
+                    external works they represent. These images remain the
                     property of their respective copyright and trademark owners.
                     They are not used for resale, redistribution, or commercial
                     gain, and their use is intended to fall under fair use
@@ -82,20 +79,20 @@
 
             <section class="space-y-3">
                 <h2 class="text-xl font-semibold">
-                    6. Content Rating &amp; Audience
+                    6. Content Rating & Audience
                 </h2>
                 <p>
                     This website's own content is generally intended for a
-                    general audience (comparable to a U.S. "PG" rating) but is
-                    not directed at, or specifically designed for, children.
-                    Viewer discretion is advised, particularly with respect to
-                    external links as described above.
+                    general audience but is not directed at, or specifically
+                    designed for, children. Viewer discretion is advised,
+                    particularly with respect to external links as described
+                    above.
                 </p>
             </section>
 
             <section class="space-y-3">
                 <h2 class="text-xl font-semibold">
-                    7. Privacy &amp; Data Collection
+                    7. Privacy & Data Collection
                 </h2>
                 <p>
                     This website does not use cookies and does not knowingly
