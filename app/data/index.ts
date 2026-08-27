@@ -51,6 +51,11 @@ export const badges: Badge[] = [
     url: "https://akselmo.dev/",
   },
   {
+    text: "Monz",
+    img: "/badges/monz.gif",
+    url: "/",
+  },
+  {
     text: "Regal",
     img: "https://cobra.monster/_astro/cobra.monster.OCLY4hzR_29y7l4.gif",
     url: "https://cobra.monster/",
