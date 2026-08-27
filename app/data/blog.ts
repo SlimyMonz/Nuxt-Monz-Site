@@ -84,4 +84,16 @@ export const BlogPosts: BlogPost[] = [
     date: "2026-08-26",
     body: `Created the books and movies pages!!! Gonna keep this a short post because I still have the ACTUAL HOME PAGE to complete. But all of the others done! Now I can make the home page look real nice.`
   },
+  {
+    id: 6,
+    title: "It's done! I did it! Yay!",
+    date: "2026-08-27",
+    body: `Here we go! My website is completed. At least, the basic bones of it is.
+    I still plan to make some updates! For now, just little things like adding more books/movies/music to a page.
+    At some point I'd like to have an animated background. There's this really cool UI suite called 'Inspira-UI' that has a silky-wavy animation.
+    Also I still need to make a site badge! AUGGGHH. Pixel art is hard. Still, one step at a time! I'm just glad to have my site up and going.
+    There's definitely a ton of optimizations I could make code-wise. Lots of reused text/components, but I don't really care about that.
+    <br><br>
+    I hope people like the site! And even if nobody sees it, I made it for myself anyway.`
+  }
 ];

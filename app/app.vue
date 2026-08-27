@@ -34,7 +34,7 @@
         <!-- Page Body Content -->
         <UMain>
             <UContainer>
-                <NuxtPage />
+                <NuxtPage/>
             </UContainer>
         </UMain>
         <!-- Footer Content -->
