@@ -9,7 +9,7 @@
 
         <UPageGrid>
             <ULink
-                v-for="(book, i) in books"
+                v-for="(book, i) in Books"
                 :key="i"
                 :to="book.url"
                 target="_blank"
@@ -55,5 +55,5 @@
 </template>
 
 <script setup lang="ts">
-import { books } from "~/data/books";
+import { Books } from "~/data/books";
 </script>

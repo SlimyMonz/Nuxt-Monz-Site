@@ -7,7 +7,7 @@ interface Album {
   body: string;
 }
 
-export const albums: Album[] = [
+export const Albums: Album[] = [
   {
     title: "Language & Perspective",
     artist: "Bad Suns",

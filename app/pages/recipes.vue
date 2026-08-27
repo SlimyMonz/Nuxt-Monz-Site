@@ -9,7 +9,7 @@
 
         <UPageGrid>
             <UCard
-                v-for="recipe in recipes"
+                v-for="recipe in Recipes"
                 :key="recipe.title"
                 class="transition hover:ring-4 hover:ring-secondary"
                 @click="selectRecipe(recipe)"
@@ -98,7 +98,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { recipes, type Recipe } from "~/data/recipes";
+import { Recipes, type Recipe } from "~/data/recipes";
 
 const selected = ref<Recipe | null>(null);
 const multiplier = ref(1);

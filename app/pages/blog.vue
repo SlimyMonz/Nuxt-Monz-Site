@@ -19,7 +19,7 @@
                 v-for="post in paginatedBlogPosts"
                 :key="post.id"
                 :title="post.title"
-                :date="post.date + 'T00:00:00-04:00'"
+                :date="post.date"
                 orientation="vertical"
             >
                 <template #description>

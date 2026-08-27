@@ -2,9 +2,8 @@
     <UPageHero
         id="top"
         headline="Slime Time~"
-        :title="title"
-        :description="tagline"
-        :links="heroLinks"
+        title="Hello, I'm Monz!"
+        description="Here's a reference sheet."
     >
         <div
             class="bg-elevated rounded-3xl overflow-hidden flex items-center justify-center"
@@ -33,6 +32,7 @@
                 </div>
             </div>
         </UPageCard>
+        
     </UPageSection>
 
     <USeparator />
@@ -97,11 +97,8 @@
 
 <script setup lang="ts">
 import {
-    title,
-    tagline,
     sonaRef,
     sonaIcon,
-    heroLinks,
     sonaFacts,
     timelineItems,
     interestCards,

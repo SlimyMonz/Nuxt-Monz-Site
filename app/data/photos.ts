@@ -26,7 +26,7 @@ export interface ActiveImage {
 }
 
 // Expects photos to be inside a folder and album with a unique name; have a thumbnail inside a nested "thumbs" folder, and be named 1.jpg, 2.jpg...etc.
-const manifest: PhotoManifest = {
+const Manifest: PhotoManifest = {
   root_dir: "/photos",
   albums: [
     { title: "Dewey", folder: "dewey", numberOfPhotos: 10 },
@@ -64,4 +64,4 @@ function buildPhotoManifest(manifest: PhotoManifest): PhotoManifestEntry[] {
   return photoManifest;
 }
 
-export const photoManifest = buildPhotoManifest(manifest);
+export const PhotoManifest = buildPhotoManifest(Manifest);

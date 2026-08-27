@@ -12,7 +12,7 @@ export interface Recipe {
   instructions: string[];
 }
 
-export const recipes: Recipe[] = [
+export const Recipes: Recipe[] = [
   {
     title: "Cucumber Feta Tomato Salad",
     description:

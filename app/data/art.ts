@@ -25,7 +25,7 @@ export interface ActiveImage {
 }
 
 // Edit this when adding new albums. Expects photos to be inside a folder and album with a unique name, have a thumbnail inside a nested "thumbs" folder, and be named 1.jpg, 2.jpg...etc.
-const manifest: ArtManifest = {
+const Manifest: ArtManifest = {
   root_dir: "/art",
 
   albums: [
@@ -79,4 +79,4 @@ function buildArtManifest(manifest: ArtManifest): ArtManifestEntry[] {
   return artManifest;
 }
 
-export const artManifest = buildArtManifest(manifest);
+export const ArtManifest = buildArtManifest(Manifest);

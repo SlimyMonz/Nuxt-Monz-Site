@@ -6,7 +6,7 @@
     />
 
     <UPageGrid class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        <template v-for="gallery in photoManifest" :key="gallery.title">
+        <template v-for="gallery in PhotoManifest" :key="gallery.title">
             <div
                 v-if="expandedAlbum === gallery.title"
                 class="col-span-full mb-6"
@@ -109,7 +109,7 @@
 </template>
 
 <script setup lang="ts">
-import { photoManifest } from "~/data/photos";
+import { PhotoManifest } from "~/data/photos";
 import type { ActiveImage, PhotoFile } from "~/data/photos";
 
 const activeImage = ref<ActiveImage | null>(null);
@@ -126,7 +126,7 @@ function toggleAlbum(title: string) {
     expandedAlbum.value = expandedAlbum.value === title ? null : title;
 }
 
-function previewThumbs(gallery: (typeof photoManifest)[number]) {
+function previewThumbs(gallery: (typeof PhotoManifest)[number]) {
     // preview up to the last 4 photos in the album.
     return gallery.files.slice(-4);
 }

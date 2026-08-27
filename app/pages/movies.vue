@@ -8,7 +8,7 @@
         />
         <UPageGrid>
             <ULink
-                v-for="(movie, i) in movies"
+                v-for="(movie, i) in Movies"
                 :key="i"
                 :to="movie.url"
                 target="_blank"
@@ -54,5 +54,5 @@
 </template>
 
 <script setup lang="ts">
-import { movies } from "~/data/movies";
+import { Movies } from "~/data/movies";
 </script>

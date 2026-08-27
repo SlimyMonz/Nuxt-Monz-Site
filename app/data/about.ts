@@ -1,43 +1,9 @@
-import type { ButtonProps, TimelineItem } from "@nuxt/ui";
+import type { TimelineItem } from "@nuxt/ui";
 
-export const title = `Hello, I'm Monz!`;
-export const tagline = `Here are some contacts and a reference sheet~`;
 export const heroImage = "/about/monz_ref.jpg";
 export const sonaRef = "/about/monz_ref.png";
 export const sonaIcon = "/about/monz_icon.jpg";
 
-export const heroLinks = ref<ButtonProps[]>([
-  {
-    icon: "simple-icons:bluesky",
-    to: "https://bsky.app/profile/monz.us",
-    label: "Bluesky",
-    color: "secondary",
-  },
-  {
-    icon: "simple-icons:codeberg",
-    to: "https://codeberg.org/Monz?tab=overview",
-    label: "Codeberg",
-    color: "secondary",
-  },
-  {
-    icon: "lucide:mail",
-    to: "mailto:website@monz.us",
-    label: "E-Mail",
-    color: "secondary",
-  },
-  {
-    icon: "simple-icons:furaffinity",
-    to: "https://www.furaffinity.net/user/slimymonz",
-    label: "FurAffinity",
-    color: "secondary",
-  },
-  {
-    icon: "simple-icons:mastodon",
-    to: "https://yiff.life/@slimymonz",
-    label: "Mastodon",
-    color: "secondary",
-  },
-]);
 
 const age = () => {
   const birth = new Date("1993-07-06"),

@@ -6,7 +6,7 @@
     />
     <UPageGrid>
         <ULink
-            v-for="(character, i) in characters"
+            v-for="(character, i) in Characters"
             :key="i"
             :to="character.url"
             target="_blank"
@@ -49,5 +49,5 @@
 </template>
 
 <script setup lang="ts">
-import { characters } from "~/data/characters";
+import { Characters } from "~/data/characters";
 </script>

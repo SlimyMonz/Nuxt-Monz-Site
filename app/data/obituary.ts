@@ -1,4 +1,4 @@
-interface obituary {
+interface Obituary {
   name: string;
   dates: string;
   cause: string;
@@ -6,7 +6,7 @@ interface obituary {
   img: string;
 }
 
-export const obituaries: obituary[] = [
+export const Obituaries: Obituary[] = [
   {
     name: "Kari Schlegel",
     dates: "1992 - 2016",

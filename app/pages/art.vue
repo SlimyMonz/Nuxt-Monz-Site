@@ -4,7 +4,7 @@
         title="Digital Art Gallery"
         description="A collection of stuff I created in Photoshop, Affinity, or Pixelmator Pro over the years. Click an image to see the full size!"
     />
-    <div v-for="gallery in artManifest" :key="gallery.title" class="mb-24">
+    <div v-for="gallery in ArtManifest" :key="gallery.title" class="mb-24">
         <div class="mb-6 flex items-center gap-5">
             <h2 class="text-5xl font-bold">
                 {{ gallery.title }}
@@ -57,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { artManifest } from "~/data/art";
+import { ArtManifest } from "~/data/art";
 import type { ActiveImage, ArtFile } from "~/data/art";
 
 const isOpen = ref(false);

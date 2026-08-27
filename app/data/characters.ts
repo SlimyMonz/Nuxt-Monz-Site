@@ -1,4 +1,4 @@
-interface character {
+interface Character {
   name: string;
   img: string;
   species: string;
@@ -6,7 +6,7 @@ interface character {
   url: string;
 }
 
-export const characters: character[] = [
+export const Characters: Character[] = [
   {
     name: "Alexandrite",
     img: "/characters/alexandrite.jpg",
