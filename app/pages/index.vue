@@ -15,7 +15,7 @@
         description="Click one to see more!"
         class="-my-5"
     >
-        <ULink to="/blog">
+        <ULink to="/blog" target="_self">
             <UCard
                 title="Blog Post"
                 class="transition hover:ring-4 hover:ring-secondary"
@@ -37,7 +37,7 @@
         <UPageGrid
             class="grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4"
         >
-            <ULink to="/art" title="Art">
+            <ULink to="/art" title="Art" target="_self">
                 <UCard
                     :key="latestArt?.id"
                     title="Art"
@@ -54,7 +54,7 @@
                 </UCard>
             </ULink>
 
-            <ULink to="/book" :title="latestBook?.title">
+            <ULink to="/books" :title="latestBook?.title" target="_self">
                 <UCard
                     class="transition hover:ring-4 hover:ring-secondary"
                     :ui="{ body: 'p-0 sm:p-0' }"
@@ -91,7 +91,7 @@
                 </UCard>
             </ULink>
 
-            <ULink to="/movie" :title="latestMovie?.title">
+            <ULink to="/movies" :title="latestMovie?.title" target="_self">
                 <UCard
                     class="transition hover:ring-4 hover:ring-secondary"
                     :ui="{ body: 'p-0 sm:p-0' }"

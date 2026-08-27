@@ -79,6 +79,7 @@ const headerItems = computed<NavigationMenuItem[]>(() =>
         .filter(
             (route) =>
                 route.path !== "/" &&
+                route.path !== "/terms" &&
                 route.path !== "/:all(.*)*" &&
                 route.path !== "/404",
         )
@@ -91,7 +92,6 @@ const headerItems = computed<NavigationMenuItem[]>(() =>
         })),
 );
 
-// Links in the bottom-middle inside the footer.
 const footerLinks: NavigationMenuItem[] = [
     {
         label: "Contact",
@@ -113,9 +113,13 @@ const footerLinks: NavigationMenuItem[] = [
         to: "https://ui.nuxt.com/",
         target: "_blank",
     },
+    {
+      label: "Terms of Use",
+      to: "/terms",
+      target: "_self"
+    }
 ];
 
-// Button links at the bottom-right inside the footer.
 const footerButtons = [
     {
         icon: "simple-icons:bluesky",

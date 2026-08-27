@@ -3,7 +3,7 @@
         <UPageHero
             id="top"
             headline="Absolute Cinema"
-            title="Monster Movies"
+            title="Monster Films"
             description="Movies I consider to be a 5-star experience sorted by year. Click to see a trailer or watch on Apple TV!"
         />
         <UPageGrid>
