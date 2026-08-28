@@ -1,5 +1,6 @@
 <template>
-    <UApp>
+    <UApp >
+        <OilBackground v-if="colorMode.value === 'dark'" />
         <!-- Header Content -->
         <UHeader toggle-side="left">
             <template #title>
@@ -32,13 +33,13 @@
             </template>
         </UHeader>
         <!-- Page Body Content -->
-        <UMain>
-            <UContainer>
-                <NuxtPage/>
+        <UMain >
+            <UContainer class="'bg-black/25 backdrop-blur-3xl pb-8 rounded-b-3xl">
+                <NuxtPage />
             </UContainer>
         </UMain>
         <!-- Footer Content -->
-        <UFooter>
+        <UFooter class="backdrop-blur-sm">
             <template #left>
                 <p class="text-muted text-sm">
                     Copyright SlimyMonz © {{ new Date().getFullYear() }}
@@ -69,7 +70,7 @@
 
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
-
+const colorMode = useColorMode()
 const router = useRouter();
 
 // Grabs pages and computes paths to use in navigation header

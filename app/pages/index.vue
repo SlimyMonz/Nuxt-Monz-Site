@@ -126,7 +126,7 @@
                         </div>
                         <USeparator class="my-1" />
                         <p>
-                            {{ latestBook.description }}
+                            {{ latestMovie.description }}
                         </p>
                     </template>
                 </UCard>
