@@ -32,7 +32,6 @@
                 </div>
             </div>
         </UPageCard>
-        
     </UPageSection>
 
     <USeparator />

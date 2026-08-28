@@ -1,10 +1,14 @@
 <template>
-    <UApp >
+    <UApp>
         <OilBackground v-if="colorMode.value === 'dark'" />
         <!-- Header Content -->
         <UHeader toggle-side="left">
             <template #title>
-                <span class="font-bold px-5 py-2 text-2xl rounded-full transition hover:bg-primary/20"> Monz </span>
+                <span
+                    class="font-bold px-5 py-2 text-2xl rounded-md transition hover:bg-primary/20"
+                >
+                    Monz Site
+                </span>
             </template>
 
             <UNavigationMenu
@@ -17,7 +21,7 @@
             />
 
             <template #right>
-                <UColorModeButton class="hover:bg-primary/20"/>
+                <UColorModeButton class="hover:bg-primary/20" />
             </template>
 
             <template #body>
@@ -26,15 +30,17 @@
                     highlight
                     orientation="vertical"
                     :ui="{
-                        list: 'gap-5',
-                        link: 'px-4 py-4 my-4 text-4xl justify-center text-center before:rounded-full before:bg-muted',
+                        list: 'gap-5 px-16',
+                        link: 'px-4 py-4 my-4 text-2xl justify-center text-center before:rounded-full before:bg-muted hover:before:bg-primary/20',
                     }"
                 />
             </template>
         </UHeader>
         <!-- Page Body Content -->
-        <UMain >
-            <UContainer class="'bg-black/25 backdrop-blur-3xl pb-8 rounded-b-3xl">
+        <UMain>
+            <UContainer
+                class="'bg-black/25 backdrop-blur-3xl pb-8 rounded-b-3xl"
+            >
                 <NuxtPage />
             </UContainer>
         </UMain>
@@ -70,7 +76,7 @@
 
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 const router = useRouter();
 
 // Grabs pages and computes paths to use in navigation header
@@ -115,10 +121,10 @@ const footerLinks: NavigationMenuItem[] = [
         target: "_blank",
     },
     {
-      label: "Terms of Use",
-      to: "/terms",
-      target: "_self"
-    }
+        label: "Terms of Use",
+        to: "/terms",
+        target: "_self",
+    },
 ];
 
 const footerButtons = [

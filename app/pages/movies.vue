@@ -55,5 +55,7 @@
 
 <script setup lang="ts">
 import { Movies } from "~/data/movies";
-const sortedMovies = Movies.sort((a, b) => Number(b.date) - Number(a.date));
+const sortedMovies = [...Movies].sort(
+    (a, b) => Number(b.date) - Number(a.date),
+);
 </script>

@@ -56,5 +56,5 @@
 
 <script setup lang="ts">
 import { Books } from "~/data/books";
-const sortedBooks = Books.sort((a, b) => Number(b.date) - Number(a.date))
+const sortedBooks = [...Books].sort((a, b) => Number(b.date) - Number(a.date));
 </script>

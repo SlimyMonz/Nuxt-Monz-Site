@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
 import { Albums } from "~/data/music";
-const sortedAlbums = Albums.sort((a, b) =>
-  a.artist.localeCompare(b.artist)
+const sortedAlbums = [...Albums].sort((a, b) =>
+    a.artist.localeCompare(b.artist),
 );
 </script>

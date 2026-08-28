@@ -212,10 +212,10 @@ import { Movies } from "~/data/movies";
 import { Albums } from "~/data/music";
 
 const latestPost = BlogPosts.at(-1)!;
-const latestArt = ArtManifest.at(-1)!.files.at(-1);
+const latestArt = [...ArtManifest].at(-1)!.files.at(-1);
 const latestBook = Books.at(-1)!;
 const latestMovie = Movies.at(-1)!;
-const latestAlbum = Albums.sort((a, b) => Number(a.year) - Number(b.year)).at(
-    -1,
-)!;
+const latestAlbum = [...Albums]
+    .sort((a, b) => Number(a.year) - Number(b.year))
+    .at(-1)!;
 </script>

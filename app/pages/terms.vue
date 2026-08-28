@@ -3,9 +3,7 @@
         <div class="space-y-8">
             <div class="space-y-2">
                 <h1 class="text-3xl font-bold">Terms of Use</h1>
-                <p>
-                    Last updated: August 27th, 2026
-                </p>
+                <p>Last updated: August 27th, 2026</p>
             </div>
 
             <USeparator />
