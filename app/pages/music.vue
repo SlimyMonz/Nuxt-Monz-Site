@@ -9,7 +9,7 @@
         </UPageHero>
         <UPageGrid class="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <ULink
-                v-for="(album, i) in Albums"
+                v-for="(album, i) in sortedAlbums"
                 :key="i"
                 :to="album.url"
                 target="_blank"
@@ -56,4 +56,7 @@
 
 <script setup lang="ts">
 import { Albums } from "~/data/music";
+const sortedAlbums = Albums.sort((a, b) =>
+  a.artist.localeCompare(b.artist)
+);
 </script>

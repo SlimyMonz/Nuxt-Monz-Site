@@ -8,7 +8,7 @@
         />
         <UPageGrid>
             <ULink
-                v-for="(movie, i) in Movies"
+                v-for="(movie, i) in sortedMovies"
                 :key="i"
                 :to="movie.url"
                 target="_blank"
@@ -55,4 +55,5 @@
 
 <script setup lang="ts">
 import { Movies } from "~/data/movies";
+const sortedMovies = Movies.sort((a, b) => Number(b.date) - Number(a.date));
 </script>

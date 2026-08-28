@@ -4,7 +4,7 @@
         title="Digital Art Gallery"
         description="A collection of stuff I created in Photoshop, Affinity, or Pixelmator Pro over the years. Click an image to see the full size!"
     />
-    <div v-for="gallery in ArtManifest" :key="gallery.title" class="mb-24">
+    <div v-for="gallery in sortedManifest" :key="gallery.title" class="mb-24">
         <div class="mb-6 flex items-center gap-5">
             <h2 class="text-5xl font-bold">
                 {{ gallery.title }}
@@ -63,6 +63,7 @@ import type { ActiveImage, ArtFile } from "~/data/art";
 const isOpen = ref(false);
 const activeImage = ref<ActiveImage | null>(null);
 
+const sortedManifest = ArtManifest.sort((a, b) => Number(b.title) - Number(a.title));
 function openImage(title: string, file: ArtFile) {
     activeImage.value = { title, file };
     isOpen.value = true;

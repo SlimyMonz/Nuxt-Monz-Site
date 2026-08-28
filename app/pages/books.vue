@@ -9,7 +9,7 @@
 
         <UPageGrid>
             <ULink
-                v-for="(book, i) in Books"
+                v-for="(book, i) in sortedBooks"
                 :key="i"
                 :to="book.url"
                 target="_blank"
@@ -56,4 +56,5 @@
 
 <script setup lang="ts">
 import { Books } from "~/data/books";
+const sortedBooks = Books.sort((a, b) => Number(b.date) - Number(a.date))
 </script>
