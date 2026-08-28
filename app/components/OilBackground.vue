@@ -1,6 +1,6 @@
 <script setup>
 /**
- * OilShaderBackground.vue
+ * OilBackground.vue
  * From: https://shader.gallery/molten/
  * Fullscreen WebGL background running the liquid-metal raymarch shader,
  * re-tinted to a black tar/oil palette instead of the original bright theme.
@@ -8,16 +8,14 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const props = defineProps({
-    // shader "personality" knobs — same meaning as the original uniforms
+    // shader "personality" knobs
     flow: { type: Number, default: 0.3 }, // slow, viscous drift
     viscosity: { type: Number, default: 0.8 }, // soft, syrupy merges
     spread: { type: Number, default: 0.5 }, // from center
     polish: { type: Number, default: 0.85 }, // glossy, wet-looking highlights
     mouseInfluence: { type: Number, default: 0 }, // subtle parallax on pointer move
 
-    // Tar/oil palette: near-black bodies, with c2 kept brighter since it
-    // drives the studio-softbox reflection/specular — an oil slick still
-    // needs a bright highlight to read as wet and glossy against the black.
+    // Tar/oil palette
     palette: {
         type: Array,
         default: () => [
@@ -27,6 +25,11 @@ const props = defineProps({
             [0.01, 0.01, 0.01], // c3 – floor / pole (deep black)
         ],
     },
+
+    // Performance
+    maxWidth: { type: Number, default: 640 },
+    maxHeight: { type: Number, default: 480 },
+    targetFps: { type: Number, default: 24 },
 });
 
 const canvasEl = ref(null);
@@ -36,8 +39,13 @@ let program = null;
 let rafId = null;
 let startTime = 0;
 let resizeObserver = null;
+let intersectionObserver = null;
 let mouseDevicePx = [0, 0];
 let uniformLocations = {};
+let lastFrameTime = 0;
+let isTabVisible = !(typeof document !== "undefined" && document.hidden);
+let isCanvasOnScreen = true;
+let pausedAt = 0;
 
 const VERTEX_SRC = `
 attribute vec2 a_position;
@@ -122,17 +130,23 @@ void main(){
   vec3 rd = normalize(uv.x * uu + uv.y * vv + 1.5 * ww);
 
   float tt = 0.0;
-  float hit = 0.0;
+  float d = 1e5;
   for (int i = 0; i < 78; i++){
     vec3 p = ro + rd * tt;
-    float d = map(p);
-    if (d < 0.0015){ hit = 1.0; break; }
+    d = map(p);
+    if (d < 0.0015){ break; }
     if (tt > 9.0) break;
     tt += d * 0.9;
   }
 
+  // Blend across a small band instead of a hard binary hit/miss — softens
+  // silhouette and specular edges (especially visible at low render
+  // resolution) at almost no extra cost, since it reuses the last
+  // distance value from the march instead of extra steps.
+  float edge = smoothstep(0.02, 0.0, d);
+
   vec3 col;
-  if (hit > 0.5){
+  if (edge > 0.0){
     vec3 p = ro + rd * tt;
     vec3 n = calcNormal(p);
     vec3 ref = reflect(rd, n);
@@ -147,10 +161,12 @@ void main(){
                + 0.5 * pow(max(dot(ref, L2), 0.0), shin * 0.6);
 
     vec3 tint = mix(vec3(0.92), c0 * 1.4, 0.30);
-    col = reflCol * tint;
-    col += reflCol * fres * 0.7;
-    col += vec3(1.0) * spec * (0.5 + 0.5 * u_polish);
-    col *= 0.62 + 0.38 * (n.y * 0.5 + 0.5);
+    vec3 surfaceCol = reflCol * tint;
+    surfaceCol += reflCol * fres * 0.7;
+    surfaceCol += vec3(1.0) * spec * (0.5 + 0.5 * u_polish);
+    surfaceCol *= 0.62 + 0.38 * (n.y * 0.5 + 0.5);
+
+    col = mix(env(rd) * 0.9, surfaceCol, edge);
   } else {
     col = env(rd) * 0.9;
   }
@@ -191,8 +207,15 @@ function createProgram(glCtx, vertSrc, fragSrc) {
 function resizeCanvas() {
     if (!gl || !canvasEl.value) return;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const width = Math.max(1, Math.floor(canvasEl.value.clientWidth * dpr));
-    const height = Math.max(1, Math.floor(canvasEl.value.clientHeight * dpr));
+    let width = Math.max(1, Math.floor(canvasEl.value.clientWidth * dpr));
+    let height = Math.max(1, Math.floor(canvasEl.value.clientHeight * dpr));
+
+    if (width > props.maxWidth || height > props.maxHeight) {
+        const scale = Math.min(props.maxWidth / width, props.maxHeight / height);
+        width = Math.max(1, Math.floor(width * scale));
+        height = Math.max(1, Math.floor(height * scale));
+    }
+
     if (canvasEl.value.width !== width || canvasEl.value.height !== height) {
         canvasEl.value.width = width;
         canvasEl.value.height = height;
@@ -213,8 +236,44 @@ function handlePointerLeave() {
     mouseDevicePx = [0, 0];
 }
 
+function shouldRender() {
+    return isTabVisible && isCanvasOnScreen;
+}
+
+function pauseRender() {
+    if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+    }
+    pausedAt = performance.now();
+}
+
+function resumeRender() {
+    if (rafId || !gl || !program) return;
+    if (pausedAt) {
+        startTime += performance.now() - pausedAt;
+        pausedAt = 0;
+    }
+    lastFrameTime = 0;
+    rafId = requestAnimationFrame(render);
+}
+
 function render(now) {
     if (!gl || !program) return;
+
+    if (!shouldRender()) {
+        pauseRender();
+        return;
+    }
+
+    rafId = requestAnimationFrame(render);
+
+    const frameInterval = 1000 / props.targetFps;
+    const delta = now - lastFrameTime;
+    if (delta < frameInterval) return;
+    // Correct for drift so the effective fps stays close to target over time
+    lastFrameTime = now - (delta % frameInterval);
+
     resizeCanvas();
 
     const elapsed = (now - startTime) / 1000;
@@ -240,7 +299,6 @@ function render(now) {
     gl.uniform3fv(uniformLocations.u_palette, flatPalette);
 
     gl.drawArrays(gl.TRIANGLES, 0, 6);
-    rafId = requestAnimationFrame(render);
 }
 
 function initGL() {
@@ -279,7 +337,17 @@ function initGL() {
 
     resizeCanvas();
     startTime = performance.now();
+    lastFrameTime = 0;
     rafId = requestAnimationFrame(render);
+}
+
+function handleVisibilityChange() {
+    isTabVisible = !document.hidden;
+    if (shouldRender()) {
+        resumeRender();
+    } else {
+        pauseRender();
+    }
 }
 
 onMounted(() => {
@@ -293,16 +361,39 @@ onMounted(() => {
     } else {
         window.addEventListener("resize", resizeCanvas);
     }
+
+    // Pause entirely when the tab is backgrounded
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Pause when the canvas itself is scrolled out of view
+    if (window.IntersectionObserver) {
+        intersectionObserver = new IntersectionObserver(
+            ([entry]) => {
+                isCanvasOnScreen = entry.isIntersecting;
+                if (shouldRender()) {
+                    resumeRender();
+                } else {
+                    pauseRender();
+                }
+            },
+            { threshold: 0 },
+        );
+        intersectionObserver.observe(canvasEl.value);
+    }
 });
 
 onBeforeUnmount(() => {
     if (rafId) cancelAnimationFrame(rafId);
     window.removeEventListener("pointermove", handlePointerMove);
     window.removeEventListener("pointerleave", handlePointerLeave);
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
     if (resizeObserver) {
         resizeObserver.disconnect();
     } else {
         window.removeEventListener("resize", resizeCanvas);
+    }
+    if (intersectionObserver) {
+        intersectionObserver.disconnect();
     }
     if (gl && program) {
         gl.deleteProgram(program);
@@ -322,5 +413,7 @@ onBeforeUnmount(() => {
     height: 100%;
     display: block;
     background: #000;
+    image-rendering: auto;
+    filter: blur(1px);
 }
 </style>
