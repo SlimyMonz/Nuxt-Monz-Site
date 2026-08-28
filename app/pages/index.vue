@@ -40,7 +40,7 @@
             <ULink to="/art" title="Art" target="_self">
                 <UCard
                     :key="latestArt?.id"
-                    title="Art"
+                    title="ART"
                     class="overflow-hidden transition hover:ring-4 hover:ring-secondary"
                     :ui="{ body: 'p-0 sm:p-0' }"
                 >
@@ -57,12 +57,20 @@
             <ULink to="/books" :title="latestBook?.title" target="_self">
                 <UCard
                     class="transition hover:ring-4 hover:ring-secondary"
+                    title="BOOK"
                     :ui="{ body: 'p-0 sm:p-0' }"
                 >
-                    <template #header>
+                    <img
+                        :src="latestBook.img"
+                        :alt="`${latestBook.title} by ${latestBook.author}`"
+                        class="w-full object-cover block"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <template #footer>
                         <div class="flex flex-col gap-0.5">
                             <h2
-                                class="text-left uppercase text-lg font-bold text-highlighted truncate"
+                                class="text-left uppercase text-lg text-highlighted truncate"
                             >
                                 {{ latestBook.title }}
                             </h2>
@@ -77,13 +85,7 @@
                                 </span>
                             </div>
                         </div>
-                    </template>
-                    <img
-                        :src="latestBook.img"
-                        :alt="`${latestBook.title} by ${latestBook.author}`"
-                        class="w-full object-cover block"
-                    />
-                    <template #footer>
+                        <USeparator class="my-1" />
                         <p>
                             {{ latestBook.description }}
                         </p>
@@ -94,12 +96,20 @@
             <ULink to="/movies" :title="latestMovie?.title" target="_self">
                 <UCard
                     class="transition hover:ring-4 hover:ring-secondary"
+                    title="MOVIE"
                     :ui="{ body: 'p-0 sm:p-0' }"
                 >
-                    <template #header>
+                    <img
+                        :src="latestMovie.img"
+                        :alt="`${latestMovie.title} by ${latestMovie.director}`"
+                        class="w-full object-cover block"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <template #footer>
                         <div class="flex flex-col gap-0.5">
                             <h2
-                                class="text-left uppercase text-lg font-bold text-highlighted truncate"
+                                class="text-left uppercase text-lg text-highlighted truncate"
                             >
                                 {{ latestMovie.title }}
                             </h2>
@@ -114,15 +124,9 @@
                                 </span>
                             </div>
                         </div>
-                    </template>
-                    <img
-                        :src="latestMovie.img"
-                        :alt="`${latestMovie.title} by ${latestMovie.director}`"
-                        class="w-full object-cover block"
-                    />
-                    <template #footer>
+                        <USeparator class="my-1" />
                         <p>
-                            {{ latestMovie.description }}
+                            {{ latestBook.description }}
                         </p>
                     </template>
                 </UCard>
@@ -130,12 +134,20 @@
             <ULink to="/music" :title="latestAlbum?.title">
                 <UCard
                     class="transition hover:ring-4 hover:ring-secondary"
+                    title="MUSIC"
                     :ui="{ body: 'p-0 sm:p-0' }"
                 >
-                    <template #header>
+                    <img
+                        :src="latestAlbum.img"
+                        :alt="`${latestAlbum.title} by ${latestAlbum.artist}`"
+                        class="w-full object-cover block"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <template #footer>
                         <div class="flex flex-col gap-0.5">
                             <h2
-                                class="text-left text-lg font-bold text-highlighted truncate"
+                                class="text-left uppercase text-lg text-highlighted truncate"
                             >
                                 {{ latestAlbum.title }}
                             </h2>
@@ -150,13 +162,7 @@
                                 </span>
                             </div>
                         </div>
-                    </template>
-                    <img
-                        :src="latestAlbum.img"
-                        :alt="`${latestAlbum.title} by ${latestAlbum.artist}`"
-                        class="w-full aspect-square object-cover block"
-                    />
-                    <template #footer>
+                        <USeparator class="my-1" />
                         <p>
                             {{ latestAlbum.body }}
                         </p>
@@ -188,6 +194,8 @@
                         width="176"
                         height="62"
                         class="[image-rendering:pixelated] transition hover:ring-4 hover:ring-secondary"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </a>
             </UTooltip>
@@ -207,5 +215,7 @@ const latestPost = BlogPosts.at(-1)!;
 const latestArt = ArtManifest.at(-1)!.files.at(-1);
 const latestBook = Books.at(-1)!;
 const latestMovie = Movies.at(-1)!;
-const latestAlbum = Albums.sort((a, b) => Number(a.year) - Number(b.year)).at(-1)!;
+const latestAlbum = Albums.sort((a, b) => Number(a.year) - Number(b.year)).at(
+    -1,
+)!;
 </script>
