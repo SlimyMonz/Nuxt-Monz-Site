@@ -45,4 +45,13 @@ export const Obituaries: Obituary[] = [
     In time, the burden grew heavier than she could carry, but it is not her death that defines her memory. Marlys is loved and missed. She is survived by her two sons.`,
     img: "/obituary/marlys_greer.jpg",
   },
+  {
+    name: "Urumus",
+    dates: "2001 - 2021",
+    cause: "Family Matters",
+    memento: `He was sweet and kind in every sense. Always a shoulder to lean on, but desperately needed that support himself.
+    Urumus struggled to deal with two lives: the one he wanted to live, and the person his birth family wanted him to be.
+    Though he was unable to cope, he always brought joy to those around him. Urumus is loved and missed by his online family.`,
+    img: "/obituary/urumus.jpg"
+  }
 ];
