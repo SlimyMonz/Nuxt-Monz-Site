@@ -101,11 +101,6 @@ const headerItems = computed<NavigationMenuItem[]>(() =>
 
 const footerLinks: NavigationMenuItem[] = [
     {
-        label: "Contact",
-        to: "mailto:website@monz.us",
-        target: "_blank",
-    },
-    {
         label: "Source",
         to: "https://codeberg.org/Monz/nuxt-monz-site",
         target: "_blank",
@@ -137,6 +132,11 @@ const footerButtons = [
         icon: "simple-icons:codeberg",
         to: "https://codeberg.org/Monz?tab=overview",
         label: "Codeberg",
+    },
+    {
+        icon: "lucide:mail",
+        to: "mailto:website@monz.us",
+        label: "E-Mail",
     },
     {
         icon: "simple-icons:furaffinity",

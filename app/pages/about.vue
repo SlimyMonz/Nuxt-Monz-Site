@@ -90,8 +90,6 @@
             </UCard>
         </UPageGrid>
     </UPageSection>
-
-    <USeparator />
 </template>
 
 <script setup lang="ts">
