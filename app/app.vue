@@ -39,7 +39,7 @@
         <!-- Page Body Content -->
         <UMain>
             <UContainer
-                class="'bg-black/25 backdrop-blur-3xl pb-8 rounded-b-3xl"
+                class="bg-black/10 backdrop-blur-3xl pb-8 rounded-b-3xl"
             >
                 <NuxtPage />
             </UContainer>
