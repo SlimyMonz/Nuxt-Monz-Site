@@ -15,7 +15,6 @@
             <UCard
                 class="h-full transition hover:ring-4 hover:ring-secondary"
                 :ui="{ body: 'p-0 sm:p-0' }"
-                :link="character.url"
             >
                 <template #header>
                     <div class="flex flex-col gap-2 text-center">
