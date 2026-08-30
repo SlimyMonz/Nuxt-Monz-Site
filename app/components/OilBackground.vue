@@ -28,8 +28,8 @@ const props = defineProps({
 
     // Performance
     maxWidth: { type: Number, default: 640 },
-    maxHeight: { type: Number, default: 480 },
-    targetFps: { type: Number, default: 24 },
+    maxHeight: { type: Number, default: 360 },
+    targetFps: { type: Number, default: 30 },
 });
 
 const canvasEl = ref(null);
@@ -413,7 +413,6 @@ onBeforeUnmount(() => {
     height: 100%;
     display: block;
     background: #000;
-    image-rendering: auto;
-    filter: blur(1px);
+    filter: blur(4px);
 }
 </style>
