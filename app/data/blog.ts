@@ -95,5 +95,25 @@ export const BlogPosts: BlogPost[] = [
     There's definitely a ton of optimizations I could make code-wise. Lots of reused text/components, but I don't really care about that.
     <br><br>
     I hope people like the site! And even if nobody sees it, I made it for myself anyway.`
+  },
+  {
+    id: 7,
+    title: "Added a few more things...",
+    date: "2026-08-29",
+    body: `...and started to actually enjoy my weekend! The website has a really cool background now. It came from <a href="https://shader.gallery/" style="color: red; font-weight: bold;">shader.gallery</a>.
+    Getting the shader to work wasn't actually all that difficult. Many smarter people have done the hard work for me! What I did do is optimize it by restricting the resolution to 360p and FPS to 30. There's a 4-pixel blur to make it a lil smoother.
+    <br>
+    I also had to do a bunch of changes such as update how my data was represented and sorted. Now each page should be sorted as-expected!
+    <br>
+    At some point, I still want to update the Main home page. Specifically, the section that has the latest Art, Book, Movie, and Music.
+    Ideally, it would be a bit prettier in some way with a lil description about the page and most recent material.
+    <br>
+    As for what I've been doing this weekend? Playing tons of a game called "Keep Digging." It's literally just a game about digging. I like it!
+    <br>
+    Dausty and I have been watching episodes of Demon Slayer. We finished the Entertainment District Arc and are now on the Swordsmith Village part. I really enjoy how the show's storytelling flows.
+    <br>
+    Anyway, thanks for visiting my site if you're reading this! Have a super cool day~
+    <br><br>
+    AUGH right before posting this I had to fix a nasty bug: These blog posts use v-html so I can post links etc inside the body. This was causing rendering issues!! Had to wrap it in a ClientOnly tag. Glad that's fixed!!!!`
   }
 ];
