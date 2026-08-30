@@ -23,7 +23,9 @@
                 orientation="vertical"
             >
                 <template #description>
+                <ClientOnly>
                     <div v-html="post.body" />
+                </ClientOnly>
                 </template>
             </UBlogPost>
             <div class="flex-1" />
