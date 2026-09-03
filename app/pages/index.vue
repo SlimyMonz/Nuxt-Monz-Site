@@ -166,7 +166,7 @@
                         </div>
                         <USeparator class="my-1" />
                         <p>
-                            {{ latestAlbum.body }}
+                            {{ latestAlbum.description }}
                         </p>
                     </template>
                 </UCard>
