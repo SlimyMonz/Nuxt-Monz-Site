@@ -33,7 +33,7 @@ export const HeroLinks = ref<ButtonProps[]>([
   },
   {
     icon: "simple-icons:furaffinity",
-    to: "https://www.furaffinity.net/user/slimymonz hover:ring-4 hover:ring-secondary",
+    to: "https://www.furaffinity.net/user/slimymonz",
     label: "FurAffinity",
     class: "bg-[#faaf3a] hover:bg-0 hover:ring-4 hover:ring-secondary",
   },
