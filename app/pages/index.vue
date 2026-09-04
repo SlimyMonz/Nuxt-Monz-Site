@@ -25,6 +25,7 @@
                     :key="latestPost.id"
                     :title="latestPost.title"
                     :date="latestPost.date"
+                    variant="ghost"
                     orientation="vertical"
                 >
                     <template #description>
