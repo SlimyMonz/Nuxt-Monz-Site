@@ -8,34 +8,40 @@ interface Badge {
 
 export const HeroLinks = ref<ButtonProps[]>([
   {
+    icon: "simple-icons:bandcamp",
+    to: "https://bandcamp.com/slimymonz",
+    label: "Bandcamp",
+    class: "bg-[#007C9E] hover:bg-0 hover:ring-4 hover:ring-secondary",
+  },
+  {
     icon: "simple-icons:bluesky",
     to: "https://bsky.app/profile/monz.us",
     label: "Bluesky",
-    color: "secondary",
+    class: "bg-[#0f73ff] hover:bg-0 hover:ring-4 hover:ring-secondary",
   },
   {
     icon: "simple-icons:codeberg",
     to: "https://codeberg.org/Monz?tab=overview",
     label: "Codeberg",
-    color: "secondary",
+    class: "bg-[#2185d0] hover:bg-0 hover:ring-4 hover:ring-secondary",
   },
   {
     icon: "lucide:mail",
     to: "mailto:website@monz.us",
     label: "E-Mail",
-    color: "secondary",
+    class: "bg-[#e64134] hover:bg-0 hover:ring-4 hover:ring-secondary",
   },
   {
     icon: "simple-icons:furaffinity",
-    to: "https://www.furaffinity.net/user/slimymonz",
+    to: "https://www.furaffinity.net/user/slimymonz hover:ring-4 hover:ring-secondary",
     label: "FurAffinity",
-    color: "secondary",
+    class: "bg-[#faaf3a] hover:bg-0 hover:ring-4 hover:ring-secondary",
   },
   {
     icon: "simple-icons:mastodon",
     to: "https://yiff.life/@slimymonz",
     label: "Mastodon",
-    color: "secondary",
+    class: "bg-[#6260fa] hover:bg-0 hover:ring-4 hover:ring-secondary",
   },
 ]);
 
