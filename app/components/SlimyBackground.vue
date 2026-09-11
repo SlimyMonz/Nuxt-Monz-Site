@@ -1,6 +1,5 @@
 <script setup>
     /**
-     * OilBackground.vue
      * From: https://shader.gallery/molten/
      * Fullscreen WebGL background running the liquid-metal raymarch shader,
      * re-tinted to a black tar/oil palette instead of the original bright theme.
