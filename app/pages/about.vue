@@ -3,30 +3,32 @@
         id="top"
         headline="Slime Time~"
         title="Hello, I'm Monz!"
-        description="Here's a reference sheet."
-    >
-        <div
-            class="bg-elevated rounded-3xl overflow-hidden flex items-center justify-center"
-        >
+        description="Here's a reference sheet.">
+        <div class="bg-elevated rounded-3xl overflow-hidden flex items-center justify-center">
             <img
                 :src="sonaRef"
                 alt="Monz Reference Sheet"
-                class="w-full h-full object-cover"
-            />
+                class="w-full h-full object-cover" />
         </div>
     </UPageHero>
 
     <USeparator />
 
-    <UPageSection id="about" title="About Me">
-        <UPageCard variant="soft" orientation="horizontal">
-            <img :src="sonaIcon" alt="Monz Headshot Icon" class="w-full" />
+    <UPageSection
+        id="about"
+        title="About Me">
+        <UPageCard
+            variant="soft"
+            orientation="horizontal">
+            <img
+                :src="sonaIcon"
+                alt="Monz Headshot Icon"
+                class="w-full" />
             <div class="text-lg md:text-xl space-y-4">
                 <div
                     v-for="fact in sonaFacts"
                     :key="fact.label"
-                    class="grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] gap-4"
-                >
+                    class="grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] gap-4">
                     <span class="text-muted">{{ fact.label }}</span>
                     <span class="font-semibold">{{ fact.value }}</span>
                 </div>
@@ -36,7 +38,9 @@
 
     <USeparator />
 
-    <UPageSection id="timeline" title="Timeline">
+    <UPageSection
+        id="timeline"
+        title="Timeline">
         <div class="overflow-x-auto pb-16 -mb-16">
             <UTimeline
                 :items="timelineItems"
@@ -44,14 +48,15 @@
                 color="secondary"
                 orientation="horizontal"
                 size="3xl"
-                class="min-w-max"
-            />
+                class="min-w-max" />
         </div>
     </UPageSection>
 
     <USeparator />
 
-    <UPageSection id="skills" title="Hobbies + Work + Skills">
+    <UPageSection
+        id="skills"
+        title="Hobbies + Work + Skills">
         <UPageGrid>
             <UPageCard
                 v-for="card in interestCards"
@@ -59,27 +64,29 @@
                 :title="card.title"
                 :description="card.description"
                 :icon="card.icon"
-                variant="soft"
-            />
+                variant="soft" />
         </UPageGrid>
     </UPageSection>
 
     <USeparator />
 
-    <UPageSection id="achievements" title="Achievements">
+    <UPageSection
+        id="achievements"
+        title="Achievements">
         <UPageGrid>
             <UCard
                 v-for="(a, i) in achievements"
                 :key="i"
                 :ui="{ body: 'p-2 sm:p-2' }"
-                variant="subtle"
-            >
+                variant="subtle">
                 <div class="flex items-center gap-2">
-                    <img :src="a.img" :alt="a.title" width="88" height="31" />
+                    <img
+                        :src="a.img"
+                        :alt="a.title"
+                        width="88"
+                        height="31" />
                     <div class="min-w-0">
-                        <h3
-                            class="font-semibold text-highlighted text-sm truncate"
-                        >
+                        <h3 class="font-semibold text-highlighted text-sm truncate">
                             {{ a.title }}
                         </h3>
                         <p class="text-muted text-xs truncate">
@@ -93,12 +100,5 @@
 </template>
 
 <script setup lang="ts">
-import {
-    sonaRef,
-    sonaIcon,
-    sonaFacts,
-    timelineItems,
-    interestCards,
-    achievements,
-} from "~/data/about";
+    import { sonaRef, sonaIcon, sonaFacts, timelineItems, interestCards, achievements } from "~/data/about";
 </script>

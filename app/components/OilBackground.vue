@@ -1,61 +1,61 @@
 <script setup>
-/**
- * OilBackground.vue
- * From: https://shader.gallery/molten/
- * Fullscreen WebGL background running the liquid-metal raymarch shader,
- * re-tinted to a black tar/oil palette instead of the original bright theme.
- */
-import { ref, onMounted, onBeforeUnmount } from "vue";
+    /**
+     * OilBackground.vue
+     * From: https://shader.gallery/molten/
+     * Fullscreen WebGL background running the liquid-metal raymarch shader,
+     * re-tinted to a black tar/oil palette instead of the original bright theme.
+     */
+    import { ref, onMounted, onBeforeUnmount } from "vue";
 
-const props = defineProps({
-    // shader "personality" knobs
-    flow: { type: Number, default: 0.3 }, // slow, viscous drift
-    viscosity: { type: Number, default: 0.8 }, // soft, syrupy merges
-    spread: { type: Number, default: 0.5 }, // from center
-    polish: { type: Number, default: 0.85 }, // glossy, wet-looking highlights
-    mouseInfluence: { type: Number, default: 0 }, // subtle parallax on pointer move
+    const props = defineProps({
+        // shader "personality" knobs
+        flow: { type: Number, default: 0.3 }, // slow, viscous drift
+        viscosity: { type: Number, default: 0.8 }, // soft, syrupy merges
+        spread: { type: Number, default: 0.5 }, // from center
+        polish: { type: Number, default: 0.85 }, // glossy, wet-looking highlights
+        mouseInfluence: { type: Number, default: 0 }, // subtle parallax on pointer move
 
-    // Tar/oil palette
-    palette: {
-        type: Array,
-        default: () => [
-            [0.01, 0.01, 0.01], // c0 – base ambient (near-black, faint cool tint)
-            [0.25, 0.1, 0.25], // c1 – side rim (faint warm amber tint, like oil sheen)
-            [0.1, 0.1, 0.1], // c2 – overhead softbox / specular highlight color
-            [0.01, 0.01, 0.01], // c3 – floor / pole (deep black)
-        ],
-    },
+        // Tar/oil palette
+        palette: {
+            type: Array,
+            default: () => [
+                [0.01, 0.01, 0.01], // c0 – base ambient (near-black, faint cool tint)
+                [0.25, 0.1, 0.25], // c1 – side rim (faint warm amber tint, like oil sheen)
+                [0.1, 0.1, 0.1], // c2 – overhead softbox / specular highlight color
+                [0.01, 0.01, 0.01], // c3 – floor / pole (deep black)
+            ],
+        },
 
-    // Performance
-    maxWidth: { type: Number, default: 640 },
-    maxHeight: { type: Number, default: 360 },
-    targetFps: { type: Number, default: 30 },
-});
+        // Performance
+        maxWidth: { type: Number, default: 640 },
+        maxHeight: { type: Number, default: 360 },
+        targetFps: { type: Number, default: 30 },
+    });
 
-const canvasEl = ref(null);
+    const canvasEl = ref(null);
 
-let gl = null;
-let program = null;
-let rafId = null;
-let startTime = 0;
-let resizeObserver = null;
-let intersectionObserver = null;
-let mouseDevicePx = [0, 0];
-let uniformLocations = {};
-let lastFrameTime = 0;
-let isTabVisible = !(typeof document !== "undefined" && document.hidden);
-let isCanvasOnScreen = true;
-let pausedAt = 0;
+    let gl = null;
+    let program = null;
+    let rafId = null;
+    let startTime = 0;
+    let resizeObserver = null;
+    let intersectionObserver = null;
+    let mouseDevicePx = [0, 0];
+    let uniformLocations = {};
+    let lastFrameTime = 0;
+    let isTabVisible = !(typeof document !== "undefined" && document.hidden);
+    let isCanvasOnScreen = true;
+    let pausedAt = 0;
 
-const VERTEX_SRC = `
+    const VERTEX_SRC = `
 attribute vec2 a_position;
 void main() {
   gl_Position = vec4(a_position, 0.0, 1.0);
 }
 `;
 
-// Fragment shader
-const FRAGMENT_SRC = `
+    // Fragment shader
+    const FRAGMENT_SRC = `
 precision highp float;
 uniform float u_time;
 uniform vec2  u_resolution;
@@ -175,244 +175,239 @@ void main(){
 }
 `;
 
-function compileShader(glCtx, type, source) {
-    const shader = glCtx.createShader(type);
-    glCtx.shaderSource(shader, source);
-    glCtx.compileShader(shader);
-    if (!glCtx.getShaderParameter(shader, glCtx.COMPILE_STATUS)) {
-        const info = glCtx.getShaderInfoLog(shader);
-        glCtx.deleteShader(shader);
-        throw new Error(`Shader compile error: ${info}`);
-    }
-    return shader;
-}
-
-function createProgram(glCtx, vertSrc, fragSrc) {
-    const vs = compileShader(glCtx, glCtx.VERTEX_SHADER, vertSrc);
-    const fs = compileShader(glCtx, glCtx.FRAGMENT_SHADER, fragSrc);
-    const prog = glCtx.createProgram();
-    glCtx.attachShader(prog, vs);
-    glCtx.attachShader(prog, fs);
-    glCtx.linkProgram(prog);
-    if (!glCtx.getProgramParameter(prog, glCtx.LINK_STATUS)) {
-        const info = glCtx.getProgramInfoLog(prog);
-        glCtx.deleteProgram(prog);
-        throw new Error(`Program link error: ${info}`);
-    }
-    glCtx.deleteShader(vs);
-    glCtx.deleteShader(fs);
-    return prog;
-}
-
-function resizeCanvas() {
-    if (!gl || !canvasEl.value) return;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    let width = Math.max(1, Math.floor(canvasEl.value.clientWidth * dpr));
-    let height = Math.max(1, Math.floor(canvasEl.value.clientHeight * dpr));
-
-    if (width > props.maxWidth || height > props.maxHeight) {
-        const scale = Math.min(props.maxWidth / width, props.maxHeight / height);
-        width = Math.max(1, Math.floor(width * scale));
-        height = Math.max(1, Math.floor(height * scale));
+    function compileShader(glCtx, type, source) {
+        const shader = glCtx.createShader(type);
+        glCtx.shaderSource(shader, source);
+        glCtx.compileShader(shader);
+        if (!glCtx.getShaderParameter(shader, glCtx.COMPILE_STATUS)) {
+            const info = glCtx.getShaderInfoLog(shader);
+            glCtx.deleteShader(shader);
+            throw new Error(`Shader compile error: ${info}`);
+        }
+        return shader;
     }
 
-    if (canvasEl.value.width !== width || canvasEl.value.height !== height) {
-        canvasEl.value.width = width;
-        canvasEl.value.height = height;
-        gl.viewport(0, 0, width, height);
-    }
-}
-
-function handlePointerMove(e) {
-    if (!canvasEl.value) return;
-    const rect = canvasEl.value.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const x = (e.clientX - rect.left) * dpr;
-    const yTop = (e.clientY - rect.top) * dpr;
-    mouseDevicePx = [x, canvasEl.value.height - yTop];
-}
-
-function handlePointerLeave() {
-    mouseDevicePx = [0, 0];
-}
-
-function shouldRender() {
-    return isTabVisible && isCanvasOnScreen;
-}
-
-function pauseRender() {
-    if (rafId) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
-    }
-    pausedAt = performance.now();
-}
-
-function resumeRender() {
-    if (rafId || !gl || !program) return;
-    if (pausedAt) {
-        startTime += performance.now() - pausedAt;
-        pausedAt = 0;
-    }
-    lastFrameTime = 0;
-    rafId = requestAnimationFrame(render);
-}
-
-function render(now) {
-    if (!gl || !program) return;
-
-    if (!shouldRender()) {
-        pauseRender();
-        return;
+    function createProgram(glCtx, vertSrc, fragSrc) {
+        const vs = compileShader(glCtx, glCtx.VERTEX_SHADER, vertSrc);
+        const fs = compileShader(glCtx, glCtx.FRAGMENT_SHADER, fragSrc);
+        const prog = glCtx.createProgram();
+        glCtx.attachShader(prog, vs);
+        glCtx.attachShader(prog, fs);
+        glCtx.linkProgram(prog);
+        if (!glCtx.getProgramParameter(prog, glCtx.LINK_STATUS)) {
+            const info = glCtx.getProgramInfoLog(prog);
+            glCtx.deleteProgram(prog);
+            throw new Error(`Program link error: ${info}`);
+        }
+        glCtx.deleteShader(vs);
+        glCtx.deleteShader(fs);
+        return prog;
     }
 
-    rafId = requestAnimationFrame(render);
+    function resizeCanvas() {
+        if (!gl || !canvasEl.value) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        let width = Math.max(1, Math.floor(canvasEl.value.clientWidth * dpr));
+        let height = Math.max(1, Math.floor(canvasEl.value.clientHeight * dpr));
 
-    const frameInterval = 1000 / props.targetFps;
-    const delta = now - lastFrameTime;
-    if (delta < frameInterval) return;
-    // Correct for drift so the effective fps stays close to target over time
-    lastFrameTime = now - (delta % frameInterval);
+        if (width > props.maxWidth || height > props.maxHeight) {
+            const scale = Math.min(props.maxWidth / width, props.maxHeight / height);
+            width = Math.max(1, Math.floor(width * scale));
+            height = Math.max(1, Math.floor(height * scale));
+        }
 
-    resizeCanvas();
-
-    const elapsed = (now - startTime) / 1000;
-
-    gl.uniform1f(uniformLocations.u_time, elapsed);
-    gl.uniform2f(
-        uniformLocations.u_resolution,
-        canvasEl.value.width,
-        canvasEl.value.height,
-    );
-    gl.uniform2f(uniformLocations.u_mouse, mouseDevicePx[0], mouseDevicePx[1]);
-    gl.uniform1f(
-        uniformLocations.u_pixelRatio,
-        Math.min(window.devicePixelRatio || 1, 2),
-    );
-    gl.uniform1f(uniformLocations.u_flow, props.flow);
-    gl.uniform1f(uniformLocations.u_viscosity, props.viscosity);
-    gl.uniform1f(uniformLocations.u_spread, props.spread);
-    gl.uniform1f(uniformLocations.u_polish, props.polish);
-    gl.uniform1f(uniformLocations.u_mouseInfluence, props.mouseInfluence);
-
-    const flatPalette = new Float32Array(props.palette.flat());
-    gl.uniform3fv(uniformLocations.u_palette, flatPalette);
-
-    gl.drawArrays(gl.TRIANGLES, 0, 6);
-}
-
-function initGL() {
-    const canvas = canvasEl.value;
-    gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-    if (!gl) {
-        console.error("WebGL is not supported in this browser.");
-        return;
+        if (canvasEl.value.width !== width || canvasEl.value.height !== height) {
+            canvasEl.value.width = width;
+            canvasEl.value.height = height;
+            gl.viewport(0, 0, width, height);
+        }
     }
 
-    program = createProgram(gl, VERTEX_SRC, FRAGMENT_SRC);
-    gl.useProgram(program);
-
-    // fullscreen quad (two triangles)
-    const quad = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
-    const buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
-
-    const posLoc = gl.getAttribLocation(program, "a_position");
-    gl.enableVertexAttribArray(posLoc);
-    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
-
-    uniformLocations = {
-        u_time: gl.getUniformLocation(program, "u_time"),
-        u_resolution: gl.getUniformLocation(program, "u_resolution"),
-        u_mouse: gl.getUniformLocation(program, "u_mouse"),
-        u_pixelRatio: gl.getUniformLocation(program, "u_pixelRatio"),
-        u_flow: gl.getUniformLocation(program, "u_flow"),
-        u_viscosity: gl.getUniformLocation(program, "u_viscosity"),
-        u_spread: gl.getUniformLocation(program, "u_spread"),
-        u_polish: gl.getUniformLocation(program, "u_polish"),
-        u_mouseInfluence: gl.getUniformLocation(program, "u_mouseInfluence"),
-        u_palette: gl.getUniformLocation(program, "u_palette[0]"),
-    };
-
-    resizeCanvas();
-    startTime = performance.now();
-    lastFrameTime = 0;
-    rafId = requestAnimationFrame(render);
-}
-
-function handleVisibilityChange() {
-    isTabVisible = !document.hidden;
-    if (shouldRender()) {
-        resumeRender();
-    } else {
-        pauseRender();
-    }
-}
-
-onMounted(() => {
-    initGL();
-    window.addEventListener("pointermove", handlePointerMove);
-    window.addEventListener("pointerleave", handlePointerLeave);
-
-    if (window.ResizeObserver) {
-        resizeObserver = new ResizeObserver(() => resizeCanvas());
-        resizeObserver.observe(canvasEl.value);
-    } else {
-        window.addEventListener("resize", resizeCanvas);
+    function handlePointerMove(e) {
+        if (!canvasEl.value) return;
+        const rect = canvasEl.value.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const x = (e.clientX - rect.left) * dpr;
+        const yTop = (e.clientY - rect.top) * dpr;
+        mouseDevicePx = [x, canvasEl.value.height - yTop];
     }
 
-    // Pause entirely when the tab is backgrounded
-    document.addEventListener("visibilitychange", handleVisibilityChange);
+    function handlePointerLeave() {
+        mouseDevicePx = [0, 0];
+    }
 
-    // Pause when the canvas itself is scrolled out of view
-    if (window.IntersectionObserver) {
-        intersectionObserver = new IntersectionObserver(
-            ([entry]) => {
-                isCanvasOnScreen = entry.isIntersecting;
-                if (shouldRender()) {
-                    resumeRender();
-                } else {
-                    pauseRender();
-                }
-            },
-            { threshold: 0 },
-        );
-        intersectionObserver.observe(canvasEl.value);
+    function shouldRender() {
+        return isTabVisible && isCanvasOnScreen;
     }
-});
 
-onBeforeUnmount(() => {
-    if (rafId) cancelAnimationFrame(rafId);
-    window.removeEventListener("pointermove", handlePointerMove);
-    window.removeEventListener("pointerleave", handlePointerLeave);
-    document.removeEventListener("visibilitychange", handleVisibilityChange);
-    if (resizeObserver) {
-        resizeObserver.disconnect();
-    } else {
-        window.removeEventListener("resize", resizeCanvas);
+    function pauseRender() {
+        if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+        pausedAt = performance.now();
     }
-    if (intersectionObserver) {
-        intersectionObserver.disconnect();
+
+    function resumeRender() {
+        if (rafId || !gl || !program) return;
+        if (pausedAt) {
+            startTime += performance.now() - pausedAt;
+            pausedAt = 0;
+        }
+        lastFrameTime = 0;
+        rafId = requestAnimationFrame(render);
     }
-    if (gl && program) {
-        gl.deleteProgram(program);
+
+    function render(now) {
+        if (!gl || !program) return;
+
+        if (!shouldRender()) {
+            pauseRender();
+            return;
+        }
+
+        rafId = requestAnimationFrame(render);
+
+        const frameInterval = 1000 / props.targetFps;
+        const delta = now - lastFrameTime;
+        if (delta < frameInterval) return;
+        // Correct for drift so the effective fps stays close to target over time
+        lastFrameTime = now - (delta % frameInterval);
+
+        resizeCanvas();
+
+        const elapsed = (now - startTime) / 1000;
+
+        gl.uniform1f(uniformLocations.u_time, elapsed);
+        gl.uniform2f(uniformLocations.u_resolution, canvasEl.value.width, canvasEl.value.height);
+        gl.uniform2f(uniformLocations.u_mouse, mouseDevicePx[0], mouseDevicePx[1]);
+        gl.uniform1f(uniformLocations.u_pixelRatio, Math.min(window.devicePixelRatio || 1, 2));
+        gl.uniform1f(uniformLocations.u_flow, props.flow);
+        gl.uniform1f(uniformLocations.u_viscosity, props.viscosity);
+        gl.uniform1f(uniformLocations.u_spread, props.spread);
+        gl.uniform1f(uniformLocations.u_polish, props.polish);
+        gl.uniform1f(uniformLocations.u_mouseInfluence, props.mouseInfluence);
+
+        const flatPalette = new Float32Array(props.palette.flat());
+        gl.uniform3fv(uniformLocations.u_palette, flatPalette);
+
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
     }
-});
+
+    function initGL() {
+        const canvas = canvasEl.value;
+        gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+        if (!gl) {
+            console.error("WebGL is not supported in this browser.");
+            return;
+        }
+
+        program = createProgram(gl, VERTEX_SRC, FRAGMENT_SRC);
+        gl.useProgram(program);
+
+        // fullscreen quad (two triangles)
+        const quad = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
+        const buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
+
+        const posLoc = gl.getAttribLocation(program, "a_position");
+        gl.enableVertexAttribArray(posLoc);
+        gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+        uniformLocations = {
+            u_time: gl.getUniformLocation(program, "u_time"),
+            u_resolution: gl.getUniformLocation(program, "u_resolution"),
+            u_mouse: gl.getUniformLocation(program, "u_mouse"),
+            u_pixelRatio: gl.getUniformLocation(program, "u_pixelRatio"),
+            u_flow: gl.getUniformLocation(program, "u_flow"),
+            u_viscosity: gl.getUniformLocation(program, "u_viscosity"),
+            u_spread: gl.getUniformLocation(program, "u_spread"),
+            u_polish: gl.getUniformLocation(program, "u_polish"),
+            u_mouseInfluence: gl.getUniformLocation(program, "u_mouseInfluence"),
+            u_palette: gl.getUniformLocation(program, "u_palette[0]"),
+        };
+
+        resizeCanvas();
+        startTime = performance.now();
+        lastFrameTime = 0;
+        rafId = requestAnimationFrame(render);
+    }
+
+    function handleVisibilityChange() {
+        isTabVisible = !document.hidden;
+        if (shouldRender()) {
+            resumeRender();
+        } else {
+            pauseRender();
+        }
+    }
+
+    onMounted(() => {
+        initGL();
+        window.addEventListener("pointermove", handlePointerMove);
+        window.addEventListener("pointerleave", handlePointerLeave);
+
+        if (window.ResizeObserver) {
+            resizeObserver = new ResizeObserver(() => resizeCanvas());
+            resizeObserver.observe(canvasEl.value);
+        } else {
+            window.addEventListener("resize", resizeCanvas);
+        }
+
+        // Pause entirely when the tab is backgrounded
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+
+        // Pause when the canvas itself is scrolled out of view
+        if (window.IntersectionObserver) {
+            intersectionObserver = new IntersectionObserver(
+                ([entry]) => {
+                    isCanvasOnScreen = entry.isIntersecting;
+                    if (shouldRender()) {
+                        resumeRender();
+                    } else {
+                        pauseRender();
+                    }
+                },
+                { threshold: 0 },
+            );
+            intersectionObserver.observe(canvasEl.value);
+        }
+    });
+
+    onBeforeUnmount(() => {
+        if (rafId) cancelAnimationFrame(rafId);
+        window.removeEventListener("pointermove", handlePointerMove);
+        window.removeEventListener("pointerleave", handlePointerLeave);
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+        if (resizeObserver) {
+            resizeObserver.disconnect();
+        } else {
+            window.removeEventListener("resize", resizeCanvas);
+        }
+        if (intersectionObserver) {
+            intersectionObserver.disconnect();
+        }
+        if (gl && program) {
+            gl.deleteProgram(program);
+        }
+    });
 </script>
 
 <template>
-    <canvas ref="canvasEl" class="oil-shader-canvas"></canvas>
+    <canvas
+        ref="canvasEl"
+        class="oil-shader-canvas"></canvas>
 </template>
 
 <style scoped>
-.oil-shader-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    background: #000;
-    filter: blur(4px);
-}
+    .oil-shader-canvas {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: #000;
+        filter: blur(4px);
+    }
 </style>

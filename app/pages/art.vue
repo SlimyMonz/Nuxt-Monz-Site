@@ -2,9 +2,11 @@
     <UPageHero
         headline="No AI"
         title="Digital Art Gallery"
-        description="A collection of stuff I created in Photoshop, Affinity, or Pixelmator Pro over the years. Click an image to see the full size!"
-    />
-    <div v-for="gallery in sortedManifest" :key="gallery.title" class="mb-24">
+        description="A collection of stuff I created in Photoshop, Affinity, or Pixelmator Pro over the years. Click an image to see the full size!" />
+    <div
+        v-for="gallery in sortedManifest"
+        :key="gallery.title"
+        class="mb-24">
         <div class="mb-6 flex items-center gap-5">
             <h2 class="text-5xl font-bold">
                 {{ gallery.title }}
@@ -13,22 +15,18 @@
             <USeparator class="flex-1" />
         </div>
 
-        <UPageGrid
-            class="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
-        >
+        <UPageGrid class="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
             <button
                 v-for="file in gallery.files"
                 :key="file.id"
                 class="group aspect-square w-full overflow-hidden rounded-lg transition hover:ring-4 hover:ring-secondary"
-                @click="openImage(gallery.title, file)"
-            >
+                @click="openImage(gallery.title, file)">
                 <img
                     :src="file.thumb"
                     :alt="`${gallery.title} artwork ${file.id}`"
                     class="size-full max-h-64 max-w-64 object-cover transition hover:ring-4 hover:ring-secondary"
                     loading="lazy"
-                    decoding="async"
-                />
+                    decoding="async" />
             </button>
         </UPageGrid>
     </div>
@@ -37,37 +35,32 @@
         v-model:open="isOpen"
         :title="activeImage?.title"
         :ui="{ content: 'bg-black/25 backdrop-blur-sm' }"
-        fullscreen
-    >
+        fullscreen>
         <template #body>
             <div
                 class="flex h-full items-center justify-center"
-                @click="isOpen = false"
-            >
+                @click="isOpen = false">
                 <img
                     v-if="activeImage"
                     :src="activeImage.file.full"
                     :alt="`${activeImage.title} artwork ${activeImage.file.id}`"
                     class="max-h-[85vh] max-w-full rounded-lg object-contain"
-                    @click.stop
-                />
+                    @click.stop />
             </div>
         </template>
     </UModal>
 </template>
 
 <script setup lang="ts">
-import { ArtManifest } from "~/data/art";
-import type { ActiveImage, ArtFile } from "~/data/art";
+    import { ArtManifest } from "~/data/art";
+    import type { ActiveImage, ArtFile } from "~/data/art";
 
-const isOpen = ref(false);
-const activeImage = ref<ActiveImage | null>(null);
+    const isOpen = ref(false);
+    const activeImage = ref<ActiveImage | null>(null);
 
-const sortedManifest = [...ArtManifest].sort(
-    (a, b) => Number(b.title) - Number(a.title),
-);
-function openImage(title: string, file: ArtFile) {
-    activeImage.value = { title, file };
-    isOpen.value = true;
-}
+    const sortedManifest = [...ArtManifest].sort((a, b) => Number(b.title) - Number(a.title));
+    function openImage(title: string, file: ArtFile) {
+        activeImage.value = { title, file };
+        isOpen.value = true;
+    }
 </script>

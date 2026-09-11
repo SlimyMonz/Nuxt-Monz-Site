@@ -3,8 +3,7 @@
         id="top"
         headline="Personal Blog"
         title="Monster Talks"
-        description="News, ramblings, thoughts, etc."
-    >
+        description="News, ramblings, thoughts, etc.">
     </UPageHero>
     <UPage>
         <UPageBody>
@@ -12,20 +11,18 @@
                 v-model:page="page"
                 :items-per-page="itemsPerPage"
                 :total="sortedBlogPosts.length"
-                show-edges
-            />
+                show-edges />
 
             <UBlogPost
                 v-for="post in paginatedBlogPosts"
                 :key="post.id"
                 :title="post.title"
                 :date="post.date"
-                orientation="vertical"
-            >
+                orientation="vertical">
                 <template #description>
-                <ClientOnly>
-                    <div v-html="post.body" />
-                </ClientOnly>
+                    <ClientOnly>
+                        <div v-html="post.body" />
+                    </ClientOnly>
                 </template>
             </UBlogPost>
             <div class="flex-1" />
@@ -33,25 +30,24 @@
                 v-model:page="page"
                 :items-per-page="itemsPerPage"
                 :total="sortedBlogPosts.length"
-                show-edges
-            />
+                show-edges />
         </UPageBody>
     </UPage>
 </template>
 
 <script setup lang="ts">
-import { BlogPosts } from "~/data/blog";
+    import { BlogPosts } from "~/data/blog";
 
-const page = ref(1);
-const itemsPerPage = 10;
+    const page = ref(1);
+    const itemsPerPage = 10;
 
-const sortedBlogPosts = computed(() => {
-    return [...BlogPosts].sort((a, b) => b.id - a.id);
-});
+    const sortedBlogPosts = computed(() => {
+        return [...BlogPosts].sort((a, b) => b.id - a.id);
+    });
 
-const paginatedBlogPosts = computed(() => {
-    const start = (page.value - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    return sortedBlogPosts.value.slice(start, end);
-});
+    const paginatedBlogPosts = computed(() => {
+        const start = (page.value - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        return sortedBlogPosts.value.slice(start, end);
+    });
 </script>
