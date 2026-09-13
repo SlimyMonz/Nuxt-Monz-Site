@@ -46,7 +46,7 @@
                     class="overflow-hidden transition hover:ring-4 hover:ring-secondary"
                     :ui="{ body: 'p-0 sm:p-0' }">
                     <img
-                        :src="latestArt?.thumb"
+                        :src="latestArt?.thumbPath"
                         :alt="latestArt?.id"
                         class="block w-full h-auto"
                         loading="lazy"
@@ -196,13 +196,13 @@
     import { badges, HeroLinks } from "~/data/index";
 
     import { BlogPosts } from "~/data/blog";
-    import { ArtManifest } from "~/data/art";
+    import { ImageManifest } from "~/data/art";
     import { Books } from "~/data/books";
     import { Movies } from "~/data/movies";
     import { Albums } from "~/data/music";
 
     const latestPost = BlogPosts.at(-1)!;
-    const latestArt = [...ArtManifest].at(-1)!.files.at(-1);
+    const latestArt = [...ImageManifest].at(-1)!.images.at(-1);
     const latestBook = Books.at(-1)!;
     const latestMovie = Movies.at(-1)!;
     const latestAlbum = [...Albums].sort((a, b) => Number(a.year) - Number(b.year)).at(-1)!;

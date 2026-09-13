@@ -1,82 +1,27 @@
-export interface ArtManifest {
-    root_dir: string;
-    albums: Album[];
-}
-
-export interface Album {
-    title: string;
-    numberOfImages: number;
-}
-
-export interface ArtManifestEntry {
-    title: string;
-    files: ArtFile[];
-}
-
-export interface ArtFile {
-    id: string;
-    full: string;
-    thumb: string;
-}
-
-export interface ActiveImage {
-    title: string;
-    file: ArtFile;
-}
+import type { AlbumManifest } from "~/types/imageCollections";
 
 // Edit this when adding new albums. Expects photos to be inside a folder and album with a unique name, have a thumbnail inside a nested "thumbs" folder, and be named 1.jpg, 2.jpg...etc.
-const Manifest: ArtManifest = {
-    root_dir: "/art",
-
+const albumManifest: AlbumManifest = {
+    path: "/art",
     albums: [
-        { title: "2009", numberOfImages: 6 },
-        { title: "2010", numberOfImages: 6 },
-        { title: "2011", numberOfImages: 5 },
-        { title: "2012", numberOfImages: 8 },
-        { title: "2013", numberOfImages: 3 },
-        { title: "2014", numberOfImages: 1 },
-        { title: "2015", numberOfImages: 6 },
-        { title: "2016", numberOfImages: 13 },
-        { title: "2017", numberOfImages: 12 },
-        { title: "2018", numberOfImages: 9 },
-        { title: "2019", numberOfImages: 16 },
-        { title: "2020", numberOfImages: 3 },
-        { title: "2021", numberOfImages: 28 },
-        { title: "2022", numberOfImages: 6 },
-        { title: "2023", numberOfImages: 6 },
-        { title: "2025", numberOfImages: 12 },
-        { title: "2026", numberOfImages: 1 },
+        { title: "2009", path: "2009", imageCount: 6 },
+        { title: "2010", path: "2010", imageCount: 6 },
+        { title: "2011", path: "2011", imageCount: 5 },
+        { title: "2012", path: "2012", imageCount: 8 },
+        { title: "2013", path: "2013", imageCount: 3 },
+        { title: "2014", path: "2014", imageCount: 1 },
+        { title: "2015", path: "2015", imageCount: 6 },
+        { title: "2016", path: "2016", imageCount: 13 },
+        { title: "2017", path: "2017", imageCount: 12 },
+        { title: "2018", path: "2018", imageCount: 9 },
+        { title: "2019", path: "2019", imageCount: 16 },
+        { title: "2020", path: "2020", imageCount: 3 },
+        { title: "2021", path: "2021", imageCount: 28 },
+        { title: "2022", path: "2022", imageCount: 6 },
+        { title: "2023", path: "2023", imageCount: 6 },
+        { title: "2025", path: "2025", imageCount: 12 },
+        { title: "2026", path: "2026", imageCount: 1 },
     ],
 };
 
-function buildArtFiles(rootDir: string, album: Album): ArtFile[] {
-    const files: ArtFile[] = [];
-    const albumPath = `${rootDir}/${album.title}`;
-    for (let index = 1; index <= album.numberOfImages; index++) {
-        const id = String(index);
-        const fullPath = `${albumPath}/${id}.jpg`;
-        const thumbnailPath = `${albumPath}/thumbs/${id}.jpg`;
-        const file: ArtFile = {
-            id: id,
-            full: fullPath,
-            thumb: thumbnailPath,
-        };
-        files.push(file);
-    }
-    return files;
-}
-
-function buildArtManifest(manifest: ArtManifest): ArtManifestEntry[] {
-    const artManifest: ArtManifestEntry[] = [];
-    for (const album of manifest.albums) {
-        const files = buildArtFiles(manifest.root_dir, album);
-        const gallery: ArtManifestEntry = {
-            title: album.title,
-            files: files,
-        };
-        artManifest.push(gallery);
-    }
-    return artManifest;
-}
-
-export const ArtManifest = buildArtManifest(Manifest);
+export const ImageManifest = buildImageManifest(albumManifest);

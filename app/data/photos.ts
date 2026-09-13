@@ -1,4 +1,4 @@
-import { buildImageManifest } from "~/composables/createImageManifest";
+import { buildImageManifest } from "~/composables/useImageManifest";
 import type { AlbumManifest } from "~/types/imageCollections";
 
 // Expects photos to be inside a folder and album with a unique name; have a thumbnail inside a nested "thumbs" folder, and be named 1.jpg, 2.jpg...etc.
