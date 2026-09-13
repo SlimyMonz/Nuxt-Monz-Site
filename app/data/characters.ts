@@ -1,4 +1,10 @@
-import type { Character } from "~/types/contentTypes";
+import type { Character, HeroInfo } from "~/types/contentTypes";
+
+export const heroInfo: HeroInfo = {
+    headline: "Yeah, they're all gay.",
+    title: "Character Page",
+    description: "Click on a character to view their FurAffinity gallery! Account is required and 18+ Only!"
+}
 
 export const Characters: Character[] = [
     {

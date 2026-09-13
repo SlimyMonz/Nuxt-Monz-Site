@@ -1,4 +1,11 @@
+import type { HeroInfo } from "~/types/contentTypes";
 import type { MusicAlbum } from "~/types/mediaTypes";
+
+export const heroInfo: HeroInfo = {
+    headline: "Monster Jams!",
+    title: "Favorite Albums",
+    description: "Sorted by Artist. Click an album to check out samples!"
+}
 
 export const Albums: MusicAlbum[] = [
     {

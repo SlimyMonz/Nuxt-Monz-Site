@@ -1,9 +1,9 @@
 <template>
     <UPageHero
         id="top"
-        headline="Absolute Cinema"
-        title="Monster Films"
-        description="Movies I consider to be a 5-star experience sorted by year. Click to see a trailer or watch on Apple TV!" />
+        :headline="heroInfo.headline"
+        :title="heroInfo.title"
+        :description="heroInfo.description" />
     <UPageGrid>
         <MediaCard
             v-for="(movie, i) in sortedMovies"
@@ -18,6 +18,6 @@
 </template>
 
 <script setup lang="ts">
-    import { Movies } from "~/data/movies";
+    import { Movies, heroInfo } from "~/data/movies";
     const sortedMovies = [...Movies].sort((a, b) => Number(b.date) - Number(a.date));
 </script>

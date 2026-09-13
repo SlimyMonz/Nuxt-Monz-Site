@@ -1,4 +1,10 @@
-import type { Recipe } from "~/types/contentTypes";
+import type { HeroInfo, Recipe } from "~/types/contentTypes";
+
+export const heroInfo: HeroInfo = {
+    headline: "Mmmmm~",
+    title: "Monster Eats",
+    description: "A collection of favorites. Click a card for the recipe!"
+}
 
 export const Recipes: Recipe[] = [
     {

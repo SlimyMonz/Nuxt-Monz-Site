@@ -1,3 +1,8 @@
+export interface HeroInfo {
+    headline: string;
+    title: string;
+    description: string;
+}
 
 export interface Badge {
     text: string;

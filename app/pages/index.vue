@@ -1,8 +1,9 @@
 <template>
     <UPageHero
-        headline="NEW"
-        title="Monz Website"
-        description="Welcome! I hope you like my site. I put in a lot of time and effort to make something just for me. Feel free to click around and check things out!"
+        id="top"
+        :headline="heroInfo.headline"
+        :title="heroInfo.title"
+        :description="heroInfo.description"
         :links="HeroLinks" />
 
     <USeparator />
@@ -193,7 +194,7 @@
     </UPageSection>
 </template>
 <script setup lang="ts">
-    import { badges, HeroLinks } from "~/data/index";
+    import { badges, HeroLinks, heroInfo } from "~/data/index";
 
     import { BlogPosts } from "~/data/blog";
     import { ImageManifest } from "~/data/art";

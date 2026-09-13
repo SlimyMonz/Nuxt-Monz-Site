@@ -1,5 +1,12 @@
 import { buildImageManifest } from "~/composables/useImageManifest";
+import type { HeroInfo } from "~/types/contentTypes";
 import type { AlbumManifest } from "~/types/imageCollectionTypes";
+
+export const heroInfo: HeroInfo = {
+    headline: "I want a DSLR",
+    title: "Digital Photo Albums",
+    description: "Albums of notable photographs I've taken over the years."
+}
 
 // Expects photos to be inside a folder and album with a unique name; have a thumbnail inside a nested "thumbs" folder, and be named 1.jpg, 2.jpg...etc.
 const albumManifest: AlbumManifest = {

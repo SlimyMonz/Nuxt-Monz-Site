@@ -1,6 +1,11 @@
 import type { ButtonProps } from "@nuxt/ui";
-import type { Badge } from "~/types/contentTypes";
+import type { Badge, HeroInfo } from "~/types/contentTypes";
 
+export const heroInfo: HeroInfo = {
+    headline: "NEW SLIME",
+    title: "Monster Website",
+    description: "Welcome! I hope you like my site. I put in a lot of time and effort to make something just for me. Feel free to click around and check things out!"
+}
 
 export const HeroLinks = ref<ButtonProps[]>([
     {

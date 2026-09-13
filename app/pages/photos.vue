@@ -1,11 +1,12 @@
 <template>
     <UPageHero
-        headline="I want a DSLR"
-        title="Digital Photo Albums"
-        description="Albums of notable photographs I've taken over the years." />
+        id="top"
+        :headline="heroInfo.headline"
+        :title="heroInfo.title"
+        :description="heroInfo.description" />
     <AlbumGallery :manifest="ImageManifest" />
 </template>
 
 <script setup lang="ts">
-    import { ImageManifest } from "~/data/photos";
+    import { ImageManifest, heroInfo } from "~/data/photos";
 </script>

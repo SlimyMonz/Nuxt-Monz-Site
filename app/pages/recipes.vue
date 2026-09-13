@@ -1,10 +1,9 @@
 <template>
     <UPageHero
         id="top"
-        headline="Mmmmm~"
-        title="Monster Eats"
-        description="A collection of favorites. Click a card for the recipe!" />
-
+        :headline="heroInfo.headline"
+        :title="heroInfo.title"
+        :description="heroInfo.description" />
     <UPageGrid>
         <UCard
             v-for="recipe in Recipes"
@@ -88,7 +87,7 @@
 
 <script setup lang="ts">
     import { computed, ref } from "vue";
-    import { Recipes } from "~/data/recipes";
+    import { Recipes, heroInfo } from "~/data/recipes";
     import type { Recipe } from "~/types/contentTypes";
 
     const selected = ref<Recipe | null>(null);

@@ -1,10 +1,9 @@
 <template>
     <UPageHero
         id="top"
-        headline="Rememberance"
-        title="Rest in Peace"
-        description="Loved ones that have moved on.">
-    </UPageHero>
+        :headline="heroInfo.headline"
+        :title="heroInfo.title"
+        :description="heroInfo.description" />
     <UPageGrid>
         <div
             v-for="(obituary, i) in Obituaries"
@@ -44,5 +43,5 @@
     </UPageGrid>
 </template>
 <script setup lang="ts">
-    import { Obituaries } from "~/data/obituary";
+    import { Obituaries, heroInfo } from "~/data/obituary";
 </script>

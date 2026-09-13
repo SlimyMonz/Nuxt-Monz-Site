@@ -1,10 +1,11 @@
 <template>
     <UPageHero
         id="top"
-        headline="Slime Time~"
-        title="Hello, I'm Monz!"
-        description="Here's a reference sheet.">
-        <div class="bg-elevated rounded-3xl overflow-hidden flex items-center justify-center">
+        :headline="heroInfo.headline"
+        :title="heroInfo.title"
+        :description="heroInfo.description">
+        <div
+            class="bg-elevated rounded-3xl overflow-hidden flex items-center justify-center">
             <img
                 :src="sonaRef"
                 alt="Monz Reference Sheet"
@@ -86,7 +87,8 @@
                         width="88"
                         height="31" />
                     <div class="min-w-0">
-                        <h3 class="font-semibold text-highlighted text-sm truncate">
+                        <h3
+                            class="font-semibold text-highlighted text-sm truncate">
                             {{ a.title }}
                         </h3>
                         <p class="text-muted text-xs truncate">
@@ -100,5 +102,13 @@
 </template>
 
 <script setup lang="ts">
-    import { sonaRef, sonaIcon, sonaFacts, timelineItems, interestCards, achievements } from "~/data/about";
+    import {
+        sonaRef,
+        sonaIcon,
+        sonaFacts,
+        timelineItems,
+        interestCards,
+        achievements,
+        heroInfo,
+    } from "~/data/about";
 </script>

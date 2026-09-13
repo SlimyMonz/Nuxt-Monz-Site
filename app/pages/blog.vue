@@ -1,10 +1,9 @@
 <template>
     <UPageHero
         id="top"
-        headline="Personal Blog"
-        title="Monster Talks"
-        description="News, ramblings, thoughts, etc.">
-    </UPageHero>
+        :headline="heroInfo.headline"
+        :title="heroInfo.title"
+        :description="heroInfo.description" />
     <UPagination
         v-model:page="page"
         :items-per-page="itemsPerPage"
@@ -30,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-    import { BlogPosts } from "~/data/blog";
+    import { BlogPosts, heroInfo } from "~/data/blog";
 
     const page = ref(1);
     const itemsPerPage = 10;

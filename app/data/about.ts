@@ -1,8 +1,15 @@
 import type { TimelineItem } from "@nuxt/ui";
+import type { HeroInfo } from "~/types/contentTypes";
 
 export const heroImage = "/about/monz_ref.jpg";
 export const sonaRef = "/about/monz_ref.png";
 export const sonaIcon = "/about/monz_icon.jpg";
+
+export const heroInfo: HeroInfo = {
+    headline: "Slime Time~",
+    title: "Hey there, I'm Monz!",
+    description: "And here's my reference sheet."
+}
 
 const age = () => {
     const birth = new Date("1993-07-06"),

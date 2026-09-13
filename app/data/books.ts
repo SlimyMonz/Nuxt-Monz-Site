@@ -1,4 +1,11 @@
+import type { HeroInfo } from "~/types/contentTypes";
 import type { Book } from "~/types/mediaTypes";
+
+export const heroInfo: HeroInfo = {
+    headline: "Do not eat!",
+    title: "Monster Reads",
+    description: "A collection of books I've read and enjoyed sorted by release year. Click one to buy on Apple Books!"
+}
 
 export const Books: Book[] = [
     {
