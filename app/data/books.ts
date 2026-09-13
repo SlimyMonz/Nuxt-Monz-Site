@@ -1,11 +1,4 @@
-export interface Book {
-    title: string;
-    author: string;
-    date: string;
-    img: string;
-    description: string;
-    url: string;
-}
+import type { Book } from "~/types/mediaTypes";
 
 export const Books: Book[] = [
     {

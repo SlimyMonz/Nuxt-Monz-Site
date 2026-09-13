@@ -1,11 +1,4 @@
-export interface Movie {
-    title: string;
-    director: string;
-    date: string;
-    img: string;
-    description: string;
-    url: string;
-}
+import type { Movie } from "~/types/mediaTypes";
 
 export const Movies: Movie[] = [
     {

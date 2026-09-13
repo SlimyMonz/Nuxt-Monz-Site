@@ -1,10 +1,4 @@
-interface Obituary {
-    name: string;
-    dates: string;
-    cause: string;
-    memento: string;
-    img: string;
-}
+import type { Obituary } from "~/types/contentTypes";
 
 export const Obituaries: Obituary[] = [
     {

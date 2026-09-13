@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-    import type { ImageFile } from "~/types/imageCollections";
+    import type { ImageFile } from "~/types/imageCollectionTypes";
 
     defineProps<{
         title: string;

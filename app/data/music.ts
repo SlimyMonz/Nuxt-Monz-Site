@@ -1,13 +1,6 @@
-interface Album {
-    title: string;
-    artist: string;
-    year: string;
-    img: string;
-    url: string;
-    description: string;
-}
+import type { MusicAlbum } from "~/types/mediaTypes";
 
-export const Albums: Album[] = [
+export const Albums: MusicAlbum[] = [
     {
         title: "Language & Perspective",
         artist: "Bad Suns",

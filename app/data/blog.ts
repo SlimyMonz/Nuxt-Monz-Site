@@ -1,9 +1,4 @@
-interface BlogPost {
-    id: number;
-    title: string;
-    date: string;
-    body: string;
-}
+import type { BlogPost } from "~/types/contentTypes";
 
 export const BlogPosts: BlogPost[] = [
     {

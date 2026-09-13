@@ -1,10 +1,4 @@
-interface Character {
-    name: string;
-    img: string;
-    species: string;
-    description: string;
-    url: string;
-}
+import type { Character } from "~/types/contentTypes";
 
 export const Characters: Character[] = [
     {

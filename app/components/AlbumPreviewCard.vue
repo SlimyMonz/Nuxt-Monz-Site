@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-    import type { AlbumImages } from "~/types/imageCollections";
+    import type { AlbumImages } from "~/types/imageCollectionTypes";
 
     const props = defineProps<{
         album: AlbumImages[][number];

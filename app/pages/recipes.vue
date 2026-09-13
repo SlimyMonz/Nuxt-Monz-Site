@@ -88,7 +88,8 @@
 
 <script setup lang="ts">
     import { computed, ref } from "vue";
-    import { Recipes, type Recipe } from "~/data/recipes";
+    import { Recipes } from "~/data/recipes";
+    import type { Recipe } from "~/types/contentTypes";
 
     const selected = ref<Recipe | null>(null);
     const multiplier = ref(1);

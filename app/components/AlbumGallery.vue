@@ -58,7 +58,7 @@
 
 <script setup lang="ts">
     import { useAlbumGallery } from "~/composables/useAlbumGallery";
-    import type { AlbumImages } from "~/types/imageCollections";
+    import type { AlbumImages } from "~/types/imageCollectionTypes";
 
     const props = defineProps<{
         manifest: AlbumImages[];

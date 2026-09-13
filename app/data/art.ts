@@ -1,4 +1,4 @@
-import type { AlbumManifest } from "~/types/imageCollections";
+import type { AlbumManifest } from "~/types/imageCollectionTypes";
 
 // Edit this when adding new albums. Expects photos to be inside a folder and album with a unique name, have a thumbnail inside a nested "thumbs" folder, and be named 1.jpg, 2.jpg...etc.
 const albumManifest: AlbumManifest = {

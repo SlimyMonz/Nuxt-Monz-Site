@@ -1,16 +1,4 @@
-export interface Ingredient {
-    name: string;
-    quantity: number;
-    unit?: string;
-}
-
-export interface Recipe {
-    title: string;
-    img: string;
-    description: string;
-    ingredients: Ingredient[];
-    instructions: string[];
-}
+import type { Recipe } from "~/types/contentTypes";
 
 export const Recipes: Recipe[] = [
     {

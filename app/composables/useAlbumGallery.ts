@@ -1,4 +1,4 @@
-import type { AlbumImages, ImageFile, SelectedImage } from "~/types/imageCollections";
+import type { AlbumImages, ImageFile, SelectedImage } from "~/types/imageCollectionTypes";
 
 export function useAlbumGallery(imageManifest: AlbumImages[]) {
     const selectedImage = ref<SelectedImage | null>(null);
