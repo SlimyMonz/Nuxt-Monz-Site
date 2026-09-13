@@ -5,34 +5,28 @@
         title="Monster Talks"
         description="News, ramblings, thoughts, etc.">
     </UPageHero>
-    <UPage>
-        <UPageBody>
-            <UPagination
-                v-model:page="page"
-                :items-per-page="itemsPerPage"
-                :total="sortedBlogPosts.length"
-                show-edges />
-
-            <UBlogPost
-                v-for="post in paginatedBlogPosts"
-                :key="post.id"
-                :title="post.title"
-                :date="post.date"
-                orientation="vertical">
-                <template #description>
-                    <ClientOnly>
-                        <div v-html="post.body" />
-                    </ClientOnly>
-                </template>
-            </UBlogPost>
-            <div class="flex-1" />
-            <UPagination
-                v-model:page="page"
-                :items-per-page="itemsPerPage"
-                :total="sortedBlogPosts.length"
-                show-edges />
-        </UPageBody>
-    </UPage>
+    <UPagination
+        v-model:page="page"
+        :items-per-page="itemsPerPage"
+        :total="sortedBlogPosts.length"
+        show-edges />
+    <UBlogPost
+        v-for="post in paginatedBlogPosts"
+        :key="post.id"
+        :title="post.title"
+        :date="post.date"
+        class="my-5">
+        <template #description>
+            <ClientOnly>
+                <div v-html="post.body"></div>
+            </ClientOnly>
+        </template>
+    </UBlogPost>
+    <UPagination
+        v-model:page="page"
+        :items-per-page="itemsPerPage"
+        :total="sortedBlogPosts.length"
+        show-edges />
 </template>
 
 <script setup lang="ts">
