@@ -6,53 +6,43 @@
 
     <UPageGrid class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         <template
-            v-for="gallery in sortedImageManifest"
-            :key="gallery.title">
+            v-for="album in sortedImageManifest"
+            :key="album.title">
             <div
-                v-if="expandedAlbum === gallery.title"
+                v-if="expandedAlbum === album.title"
                 class="col-span-full mb-6">
                 <div class="mb-6 flex items-center gap-5">
                     <UButton
-                        :label="gallery.title"
+                        :label="album.title"
                         icon="lucide:chevron-left"
                         variant="link"
                         color="neutral"
                         size="xl"
                         class="p-0 text-4xl font-bold"
                         :ui="{ leadingIcon: 'size-8 shrink-0' }"
-                        @click="toggleAlbum(gallery.title)" />
+                        @click="toggleAlbum(album.title)" />
                     <USeparator class="flex-1" />
                 </div>
 
                 <UPageGrid class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                    <UCard
-                        v-for="file in gallery.images"
-                        :key="file.id"
-                        :ui="{
-                            root: 'size-full',
-                            body: 'p-0 sm:p-0 size-full flex items-center justify-center',
-                        }"
-                        class="group aspect-square w-full cursor-pointer overflow-hidden transition hover:ring-4 hover:ring-secondary"
-                        @click="openImage(gallery.title, file)">
-                        <img
-                            :src="file.thumbPath"
-                            :alt="`${gallery.title} photo ${file.id}`"
-                            class="size-full object-cover"
-                            loading="lazy"
-                            decoding="async" />
-                    </UCard>
+                    <AlbumImageCard
+                        v-for="image in album.images"
+                        :key="image.id"
+                        :title="album.title"
+                        :image="image"
+                        @click="openImage(album.title, image)" />
                 </UPageGrid>
             </div>
-            <GalleryPreviewCard
+            <AlbumPreviewCard
                 v-else
-                :album="gallery"
-                @select="toggleAlbum(gallery.title)" />
+                :album="album"
+                @select="toggleAlbum(album.title)" />
         </template>
     </UPageGrid>
 
     <UModal
         v-model:open="isOpen"
-        :title="activeImage?.title"
+        :title="selectedImage?.title"
         :ui="{ content: 'bg-0 backdrop-blur' }"
         fullscreen
         @update:open="(value) => !value && closeImage()">
@@ -61,9 +51,9 @@
                 class="relative flex h-full items-center justify-center"
                 @click="closeImage">
                 <img
-                    v-if="activeImage"
-                    :src="activeImage.imageFile.path"
-                    :alt="`${activeImage.title} photo ${activeImage.imageFile.id}`"
+                    v-if="selectedImage"
+                    :src="selectedImage.imageFile.path"
+                    :alt="`${selectedImage.title} photo ${selectedImage.imageFile.id}`"
                     class="max-h-[85vh] max-w-full rounded-lg object-contain"
                     @click.stop />
             </div>
@@ -75,15 +65,14 @@
     import { ImageManifest } from "~/data/photos";
     import type { SelectedImage, ImageFile } from "~/types/imageCollections";
 
-    const activeImage = ref<SelectedImage | null>(null);
+    const selectedImage = ref<SelectedImage | null>(null);
     const expandedAlbum = ref<string | null>(null);
-
     const sortedImageManifest = [...ImageManifest].sort((a, b) => Number(b.title) - Number(a.title));
 
     const isOpen = computed({
-        get: () => activeImage.value !== null,
+        get: () => selectedImage.value !== null,
         set: (value: boolean) => {
-            if (!value) activeImage.value = null;
+            if (!value) selectedImage.value = null;
         },
     });
 
@@ -91,11 +80,11 @@
         expandedAlbum.value = expandedAlbum.value === title ? null : title;
     }
 
-    function openImage(title: string, file: ImageFile) {
-        activeImage.value = { title, imageFile: file };
+    function openImage(title: string, imageFile: ImageFile) {
+        selectedImage.value = { title, imageFile };
     }
 
     function closeImage() {
-        activeImage.value = null;
+        selectedImage.value = null;
     }
 </script>
