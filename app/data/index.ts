@@ -1,10 +1,6 @@
 import type { ButtonProps } from "@nuxt/ui";
+import type { Badge } from "~/types/contentTypes";
 
-interface Badge {
-    text: string;
-    img: string;
-    url: string;
-}
 
 export const HeroLinks = ref<ButtonProps[]>([
     {
@@ -48,12 +44,12 @@ export const HeroLinks = ref<ButtonProps[]>([
 export const badges: Badge[] = [
     {
         text: "and Null",
-        img: "https://www.sheeeeeeeep.art/imgs/art/button.png",
+        img: "/badges/null_sheep.png",
         url: "https://www.sheeeeeeeep.art/",
     },
     {
         text: "Aks",
-        img: "https://akselmo.dev/assets/images/buttons/akselmo.png",
+        img: "/badges/akselmo.png",
         url: "https://akselmo.dev/",
     },
     {
@@ -63,7 +59,7 @@ export const badges: Badge[] = [
     },
     {
         text: "Regal",
-        img: "https://cobra.monster/_astro/cobra.monster.OCLY4hzR_29y7l4.gif",
+        img: "/badges/cobra.monster.gif",
         url: "https://cobra.monster/",
     },
 ];

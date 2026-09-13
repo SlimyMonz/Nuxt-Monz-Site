@@ -1,3 +1,10 @@
+
+export interface Badge {
+    text: string;
+    img: string;
+    url: string;
+}
+
 export interface BlogPost {
     id: number;
     title: string;
