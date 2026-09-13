@@ -6,7 +6,7 @@
 
     <UPageGrid class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         <template
-            v-for="gallery in PhotoManifest"
+            v-for="gallery in sortedImageManifest"
             :key="gallery.title">
             <div
                 v-if="expandedAlbum === gallery.title"
@@ -26,7 +26,7 @@
 
                 <UPageGrid class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                     <UCard
-                        v-for="file in gallery.files"
+                        v-for="file in gallery.images"
                         :key="file.id"
                         :ui="{
                             root: 'size-full',
@@ -35,7 +35,7 @@
                         class="group aspect-square w-full cursor-pointer overflow-hidden transition hover:ring-4 hover:ring-secondary"
                         @click="openImage(gallery.title, file)">
                         <img
-                            :src="file.thumb"
+                            :src="file.thumbPath"
                             :alt="`${gallery.title} photo ${file.id}`"
                             class="size-full object-cover"
                             loading="lazy"
@@ -43,32 +43,10 @@
                     </UCard>
                 </UPageGrid>
             </div>
-
-            <UCard
+            <GalleryPreviewCard
                 v-else
-                :ui="{ body: 'p-0 sm:p-0', root: 'flex flex-col' }"
-                class="group cursor-pointer overflow-hidden text-left transition hover:ring-4 hover:ring-secondary"
-                @click="toggleAlbum(gallery.title)">
-                <div class="grid aspect-square w-full grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden">
-                    <div
-                        v-for="thumb in previewThumbs(gallery)"
-                        :key="thumb.id"
-                        class="aspect-square size-full overflow-hidden">
-                        <img
-                            :src="thumb.thumb"
-                            :alt="`${gallery.title} preview`"
-                            class="size-full object-cover"
-                            loading="lazy"
-                            decoding="async" />
-                    </div>
-                </div>
-                <div class="p-3">
-                    <h3 class="truncate text-lg font-semibold">
-                        {{ gallery.title }}
-                    </h3>
-                    <p class="text-sm text-muted">{{ gallery.files.length }} photos</p>
-                </div>
-            </UCard>
+                :album="gallery"
+                @select="toggleAlbum(gallery.title)" />
         </template>
     </UPageGrid>
 
@@ -84,8 +62,8 @@
                 @click="closeImage">
                 <img
                     v-if="activeImage"
-                    :src="activeImage.file.full"
-                    :alt="`${activeImage.title} photo ${activeImage.file.id}`"
+                    :src="activeImage.imageFile.path"
+                    :alt="`${activeImage.title} photo ${activeImage.imageFile.id}`"
                     class="max-h-[85vh] max-w-full rounded-lg object-contain"
                     @click.stop />
             </div>
@@ -94,11 +72,13 @@
 </template>
 
 <script setup lang="ts">
-    import { PhotoManifest } from "~/data/photos";
-    import type { ActiveImage, PhotoFile } from "~/data/photos";
+    import { ImageManifest } from "~/data/photos";
+    import type { SelectedImage, ImageFile } from "~/types/imageCollections";
 
-    const activeImage = ref<ActiveImage | null>(null);
+    const activeImage = ref<SelectedImage | null>(null);
     const expandedAlbum = ref<string | null>(null);
+
+    const sortedImageManifest = [...ImageManifest].sort((a, b) => Number(b.title) - Number(a.title));
 
     const isOpen = computed({
         get: () => activeImage.value !== null,
@@ -111,13 +91,8 @@
         expandedAlbum.value = expandedAlbum.value === title ? null : title;
     }
 
-    function previewThumbs(gallery: (typeof PhotoManifest)[number]) {
-        // preview up to the last 4 photos in the album.
-        return gallery.files.slice(-4);
-    }
-
-    function openImage(title: string, file: PhotoFile) {
-        activeImage.value = { title, file };
+    function openImage(title: string, file: ImageFile) {
+        activeImage.value = { title, imageFile: file };
     }
 
     function closeImage() {
