@@ -4,8 +4,9 @@ import type { Book } from "~/types/mediaTypes";
 export const heroInfo: HeroInfo = {
     headline: "Do not eat!",
     title: "Monster Reads",
-    description: "A collection of books I've read and enjoyed sorted by release year. Click one to buy on Apple Books!"
-}
+    description:
+        "A collection of books I've read and enjoyed sorted by release year. Click one to buy on Apple Books!",
+};
 
 export const Books: Book[] = [
     {
@@ -15,6 +16,14 @@ export const Books: Book[] = [
         img: "/books/three_body_problem.jpg",
         description: `A slow burn that takes some patience to get into, but becomes an absolutely wild ride once it gets going. Strange, ambitious, and full of fascinating ideas.`,
         url: "https://books.apple.com/us/book/the-three-body-problem/id856893409",
+    },
+    {
+        title: "The Dark Forest",
+        author: "Cixin Liu & Joel Martinsen",
+        date: "2015",
+        img: "/books/dark_forest.jpg",
+        description: `Starts off less slow than The Three Body Problem. Following new characters, we see the struggles of humanity as it faces a looming threat... and itself!`,
+        url: "https://books.apple.com/us/book/the-dark-forest/id961788941",
     },
     {
         title: "Project Hail Mary",

@@ -5,7 +5,8 @@
         <UMain>
             <UContainer
                 :class="{
-                    'bg-black/10 backdrop-blur-3xl pb-8 rounded-b-3xl': colorMode.preference === 'dark',
+                    'bg-black/10 backdrop-blur-3xl pb-8 rounded-b-3xl':
+                        colorMode.preference === 'dark',
                 }">
                 <NuxtPage />
             </UContainer>
