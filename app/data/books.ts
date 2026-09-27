@@ -26,6 +26,14 @@ export const Books: Book[] = [
         url: "https://books.apple.com/us/book/the-dark-forest/id961788941",
     },
     {
+        title: "Death's End",
+        author: "Cixin Liu & Ken Liu",
+        date: "2016",
+        img: "/books/deaths_end.jpg",
+        description: `A book that quickly deviates from the others. Where the second book was transformative, this ends up feeling like a cloud of entropy that suddenly snaps into an infinite point.`,
+        url: "https://books.apple.com/us/book/deaths-end/id987374190",
+    },
+    {
         title: "Project Hail Mary",
         author: "Andy Weir",
         date: "2021",
