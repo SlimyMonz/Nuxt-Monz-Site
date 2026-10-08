@@ -3,25 +3,32 @@
         id="top"
         :headline="heroInfo.headline"
         :title="heroInfo.title"
-        :description="heroInfo.description" />
+        :description="heroInfo.description"
+    />
     <UPageGrid>
         <UCard
             v-for="recipe in Recipes"
             :key="recipe.title"
             class="transition hover:ring-4 hover:ring-secondary"
-            @click="selectRecipe(recipe)">
+            @click="selectRecipe(recipe)"
+        >
             <template #header>
-                <h2 class="text-center text-2xl font-bold tracking-tight text-highlighted">
+                <h2
+                    class="text-center text-2xl font-bold tracking-tight text-highlighted"
+                >
                     {{ recipe.title }}
                 </h2>
             </template>
 
-            <div class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-md bg-elevated">
+            <div
+                class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-md bg-elevated"
+            >
                 <img
                     v-if="recipe.img"
                     :src="recipe.img"
                     :alt="recipe.title"
-                    class="block h-full w-full object-cover" />
+                    class="block h-full w-full object-cover"
+                />
             </div>
 
             <template #footer>
@@ -35,32 +42,39 @@
         :title="selected?.title"
         :ui="{
             overlay: 'backdrop-blur-sm',
-        }">
+        }"
+    >
         <template #body>
             <div
                 v-if="selected"
-                class="space-y-4">
+                class="space-y-4"
+            >
                 <div class="flex items-center justify-between gap-4">
                     <p class="text-xl font-bold">Ingredients</p>
                     <UFormField
                         label="Servings"
-                        orientation="horizontal">
+                        orientation="horizontal"
+                    >
                         <UInputNumber
                             v-model="multiplier"
                             :min="1"
                             :max="9"
                             :step="1"
                             class="w-24"
-                            variant="soft" />
+                            variant="soft"
+                        />
                     </UFormField>
                 </div>
 
                 <ul class="space-y-1 text-toned">
                     <li
                         v-for="ingredient in selected.ingredients"
-                        :key="ingredient.name">
+                        :key="ingredient.name"
+                    >
                         <span class="font-medium text-highlighted">
-                            {{ formatQuantity(ingredient.quantity * multiplier) }}
+                            {{
+                                formatQuantity(ingredient.quantity * multiplier)
+                            }}
                             <template v-if="ingredient.unit">
                                 {{ ingredient.unit }}
                             </template>
@@ -76,7 +90,8 @@
                 <ol class="list-inside list-decimal space-y-2 text-toned">
                     <li
                         v-for="step in selected.instructions"
-                        :key="step">
+                        :key="step"
+                    >
                         {{ step }}
                     </li>
                 </ol>
@@ -125,7 +140,9 @@
             return whole.toString();
         }
 
-        const match = fractionGlyphs.find(([value]) => Math.abs(value - remainder) < 0.02);
+        const match = fractionGlyphs.find(
+            ([value]) => Math.abs(value - remainder) < 0.02,
+        );
 
         const fraction = match?.[1] ?? remainder.toFixed(2);
 

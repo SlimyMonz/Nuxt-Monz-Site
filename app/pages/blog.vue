@@ -3,18 +3,21 @@
         id="top"
         :headline="heroInfo.headline"
         :title="heroInfo.title"
-        :description="heroInfo.description" />
+        :description="heroInfo.description"
+    />
     <UPagination
         v-model:page="page"
         :items-per-page="itemsPerPage"
         :total="sortedBlogPosts.length"
-        show-edges />
+        show-edges
+    />
     <UBlogPost
         v-for="post in paginatedBlogPosts"
         :key="post.id"
         :title="post.title"
         :date="post.date"
-        class="my-5">
+        class="my-5"
+    >
         <template #description>
             <ClientOnly>
                 <div v-html="post.body"></div>
@@ -25,7 +28,8 @@
         v-model:page="page"
         :items-per-page="itemsPerPage"
         :total="sortedBlogPosts.length"
-        show-edges />
+        show-edges
+    />
 </template>
 
 <script setup lang="ts">

@@ -210,12 +210,18 @@ void main(){
         let height = Math.max(1, Math.floor(canvasEl.value.clientHeight * dpr));
 
         if (width > props.maxWidth || height > props.maxHeight) {
-            const scale = Math.min(props.maxWidth / width, props.maxHeight / height);
+            const scale = Math.min(
+                props.maxWidth / width,
+                props.maxHeight / height,
+            );
             width = Math.max(1, Math.floor(width * scale));
             height = Math.max(1, Math.floor(height * scale));
         }
 
-        if (canvasEl.value.width !== width || canvasEl.value.height !== height) {
+        if (
+            canvasEl.value.width !== width ||
+            canvasEl.value.height !== height
+        ) {
             canvasEl.value.width = width;
             canvasEl.value.height = height;
             gl.viewport(0, 0, width, height);
@@ -278,9 +284,20 @@ void main(){
         const elapsed = (now - startTime) / 1000;
 
         gl.uniform1f(uniformLocations.u_time, elapsed);
-        gl.uniform2f(uniformLocations.u_resolution, canvasEl.value.width, canvasEl.value.height);
-        gl.uniform2f(uniformLocations.u_mouse, mouseDevicePx[0], mouseDevicePx[1]);
-        gl.uniform1f(uniformLocations.u_pixelRatio, Math.min(window.devicePixelRatio || 1, 2));
+        gl.uniform2f(
+            uniformLocations.u_resolution,
+            canvasEl.value.width,
+            canvasEl.value.height,
+        );
+        gl.uniform2f(
+            uniformLocations.u_mouse,
+            mouseDevicePx[0],
+            mouseDevicePx[1],
+        );
+        gl.uniform1f(
+            uniformLocations.u_pixelRatio,
+            Math.min(window.devicePixelRatio || 1, 2),
+        );
         gl.uniform1f(uniformLocations.u_flow, props.flow);
         gl.uniform1f(uniformLocations.u_viscosity, props.viscosity);
         gl.uniform1f(uniformLocations.u_spread, props.spread);
@@ -295,7 +312,9 @@ void main(){
 
     function initGL() {
         const canvas = canvasEl.value;
-        gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+        gl =
+            canvas.getContext("webgl") ||
+            canvas.getContext("experimental-webgl");
         if (!gl) {
             console.error("WebGL is not supported in this browser.");
             return;
@@ -305,7 +324,9 @@ void main(){
         gl.useProgram(program);
 
         // fullscreen quad (two triangles)
-        const quad = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
+        const quad = new Float32Array([
+            -1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1,
+        ]);
         const buffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
         gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
@@ -323,7 +344,10 @@ void main(){
             u_viscosity: gl.getUniformLocation(program, "u_viscosity"),
             u_spread: gl.getUniformLocation(program, "u_spread"),
             u_polish: gl.getUniformLocation(program, "u_polish"),
-            u_mouseInfluence: gl.getUniformLocation(program, "u_mouseInfluence"),
+            u_mouseInfluence: gl.getUniformLocation(
+                program,
+                "u_mouseInfluence",
+            ),
             u_palette: gl.getUniformLocation(program, "u_palette[0]"),
         };
 
@@ -378,7 +402,10 @@ void main(){
         if (rafId) cancelAnimationFrame(rafId);
         window.removeEventListener("pointermove", handlePointerMove);
         window.removeEventListener("pointerleave", handlePointerLeave);
-        document.removeEventListener("visibilitychange", handleVisibilityChange);
+        document.removeEventListener(
+            "visibilitychange",
+            handleVisibilityChange,
+        );
         if (resizeObserver) {
             resizeObserver.disconnect();
         } else {
@@ -396,7 +423,8 @@ void main(){
 <template>
     <canvas
         ref="canvasEl"
-        class="oil-shader-canvas"></canvas>
+        class="oil-shader-canvas"
+    ></canvas>
 </template>
 
 <style scoped>

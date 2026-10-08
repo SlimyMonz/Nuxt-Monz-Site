@@ -3,18 +3,23 @@
         id="top"
         :headline="heroInfo.headline"
         :title="heroInfo.title"
-        :description="heroInfo.description" />
+        :description="heroInfo.description"
+    />
     <UPageGrid>
         <div
             v-for="(obituary, i) in Obituaries"
             :key="i"
-            class="block">
+            class="block"
+        >
             <UCard
                 class="h-full"
-                :ui="{ body: 'p-0 sm:p-0' }">
+                :ui="{ body: 'p-0 sm:p-0' }"
+            >
                 <template #header>
                     <div class="flex flex-col gap-2 text-center">
-                        <h2 class="text-2xl font-bold text-highlighted tracking-tight">
+                        <h2
+                            class="text-2xl font-bold text-highlighted tracking-tight"
+                        >
                             {{ obituary.name }}
                         </h2>
                     </div>
@@ -22,10 +27,13 @@
                 <img
                     :src="obituary.img"
                     :alt="`${obituary.img}`"
-                    class="h-full object-cover block" />
+                    class="h-full object-cover block"
+                />
                 <template #footer>
                     <div class="flex flex-col gap-2 text-center">
-                        <p class="font-medium text-muted uppercase tracking-wide">
+                        <p
+                            class="font-medium text-muted uppercase tracking-wide"
+                        >
                             {{ obituary.dates }}
                         </p>
 
@@ -33,7 +41,9 @@
                             {{ obituary.cause }}
                         </p>
 
-                        <p class="mt-2 w-full leading-relaxed text-toned border-t border-default pt-3 px-2 text-left">
+                        <p
+                            class="mt-2 w-full leading-relaxed text-toned border-t border-default pt-3 px-2 text-left"
+                        >
                             {{ obituary.memento }}
                         </p>
                     </div>

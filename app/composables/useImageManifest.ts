@@ -1,4 +1,9 @@
-import type { Album, AlbumManifest, ImageFile, AlbumImages } from "~/types/imageCollectionTypes";
+import type {
+    Album,
+    AlbumManifest,
+    ImageFile,
+    AlbumImages,
+} from "~/types/imageCollectionTypes";
 
 export function buildImageFiles(rootDir: string, album: Album): ImageFile[] {
     const files: ImageFile[] = [];

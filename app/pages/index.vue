@@ -4,7 +4,8 @@
         :headline="heroInfo.headline"
         :title="heroInfo.title"
         :description="heroInfo.description"
-        :links="HeroLinks" />
+        :links="HeroLinks"
+    />
 
     <USeparator />
 
@@ -13,20 +14,24 @@
         headline="New!"
         title="Latest Stuff"
         description="Click one to see more!"
-        class="-my-5">
+        class="-my-5"
+    >
         <ULink
             to="/blog"
-            target="_self">
+            target="_self"
+        >
             <UCard
                 title="Blog Post"
                 class="transition hover:ring-4 hover:ring-secondary"
-                :ui="{ body: 'p-0 sm:p-0' }">
+                :ui="{ body: 'p-0 sm:p-0' }"
+            >
                 <UBlogPost
                     :key="latestPost.id"
                     :title="latestPost.title"
                     :date="latestPost.date"
                     variant="ghost"
-                    orientation="vertical">
+                    orientation="vertical"
+                >
                     <template #description>
                         <ClientOnly>
                             <div v-html="latestPost.body" />
@@ -36,45 +41,57 @@
             </UCard>
         </ULink>
 
-        <UPageGrid class="grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+        <UPageGrid
+            class="grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4"
+        >
             <ULink
                 to="/art"
                 title="Art"
-                target="_self">
+                target="_self"
+            >
                 <UCard
                     :key="latestArt?.id"
                     title="ART"
                     class="overflow-hidden transition hover:ring-4 hover:ring-secondary"
-                    :ui="{ body: 'p-0 sm:p-0' }">
+                    :ui="{ body: 'p-0 sm:p-0' }"
+                >
                     <img
                         :src="latestArt?.thumbPath"
                         :alt="latestArt?.id"
                         class="block w-full h-auto"
                         loading="lazy"
-                        decoding="async" />
+                        decoding="async"
+                    />
                 </UCard>
             </ULink>
 
             <ULink
                 to="/books"
                 :title="latestBook?.title"
-                target="_self">
+                target="_self"
+            >
                 <UCard
                     class="transition hover:ring-4 hover:ring-secondary"
                     title="BOOK"
-                    :ui="{ body: 'p-0 sm:p-0' }">
+                    :ui="{ body: 'p-0 sm:p-0' }"
+                >
                     <img
                         :src="latestBook.img"
                         :alt="`${latestBook.title} by ${latestBook.author}`"
                         class="w-full object-cover block"
                         loading="lazy"
-                        decoding="async" />
+                        decoding="async"
+                    />
                     <template #footer>
                         <div class="flex flex-col gap-0.5">
-                            <h2 class="text-left uppercase text-lg text-highlighted truncate">
+                            <h2
+                                class="text-left uppercase text-lg text-highlighted truncate"
+                            >
                                 {{ latestBook.title }}
                             </h2>
-                            <div class="flex items-baseline justify-between gap-2">
+                            <div
+                                class="flex items-baseline justify-between gap-2"
+                            >
                                 <span class="text-left truncate">
                                     {{ latestBook.author }}
                                 </span>
@@ -94,23 +111,30 @@
             <ULink
                 to="/movies"
                 :title="latestMovie?.title"
-                target="_self">
+                target="_self"
+            >
                 <UCard
                     class="transition hover:ring-4 hover:ring-secondary"
                     title="MOVIE"
-                    :ui="{ body: 'p-0 sm:p-0' }">
+                    :ui="{ body: 'p-0 sm:p-0' }"
+                >
                     <img
                         :src="latestMovie.img"
                         :alt="`${latestMovie.title} by ${latestMovie.director}`"
                         class="w-full object-cover block"
                         loading="lazy"
-                        decoding="async" />
+                        decoding="async"
+                    />
                     <template #footer>
                         <div class="flex flex-col gap-0.5">
-                            <h2 class="text-left uppercase text-lg text-highlighted truncate">
+                            <h2
+                                class="text-left uppercase text-lg text-highlighted truncate"
+                            >
                                 {{ latestMovie.title }}
                             </h2>
-                            <div class="flex items-baseline justify-between gap-2">
+                            <div
+                                class="flex items-baseline justify-between gap-2"
+                            >
                                 <span class="text-left truncate">
                                     {{ latestMovie.director }}
                                 </span>
@@ -128,23 +152,30 @@
             </ULink>
             <ULink
                 to="/music"
-                :title="latestAlbum?.title">
+                :title="latestAlbum?.title"
+            >
                 <UCard
                     class="transition hover:ring-4 hover:ring-secondary"
                     title="MUSIC"
-                    :ui="{ body: 'p-0 sm:p-0' }">
+                    :ui="{ body: 'p-0 sm:p-0' }"
+                >
                     <img
                         :src="latestAlbum.img"
                         :alt="`${latestAlbum.title} by ${latestAlbum.artist}`"
                         class="w-full object-cover block"
                         loading="lazy"
-                        decoding="async" />
+                        decoding="async"
+                    />
                     <template #footer>
                         <div class="flex flex-col gap-0.5">
-                            <h2 class="text-left uppercase text-lg text-highlighted truncate">
+                            <h2
+                                class="text-left uppercase text-lg text-highlighted truncate"
+                            >
                                 {{ latestAlbum.title }}
                             </h2>
-                            <div class="flex items-baseline justify-between gap-2">
+                            <div
+                                class="flex items-baseline justify-between gap-2"
+                            >
                                 <span class="text-left truncate">
                                     {{ latestAlbum.artist }}
                                 </span>
@@ -169,17 +200,20 @@
         id="badges"
         title="Badges"
         description="Links to other people's websites!"
-        class="-my-5">
+        class="-my-5"
+    >
         <div class="flex flex-wrap justify-center gap-2">
             <UTooltip
                 v-for="(b, i) in badges"
                 :key="i"
-                :text="b.text">
+                :text="b.text"
+            >
                 <a
                     :href="b.url"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="block">
+                    class="block"
+                >
                     <img
                         :src="b.img"
                         :alt="b.text"
@@ -187,7 +221,8 @@
                         height="62"
                         class="[image-rendering:pixelated] transition hover:ring-4 hover:ring-secondary"
                         loading="lazy"
-                        decoding="async" />
+                        decoding="async"
+                    />
                 </a>
             </UTooltip>
         </div>
@@ -206,5 +241,7 @@
     const latestArt = [...ImageManifest].at(-1)!.images.at(-1);
     const latestBook = Books.at(-1)!;
     const latestMovie = Movies.at(-1)!;
-    const latestAlbum = [...Albums].sort((a, b) => Number(a.year) - Number(b.year)).at(-1)!;
+    const latestAlbum = [...Albums]
+        .sort((a, b) => Number(a.year) - Number(b.year))
+        .at(-1)!;
 </script>

@@ -3,7 +3,8 @@
         id="top"
         :headline="heroInfo.headline"
         :title="heroInfo.title"
-        :description="heroInfo.description" />
+        :description="heroInfo.description"
+    />
     <UPageGrid>
         <MediaCard
             v-for="(book, i) in sortedBooks"
@@ -13,7 +14,8 @@
             :creator="book.author"
             :date="book.date"
             :imagePath="book.img"
-            :textBody="book.description" />
+            :textBody="book.description"
+        />
     </UPageGrid>
 </template>
 

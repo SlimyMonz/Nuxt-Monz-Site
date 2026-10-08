@@ -1,10 +1,16 @@
-import type { AlbumImages, ImageFile, SelectedImage } from "~/types/imageCollectionTypes";
+import type {
+    AlbumImages,
+    ImageFile,
+    SelectedImage,
+} from "~/types/imageCollectionTypes";
 
 export function useAlbumGallery(imageManifest: AlbumImages[]) {
     const selectedImage = ref<SelectedImage | null>(null);
     const expandedAlbum = ref<string | null>(null);
 
-    const sortedImageManifest = [...imageManifest].sort((a, b) => Number(b.title) - Number(a.title));
+    const sortedImageManifest = [...imageManifest].sort(
+        (a, b) => Number(b.title) - Number(a.title),
+    );
 
     const isOpen = computed({
         get: () => selectedImage.value !== null,

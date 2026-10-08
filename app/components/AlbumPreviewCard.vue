@@ -2,18 +2,23 @@
     <UCard
         :ui="{ body: 'p-0 sm:p-0', root: 'flex flex-col' }"
         class="group cursor-pointer overflow-hidden text-left transition hover:ring-4 hover:ring-secondary"
-        @click="$emit('select')">
-        <div class="grid aspect-square w-full grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden">
+        @click="$emit('select')"
+    >
+        <div
+            class="grid aspect-square w-full grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden"
+        >
             <div
                 v-for="thumb in previewThumbs"
                 :key="thumb.id"
-                class="aspect-square size-full overflow-hidden">
+                class="aspect-square size-full overflow-hidden"
+            >
                 <img
                     :src="thumb.thumbPath"
                     :alt="`${album.title} preview`"
                     class="size-full object-cover"
                     loading="lazy"
-                    decoding="async" />
+                    decoding="async"
+                />
             </div>
         </div>
 

@@ -74,13 +74,13 @@ Each page in /pages also automatically routes and updates the header navigation.
 
 ### Quick reference
 
-| What you want to change | Where to look |
-|---|---|
-| Page text / entries | `app/data/<page>.ts` |
-| Images | `public/<page>/`, referenced from the matching `app/data/<page>.ts` |
-| Site-wide footer content | `app/data/footer.ts` |
-| Homepage | `app/data/index.ts`, `app/pages/index.vue` |
-| Page layout / components | `app/components/`, `app/pages/` |
-| Shared logic | `app/composables/` |
-| Types | `app/types/` |
-| Background | `app/app.vue`, `app/components/SlimyBackground.vue` |
+| What you want to change  | Where to look                                                       |
+| ------------------------ | ------------------------------------------------------------------- |
+| Page text / entries      | `app/data/<page>.ts`                                                |
+| Images                   | `public/<page>/`, referenced from the matching `app/data/<page>.ts` |
+| Site-wide footer content | `app/data/footer.ts`                                                |
+| Homepage                 | `app/data/index.ts`, `app/pages/index.vue`                          |
+| Page layout / components | `app/components/`, `app/pages/`                                     |
+| Shared logic             | `app/composables/`                                                  |
+| Types                    | `app/types/`                                                        |
+| Background               | `app/app.vue`, `app/components/SlimyBackground.vue`                 |

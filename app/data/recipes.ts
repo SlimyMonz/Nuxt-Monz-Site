@@ -3,8 +3,8 @@ import type { HeroInfo, Recipe } from "~/types/contentTypes";
 export const heroInfo: HeroInfo = {
     headline: "Mmmmm~",
     title: "Monster Eats",
-    description: "A collection of favorites. Click a card for the recipe!"
-}
+    description: "A collection of favorites. Click a card for the recipe!",
+};
 
 export const Recipes: Recipe[] = [
     {
@@ -43,7 +43,8 @@ export const Recipes: Recipe[] = [
     {
         title: "Haluski",
         img: "/recipes/haluski.jpg",
-        description: "Traditional Hungarian dish made with buttery egg noodles, fried cabbage, and onions.",
+        description:
+            "Traditional Hungarian dish made with buttery egg noodles, fried cabbage, and onions.",
         ingredients: [
             { quantity: 4, unit: "oz", name: "bacon, diced small" },
             { quantity: 6, unit: "tbsp", name: "unsalted butter, divided" },

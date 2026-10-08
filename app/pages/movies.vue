@@ -3,7 +3,8 @@
         id="top"
         :headline="heroInfo.headline"
         :title="heroInfo.title"
-        :description="heroInfo.description" />
+        :description="heroInfo.description"
+    />
     <UPageGrid>
         <MediaCard
             v-for="(movie, i) in sortedMovies"
@@ -13,11 +14,14 @@
             :creator="movie.director"
             :date="movie.date"
             :imagePath="movie.img"
-            :textBody="movie.description" />
+            :textBody="movie.description"
+        />
     </UPageGrid>
 </template>
 
 <script setup lang="ts">
     import { Movies, heroInfo } from "~/data/movies";
-    const sortedMovies = [...Movies].sort((a, b) => Number(b.date) - Number(a.date));
+    const sortedMovies = [...Movies].sort(
+        (a, b) => Number(b.date) - Number(a.date),
+    );
 </script>

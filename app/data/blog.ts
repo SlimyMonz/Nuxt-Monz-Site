@@ -3,8 +3,8 @@ import type { BlogPost, HeroInfo } from "~/types/contentTypes";
 export const heroInfo: HeroInfo = {
     headline: "Personal Blog",
     title: "Monster Talks",
-    description: "News, ramblings, thoughts, etc."
-}
+    description: "News, ramblings, thoughts, etc.",
+};
 
 export const BlogPosts: BlogPost[] = [
     {

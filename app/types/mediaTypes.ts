@@ -24,4 +24,3 @@ export interface MusicAlbum {
     url: string;
     description: string;
 }
-

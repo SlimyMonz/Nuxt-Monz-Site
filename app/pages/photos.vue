@@ -3,7 +3,8 @@
         id="top"
         :headline="heroInfo.headline"
         :title="heroInfo.title"
-        :description="heroInfo.description" />
+        :description="heroInfo.description"
+    />
     <AlbumGallery :manifest="ImageManifest" />
 </template>
 

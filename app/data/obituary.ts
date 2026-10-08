@@ -3,8 +3,8 @@ import type { HeroInfo, Obituary } from "~/types/contentTypes";
 export const heroInfo: HeroInfo = {
     headline: "Rememberance",
     title: "Rest in Peace",
-    description: "Loved ones that have moved on."
-}
+    description: "Loved ones that have moved on.",
+};
 
 export const Obituaries: Obituary[] = [
     {

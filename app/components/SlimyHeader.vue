@@ -1,7 +1,11 @@
 <template>
     <UHeader toggle-side="left">
         <template #title>
-            <span class="font-bold px-5 py-2 text-2xl rounded-md transition hover:bg-primary/20"> Monz Site </span>
+            <span
+                class="font-bold px-5 py-2 text-2xl rounded-md transition hover:bg-primary/20"
+            >
+                Monz Site
+            </span>
         </template>
 
         <UNavigationMenu
@@ -10,7 +14,8 @@
             class="bg-muted/50 backdrop-blur rounded-full px-1.75 border border-muted/50"
             :ui="{
                 link: 'px-3 py-1 text-md before:rounded-full hover:before:bg-primary/20',
-            }" />
+            }"
+        />
 
         <template #right>
             <UColorModeButton class="hover:bg-primary/20" />
@@ -24,7 +29,8 @@
                 :ui="{
                     list: 'gap-5 px-16',
                     link: 'px-4 py-4 my-4 text-2xl justify-center text-center before:rounded-full before:bg-muted hover:before:bg-primary/20',
-                }" />
+                }"
+            />
         </template>
     </UHeader>
 </template>

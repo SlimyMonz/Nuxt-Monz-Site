@@ -8,14 +8,15 @@ export const sonaIcon = "/about/monz_icon.jpg";
 export const heroInfo: HeroInfo = {
     headline: "Slime Time~",
     title: "Hey there, I'm Monz!",
-    description: "And here's my reference sheet."
-}
+    description: "And here's my reference sheet.",
+};
 
 const age = () => {
     const birth = new Date("1993-07-06"),
         now = new Date();
     let years = now.getFullYear() - birth.getFullYear();
-    if (now < new Date(now.getFullYear(), birth.getMonth(), birth.getDate())) years--;
+    if (now < new Date(now.getFullYear(), birth.getMonth(), birth.getDate()))
+        years--;
     return `${years} years old`;
 };
 

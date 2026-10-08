@@ -4,8 +4,8 @@ import type { MusicAlbum } from "~/types/mediaTypes";
 export const heroInfo: HeroInfo = {
     headline: "Monster Jams!",
     title: "Favorite Albums",
-    description: "Sorted by Artist. Click an album to check out samples!"
-}
+    description: "Sorted by Artist. Click an album to check out samples!",
+};
 
 export const Albums: MusicAlbum[] = [
     {
@@ -95,7 +95,8 @@ export const Albums: MusicAlbum[] = [
         year: "2025",
         img: "/music/sea_fever_surface_sound.jpg",
         url: "https://seafeverband.bandcamp.com/album/surface-sound-2",
-        description: "The electronics hits paired with the layered vocals makes you want to get up and get shit done.",
+        description:
+            "The electronics hits paired with the layered vocals makes you want to get up and get shit done.",
     },
     {
         title: "No Virtue",

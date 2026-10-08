@@ -3,8 +3,9 @@ import type { Character, HeroInfo } from "~/types/contentTypes";
 export const heroInfo: HeroInfo = {
     headline: "Yeah, they're all gay.",
     title: "Character Page",
-    description: "Click on a character to view their FurAffinity gallery! Account is required and 18+ Only!"
-}
+    description:
+        "Click on a character to view their FurAffinity gallery! Account is required and 18+ Only!",
+};
 
 export const Characters: Character[] = [
     {
@@ -19,21 +20,24 @@ export const Characters: Character[] = [
         name: "Dan",
         img: "/characters/dan.jpg",
         species: "Alligator",
-        description: "Full name is Dorothy Heaver, but his gym bros call him Dan. He's totally not gay! Unless...",
+        description:
+            "Full name is Dorothy Heaver, but his gym bros call him Dan. He's totally not gay! Unless...",
         url: "https://www.furaffinity.net/gallery/slimymonz/folder/1198512/Dan",
     },
     {
         name: "Monz",
         img: "/characters/monz.jpg",
         species: "Demon, Slime Monster",
-        description: "This is my official 'self' as an online persona. I am Monz! Monz is me!",
+        description:
+            "This is my official 'self' as an online persona. I am Monz! Monz is me!",
         url: "https://www.furaffinity.net/gallery/slimymonz/folder/1198298/Monz",
     },
     {
         name: "Zenyth",
         img: "/characters/zenyth.jpg",
         species: "Demon",
-        description: "A holy man transformed into a big, gay, red demon. He loves Ignacis, his demon partner~",
+        description:
+            "A holy man transformed into a big, gay, red demon. He loves Ignacis, his demon partner~",
         url: "https://www.furaffinity.net/gallery/slimymonz/folder/1198328/Zenyth",
     },
 ];

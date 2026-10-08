@@ -4,8 +4,9 @@ import type { Movie } from "~/types/mediaTypes";
 export const heroInfo: HeroInfo = {
     headline: "Absolute Cinema",
     title: "Monster Movies",
-    description: "Movies I consider to be a 5-star experience sorted by year. Click to see a trailer or watch on Apple TV!"
-}
+    description:
+        "Movies I consider to be a 5-star experience sorted by year. Click to see a trailer or watch on Apple TV!",
+};
 
 export const Movies: Movie[] = [
     {
