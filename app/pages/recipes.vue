@@ -45,7 +45,6 @@
 
 <script setup lang="ts">
     import { computed, ref } from "vue";
-    import RecipeModal from "~/components/RecipeModal.vue";
     import { Recipes, heroInfo } from "~/data/recipes";
     import type { Recipe } from "~/types/contentTypes";
 
