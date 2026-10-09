@@ -5,16 +5,15 @@
         :title="heroInfo.title"
         :description="heroInfo.description"
     />
-    <UPageGrid>
+    <UPageGrid class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <ULink
-            v-for="(character, i) in Characters"
-            :key="i"
+            v-for="character in Characters"
             :to="character.url"
             target="_blank"
             class="block"
         >
             <UCard
-                class="h-full transition hover:ring-4 hover:ring-secondary"
+                class="h-full transition hover:ring-4 hover:ring-secondary block"
                 :ui="{ body: 'p-0 sm:p-0' }"
             >
                 <template #header>

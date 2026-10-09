@@ -31,13 +31,7 @@
                     :date="latestPost.date"
                     variant="ghost"
                     orientation="vertical"
-                >
-                    <template #description>
-                        <ClientOnly>
-                            <div v-html="latestPost.body" />
-                        </ClientOnly>
-                    </template>
-                </UBlogPost>
+                />
             </UCard>
         </ULink>
 

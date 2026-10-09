@@ -5,7 +5,7 @@
         :title="heroInfo.title"
         :description="heroInfo.description"
     />
-    <UPageGrid>
+    <UPageGrid class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <UCard
             v-for="recipe in Recipes"
             :key="recipe.title"
@@ -14,7 +14,7 @@
         >
             <template #header>
                 <h2
-                    class="text-center text-2xl font-bold tracking-tight text-highlighted"
+                    class="text-center text-2xl font-bold tracking-tight text-highlighted truncate"
                 >
                     {{ recipe.title }}
                 </h2>
