@@ -18,7 +18,7 @@
                 <template #header>
                     <div class="flex flex-col gap-2 text-center">
                         <h2
-                            class="text-2xl font-bold text-highlighted tracking-tight"
+                            class="text-xl font-bold text-highlighted tracking-tight"
                         >
                             {{ obituary.name }}
                         </h2>

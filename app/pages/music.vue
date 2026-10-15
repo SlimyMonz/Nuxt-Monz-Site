@@ -5,7 +5,7 @@
         :title="heroInfo.title"
         :description="heroInfo.description"
     />
-    <UPageGrid class="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <UPageGrid class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <MediaCard
             v-for="(album, i) in sortedAlbums"
             :key="i"

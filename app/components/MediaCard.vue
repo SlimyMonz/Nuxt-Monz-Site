@@ -11,7 +11,7 @@
             <template #header>
                 <div class="flex flex-col gap-0.5">
                     <h2
-                        class="text-left text-lg font-bold text-highlighted truncate"
+                        class="text-left font-bold text-highlighted truncate"
                     >
                         {{ title }}
                     </h2>

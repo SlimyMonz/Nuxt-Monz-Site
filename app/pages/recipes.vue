@@ -14,7 +14,7 @@
         >
             <template #header>
                 <h2
-                    class="text-center text-2xl font-bold tracking-tight text-highlighted truncate"
+                    class="text-center font-bold tracking-tight text-highlighted truncate"
                 >
                     {{ recipe.title }}
                 </h2>

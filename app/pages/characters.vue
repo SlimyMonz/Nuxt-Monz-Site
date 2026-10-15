@@ -17,9 +17,9 @@
                 :ui="{ body: 'p-0 sm:p-0' }"
             >
                 <template #header>
-                    <div class="flex flex-col gap-2 text-center">
+                    <div class="flex flex-col text-center">
                         <h2
-                            class="text-xl font-bold text-highlighted uppercase tracking-wide"
+                            class="font-bold text-highlighted uppercase tracking-wide"
                         >
                             {{ character.name }}
                         </h2>
@@ -31,12 +31,12 @@
                     class="h-full object-cover block"
                 />
                 <template #footer>
-                    <div class="flex flex-col gap-2 text-center">
-                        <p class="font-bold uppercase tracking-wide">
+                    <div class="flex flex-col text-center">
+                        <p class="font-bold tracking-wide">
                             {{ character.species }}
                         </p>
                         <p
-                            class="mt-2 w-full leading-relaxed border-t border-default pt-3 px-2 text-left"
+                            class="mt-2 w-full leading-relaxed border-t border-default pt-2 px-2 text-left"
                         >
                             {{ character.description }}
                         </p>
