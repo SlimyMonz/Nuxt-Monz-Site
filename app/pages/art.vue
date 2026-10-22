@@ -1,10 +1,5 @@
 <template>
-    <UPageHero
-        id="top"
-        :headline="heroInfo.headline"
-        :title="heroInfo.title"
-        :description="heroInfo.description"
-    />
+    <SlimyHero :hero-info="heroInfo" />
     <AlbumGallery :manifest="ImageManifest" />
 </template>
 

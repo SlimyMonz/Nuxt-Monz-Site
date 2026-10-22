@@ -1,10 +1,5 @@
 <template>
-    <UPageHero
-        id="top"
-        :headline="heroInfo.headline"
-        :title="heroInfo.title"
-        :description="heroInfo.description"
-    >
+    <SlimyHero :hero-info="heroInfo">
         <div
             class="bg-elevated rounded-3xl overflow-hidden flex items-center justify-center"
         >
@@ -14,7 +9,7 @@
                 class="w-full h-full object-cover"
             />
         </div>
-    </UPageHero>
+    </SlimyHero>
 
     <USeparator />
 
