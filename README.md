@@ -1,4 +1,4 @@
-# Nuxt Monz Website
+# Nuxt Portfolio Website
 
 ## Setup
 
@@ -44,16 +44,7 @@ app/
   app.config.ts
   app.vue
 public/            # store static assets here; generally per-page
-  about/
-  art/
-  badges/
-  books/
-  characters/
-  movies/
-  music/
-  obituary/
-  photos/
-  recipes/
+  ...
   favicon.ico
   robots.txt
 nuxt.config.ts
@@ -83,4 +74,3 @@ Each page in /pages also automatically routes and updates the header navigation.
 | Page layout / components | `app/components/`, `app/pages/`                                     |
 | Shared logic             | `app/composables/`                                                  |
 | Types                    | `app/types/`                                                        |
-| Background               | `app/app.vue`, `app/components/SlimyBackground.vue`                 |
