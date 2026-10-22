@@ -1,6 +1,5 @@
 <template>
     <UApp>
-        <SlimyBackground />
         <UMain>
             <UContainer>
                 <UPageHero
