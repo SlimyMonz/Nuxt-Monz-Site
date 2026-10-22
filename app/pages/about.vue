@@ -4,126 +4,114 @@
         :headline="heroInfo.headline"
         :title="heroInfo.title"
         :description="heroInfo.description"
-    >
-        <div
-            class="bg-elevated rounded-3xl overflow-hidden flex items-center justify-center"
-        >
-            <img
-                :src="sonaRef"
-                alt="Monz Reference Sheet"
-                class="w-full h-full object-cover"
-            />
-        </div>
-    </UPageHero>
+    />
 
     <USeparator />
 
-    <UPageSection
-        id="about"
-        title="About Me"
-    >
-        <UPageCard
-            variant="soft"
-            orientation="horizontal"
-        >
+    <!-- Bio -->
+    <UPageSection id="bio" title="Biography">
+        <UPageCard variant="soft" orientation="horizontal">
             <img
-                :src="sonaIcon"
-                alt="Monz Headshot Icon"
-                class="w-full"
+                :src="artistPortrait"
+                alt="Artist portrait"
+                class="w-full rounded-xl"
             />
-            <div class="text-lg md:text-xl space-y-4">
-                <div
-                    v-for="fact in sonaFacts"
-                    :key="fact.label"
-                    class="grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] gap-4"
-                >
-                    <span class="text-muted">{{ fact.label }}</span>
-                    <span class="font-semibold">{{ fact.value }}</span>
-                </div>
+            <div class="text-md space-y-4">
+                <p v-for="(para, i) in bioParagraphs" :key="i">
+                    {{ para }}
+                </p>
             </div>
         </UPageCard>
     </UPageSection>
 
     <USeparator />
 
-    <UPageSection
-        id="timeline"
-        title="Timeline"
-    >
-        <div class="overflow-x-auto pb-16 -mb-16">
-            <UTimeline
-                :items="timelineItems"
-                :default-value="3"
-                color="secondary"
-                orientation="horizontal"
-                size="3xl"
-                class="min-w-max"
-            />
-        </div>
-    </UPageSection>
-
-    <USeparator />
-
-    <UPageSection
-        id="skills"
-        title="Hobbies + Work + Skills"
-    >
-        <UPageGrid>
+    <!-- Skills / Expertise -->
+    <UPageSection id="skills" title="Experience">
+        <UPageGrid class="lg:grid-cols-3">
             <UPageCard
-                v-for="card in interestCards"
-                :key="card.title"
-                :title="card.title"
-                :description="card.description"
-                :icon="card.icon"
+                v-for="group in skillGroups"
+                :key="group.heading"
+                :title="group.heading"
                 variant="soft"
-            />
+            >
+                <ul class="space-y-3">
+                    <li
+                        v-for="skill in group.skills"
+                        :key="skill.label"
+                        class="flex items-baseline gap-3"
+                    >
+                        <UIcon
+                            name="i-lucide-sparkles"
+                            class="text-primary shrink-0 size-3"
+                        />
+                        <div>
+                            <span class="font-semibold text-highlighted">
+                                {{ skill.label }}
+                            </span>
+                            <span v-if="skill.details" class="text-muted text-sm">
+                                — {{ skill.details }}
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </UPageCard>
         </UPageGrid>
     </UPageSection>
 
     <USeparator />
 
+    <!-- Timeline -->
+    <UPageSection id="timeline" title="Journey">
+        <UTimeline
+            :items="timelineItems"
+            :default-value="timelineItems.length - 1"
+            color="primary"
+            size="xl"
+        />
+    </UPageSection>
+
+    <USeparator />
+
+    <!-- Contact -->
     <UPageSection
-        id="achievements"
-        title="Achievements"
+        id="contact"
+        title="Contact"
+        description="Open to commissions, collaborations, licensing inquiries, and consulting. Reach out through any of the channels below."
     >
-        <UPageGrid>
-            <UCard
-                v-for="(a, i) in achievements"
-                :key="i"
-                :ui="{ body: 'p-2 sm:p-2' }"
-                variant="subtle"
-            >
-                <div class="flex items-center gap-2">
-                    <img
-                        :src="a.img"
-                        :alt="a.title"
-                        width="88"
-                        height="31"
-                    />
-                    <div class="min-w-0">
-                        <h3
-                            class="font-semibold text-highlighted text-sm truncate"
-                        >
-                            {{ a.title }}
-                        </h3>
-                        <p class="text-muted text-xs truncate">
-                            {{ a.description }}
-                        </p>
-                    </div>
-                </div>
-            </UCard>
+        <UPageGrid class="lg:grid-cols-2">
+            <UPageCard
+                v-if="contactInfo.email"
+                :to="`mailto:${contactInfo.email}`"
+                title="Email"
+                :description="contactInfo.email"
+                icon="i-lucide-mail"
+                variant="soft"
+                class="lg:col-span-2"
+            />
+            <UPageCard
+                v-for="social in contactInfo.socials"
+                :key="social.platform"
+                :to="social.url"
+                target="_blank"
+                :title="social.platform"
+                :description="social.label"
+                :icon="social.icon"
+                variant="soft"
+            />
         </UPageGrid>
     </UPageSection>
 </template>
 
 <script setup lang="ts">
-    import {
-        sonaRef,
-        sonaIcon,
-        sonaFacts,
-        timelineItems,
-        interestCards,
-        achievements,
-        heroInfo,
-    } from "~/data/about";
+import {
+    artistPortrait,
+    artistBio,
+    heroInfo,
+    skillGroups,
+    timelineItems,
+    contactInfo,
+} from "~/data/about";
+
+const bioParagraphs = artistBio.split("\n\n");
 </script>

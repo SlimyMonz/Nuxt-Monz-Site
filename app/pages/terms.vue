@@ -3,7 +3,7 @@
         <div class="space-y-8">
             <div class="space-y-2">
                 <h1 class="text-3xl font-bold">Terms of Use</h1>
-                <p>Last updated: August 27th, 2026</p>
+                <p>Last updated: October 21st, 2026</p>
             </div>
 
             <USeparator />
@@ -65,7 +65,7 @@
             <section class="space-y-3">
                 <h2 class="text-xl font-semibold">5. External Links</h2>
                 <p>
-                    This website contains links to third-party websites that are
+                    This website may contain links to third-party websites that are
                     not owned or controlled by this website operator. Some
                     linked sites may contain content intended for mature or
                     adult (18+) audiences. Clicking any external link is done
@@ -141,9 +141,9 @@
                 <p>
                     Questions about these terms can be directed to
                     <ULink
-                        to="mailto:website@monz.us"
+                        to="mailto:ragamuffkinz@gmail.com"
                         class="text-primary underline"
-                        >website@monz.us</ULink
+                        >ragamuffkinz@gmail.com</ULink
                     >
                 </p>
             </section>

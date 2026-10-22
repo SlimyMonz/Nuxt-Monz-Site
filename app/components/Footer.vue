@@ -2,7 +2,7 @@
     <UFooter class="backdrop-blur-sm">
         <template #left>
             <p class="text-muted text-sm">
-                Copyright SlimyMonz © {{ new Date().getFullYear() }}
+                Copyright Jessica Lovett © {{ new Date().getFullYear() }}
             </p>
         </template>
 

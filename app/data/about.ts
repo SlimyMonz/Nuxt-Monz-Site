@@ -1,115 +1,208 @@
 import type { TimelineItem } from "@nuxt/ui";
 import type { HeroInfo } from "~/types/contentTypes";
 
-export const heroImage = "/about/monz_ref.jpg";
-export const sonaRef = "/about/monz_ref.png";
-export const sonaIcon = "/about/monz_icon.jpg";
+export const artistPortrait = "/about/jessica_profile.jpg";
 
 export const heroInfo: HeroInfo = {
-    headline: "Slime Time~",
-    title: "Hey there, I'm Monz!",
-    description: "And here's my reference sheet.",
+    headline: "About",
+    title: "Jessica Lovett",
+    description: "Business Owner · Product Designer · Creative Director",
 };
 
-const age = () => {
-    const birth = new Date("1993-07-06"),
-        now = new Date();
-    let years = now.getFullYear() - birth.getFullYear();
-    if (now < new Date(now.getFullYear(), birth.getMonth(), birth.getDate()))
-        years--;
-    return `${years} years old`;
-};
+export const artistBio = `
+I'm an independent owner, designer, and creator with over a decade of
+end-to-end experience bringing creative products to market. Since the early 2010s,
+I've independently managed every stage of the product lifecycle: from initial
+concept and illustration to manufacturing, fulfillment, customer support, and
+community growth.
 
-export const sonaFacts = [
-    { label: "Full Name", value: "Slimy Monster" },
-    { label: "Pronouns", value: "He/Him | They/Them | It/Its" },
-    { label: "Species", value: "Slime, Wrath Demon, Monster" },
-    { label: "Age", value: age() },
-    { label: "Height", value: "182 cm | 6 ft" },
-    { label: "Sexuality", value: "Aromantic-Asexual" },
-    { label: "Politics", value: "Radically Leftist" },
-    { label: "Occupation", value: "Software Developer" },
-    { label: "Neurotype", value: "AuDHD" },
-    { label: "Weaknesses", value: "Heat, Loud Noises" },
-    { label: "Favorite Color", value: "Red" },
+My work spans original characters, fan-inspired artwork, collectible merchandise,
+poseable dolls, enamel pins, prints, stickers, packaging, and other limited-run
+products. Using a creative workflow with tools like Procreate and
+Photoshop, I create production-ready artwork, branding, and promotional assets
+designed for both digital campaigns and physical manufacturing.
+
+In addition to the creative process, I oversee the operational and business side
+of every release. This includes manufacturer sourcing, overseas factory communication,
+production oversight, proof approvals, pricing negotiation, budgeting, logistics,
+inventory planning, crowdfunding campaign management, fulfillment coordination,
+and post-sale customer support. I've successfully launched and fulfilled multiple
+profitable campaigns, shipping thousands of products internationally while building
+loyal online communities around each release.
+
+I also manage my own social media presence and community spaces across platforms
+including Discord, Bluesky, Instagram, and TikTok, maintaining direct engagement
+with customers and supporters throughout each project's lifecycle.
+
+If you're looking for a collaborator who understands both the creative and operational
+realities of bringing independent products into the world, let's talk.
+`.trim();
+
+export const skillGroups = [
+    {
+        heading: "Creative",
+        skills: [
+            {
+                label: "Digital Illustration & Design",
+                details: "Procreate, Photoshop",
+            },
+            {
+                label: "Character Art & Visual Development",
+                details:
+                    "Original characters, Digimon-inspired, Pokemon-inspired, collectible-focused designs",
+            },
+            {
+                label: "Product Design & Merch Development",
+                details:
+                    "Poseable dolls, enamel pins, prints, stickers, packaging, production-ready assets",
+            },
+            {
+                label: "End-to-End Creative Direction",
+                details:
+                    "Concept development, branding, campaign visuals, promotional content",
+            },
+        ],
+    },
+    {
+        heading: "Production",
+        skills: [
+            {
+                label: "Manufacturer Sourcing & Vendor Relations",
+                details:
+                    "Coordinating with overseas and domestic production partners",
+            },
+            {
+                label: "Production Management",
+                details:
+                    "Factory communication, proof approvals, revisions, production timelines",
+            },
+            {
+                label: "Contract Negotiation & Cost Management",
+                details:
+                    "Pricing negotiations, budgeting, shipping coordination, margin planning",
+            },
+            {
+                label: "Quality Control & Proofing",
+                details:
+                    "Pre-production samples, product consistency, packaging verification",
+            },
+            {
+                label: "Fulfillment & Logistics",
+                details:
+                    "Domestic and international shipping coordination for crowdfunding campaigns",
+            },
+            {
+                label: "Inventory & Order Management",
+                details:
+                    "Stock tracking, order organization, campaign fulfillment planning",
+            },
+        ],
+    },
+    {
+        heading: "Business",
+        skills: [
+            {
+                label: "Crowdfunding Campaign Management",
+                details:
+                    "Multiple successful Kickstarter campaigns from concept to fulfillment",
+            },
+            {
+                label: "Independent Business Operations",
+                details:
+                    "Managing product lifecycles from initial concept through profitable release",
+            },
+            {
+                label: "Financial Planning & Budget Management",
+                details:
+                    "Production budgeting, campaign forecasting, expense tracking",
+            },
+            {
+                label: "E-commerce Operations",
+                details:
+                    "Online storefront management, order processing, customer communications",
+            },
+            {
+                label: "Customer Service & Community Support",
+                details:
+                    "Pre-order updates, post-sale support, campaign communication",
+            },
+            {
+                label: "Social Media & Community Building",
+                details: "Discord, Bluesky, Instagram, TikTok",
+            },
+            {
+                label: "Brand & Audience Development",
+                details:
+                    "Building and maintaining an engaged community around original and fan-inspired products",
+            },
+        ],
+    },
 ];
 
+// Oldest first, so the last item is the current one
 export const timelineItems = ref<TimelineItem[]>([
     {
-        date: "July 1993",
-        title: "EXISTENCE",
-        description: "This is the year I came to life!",
-        icon: "lucide:baby",
-    },
-    {
-        date: "August 2010",
-        title: "WORST MISTAKE",
-        description: "Moved to Florida...",
-        icon: "lucide:palmtree",
-    },
-    {
-        date: "October 2015",
-        title: "MET DAUSTY",
-        description: "Only good part about Florida!",
-        icon: "lucide:heart",
-    },
-    {
-        date: "December 2023",
-        title: "UNIVERSITY GRADUATION",
-        description: "Bachelors in Computer Science",
+        date: "2017 - 2019",
+        title: "AA, Illustration",
+        description:
+            "Your University. Focused on character design, sequential art, and concept development. Senior thesis explored narrative illustration in merchandise design.",
         icon: "lucide:graduation-cap",
     },
     {
-        date: "Today",
-        title: "PENNSYLVANIA",
-        description: "Working and living here with Dausty",
-        icon: "lucide:home",
+        date: "2019 - 2020",
+        title: "Production Assistant",
+        description:
+            "Creative Goods Studio. Assisted in production coordination, vendor communication, and fulfillment operations for a boutique merchandise studio.",
+        icon: "lucide:package",
+    },
+    {
+        date: "2020 - 2022",
+        title: "Freelance Illustrator",
+        description:
+            "Took on commission and licensing work for indie game studios, small brands, and individual clients. Developed strong project management and client communication practices.",
+        icon: "lucide:pen-tool",
+    },
+    {
+        date: "2022 - Present",
+        title: "Independent Artist & Product Creator",
+        description:
+            "Launched and managed multiple successful product lines including enamel pins, art prints, and sticker sheets. Handled all stages from design through delivery.",
+        icon: "lucide:store",
     },
 ]);
 
-export const interestCards = [
-    {
-        title: "Hobbies",
-        description: `I'm a big fan of video games, books, music, and movies.
-      Games are probably the biggest one, but I enjoy all kinds of engaging and creative media.
-      I'm also the sort of person who can turn a casual interest into a deep dive and suddenly know far more about it than I ever intended to.`,
-        icon: "lucide:gamepad-2",
-    },
-    {
-        title: "Work",
-        description: `I build software for a living, mostly as a full-stack developer with a preference for the back end.
-      I like the parts of development where you get to dig into data, design APIs, untangle complicated business logic, and make things work behind the scenes.
-      I also spend plenty of time in Vue and TypeScript, so I'm just as comfortable crossing over into the front end when necessary.`,
-        icon: "lucide:briefcase",
-    },
-    {
-        title: "Skills",
-        description: `My skill set is less 'expert in one thing' and more 'give me a problem and I'll figure something out.'
-      I've picked up experience across a pretty wide range of software development, from front-end frameworks and databases to APIs, testing, scripting, and everything in between.
-      I also spent years working in retail, where I picked up leadership and management skills that don't show up in a typical developer résumé, but absolutely come in handy.`,
-        icon: "lucide:graduation-cap",
-    },
-];
-
-export const achievements = [
-    {
-        title: "2Woke4U",
-        description: "Human rights are important.",
-        img: "/about/achievements/antinazi.gif",
-    },
-    {
-        title: "Cozy Gaymer",
-        description: "Loves playing Animal Crossing.",
-        img: "/about/achievements/bobbutton.gif",
-    },
-    {
-        title: "Linux User",
-        description: "Main desktop runs KDE Fedora.",
-        img: "/about/achievements/fedora.gif",
-    },
-    {
-        title: "Microsoft Hater",
-        description: "Avoids Microsoft at all costs.",
-        img: "/about/achievements/stop_microsoft.gif",
-    },
-];
+export const contactInfo = {
+    email: "hello@yourname.com",
+    socials: [
+        {
+            platform: "Instagram",
+            label: "@yourhandle",
+            url: "https://instagram.com/yourhandle",
+            icon: "simple-icons:instagram",
+        },
+        {
+            platform: "Twitter / X",
+            label: "@yourhandle",
+            url: "https://x.com/yourhandle",
+            icon: "simple-icons:x",
+        },
+        {
+            platform: "TikTok",
+            label: "@yourhandle",
+            url: "https://tiktok.com/@yourhandle",
+            icon: "simple-icons:tiktok",
+        },
+        {
+            platform: "Etsy",
+            label: "yourshop",
+            url: "https://etsy.com/shop/yourshop",
+            icon: "simple-icons:etsy",
+        },
+        {
+            platform: "Ko-fi",
+            label: "ko-fi.com/yourname",
+            url: "https://ko-fi.com/yourname",
+            icon: "simple-icons:kofi",
+        },
+    ],
+};

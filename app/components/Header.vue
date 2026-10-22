@@ -4,7 +4,7 @@
             <span
                 class="font-bold px-5 py-2 text-2xl rounded-md transition hover:bg-primary/20"
             >
-                Monz Site
+                Home
             </span>
         </template>
 
@@ -45,6 +45,7 @@
             .filter(
                 (route) =>
                     route.path !== "/" &&
+                    route.path !== "terms" &&
                     route.path !== "/:all(.*)*" &&
                     route.path !== "/404",
             )
