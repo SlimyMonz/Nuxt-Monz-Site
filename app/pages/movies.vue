@@ -1,17 +1,21 @@
 <template>
-    <SlimyHero :hero-info="heroInfo" />
-    <UPageGrid class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <MediaCard
-            v-for="(movie, i) in sortedMovies"
-            :key="i"
-            :url="movie.url"
-            :title="movie.title"
-            :creator="movie.director"
-            :date="movie.date"
-            :imagePath="movie.img"
-            :textBody="movie.description"
-        />
-    </UPageGrid>
+    <div>
+        <SlimyHero :hero-info="heroInfo" />
+        <UPageGrid
+            class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
+            <MediaCard
+                v-for="(movie, i) in sortedMovies"
+                :key="i"
+                :url="movie.url"
+                :title="movie.title"
+                :creator="movie.director"
+                :date="movie.date"
+                :imagePath="movie.img"
+                :textBody="movie.description"
+            />
+        </UPageGrid>
+    </div>
 </template>
 
 <script setup lang="ts">

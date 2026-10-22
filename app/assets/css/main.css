@@ -38,3 +38,85 @@
     --color-ink-900: #131316;
     --color-ink-950: #0a0a0c;
 }
+
+
+/* Page transitions (nuxt.config.ts -> app.pageTransition) */
+/* Each page must have a single root element for this to work: <div> */
+:root {
+    --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-enter-active {
+    transition:
+        opacity 0.5s var(--ease-out-soft),
+        transform 0.5s var(--ease-out-soft);
+}
+
+.page-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.page-enter-from {
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.page-leave-to {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-enter-active,
+    .page-leave-active {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* Hero page-load sequence: one staggered entrance per element */
+/* Set the order with [--i:N] on each element. */
+.hero-in {
+    animation: hero-in 0.9s var(--ease-out-soft) backwards;
+    animation-delay: calc(var(--i, 0) * 100ms);
+}
+
+@keyframes hero-in {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-in {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+    }
+}
+
+/* Everything after the hero fades in a bit later */
+#top ~ * {
+    animation: content-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
+}
+
+@keyframes content-in {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #top ~ * {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+    }
+}

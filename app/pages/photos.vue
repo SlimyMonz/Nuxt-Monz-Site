@@ -1,8 +1,8 @@
 <template>
-    <SlimyHero
-        :hero-info="heroInfo"
-    />
-    <AlbumGallery :manifest="ImageManifest" />
+    <div>
+        <SlimyHero :hero-info="heroInfo" />
+        <AlbumGallery :manifest="ImageManifest" />
+    </div>
 </template>
 
 <script setup lang="ts">

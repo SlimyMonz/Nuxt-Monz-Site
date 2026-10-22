@@ -1,43 +1,45 @@
 <template>
-    <SlimyHero
-        :hero-info="heroInfo"
-    />
-    <UPageGrid class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <UCard
-            v-for="recipe in Recipes"
-            :key="recipe.title"
-            class="transition hover:ring-4 hover:ring-secondary"
-            @click="selectRecipe(recipe)"
+    <div>
+        <SlimyHero :hero-info="heroInfo" />
+        <UPageGrid
+            class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
-            <template #header>
-                <h2
-                    class="text-center font-bold tracking-tight text-highlighted truncate"
-                >
-                    {{ recipe.title }}
-                </h2>
-            </template>
-
-            <div
-                class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-md bg-elevated"
+            <UCard
+                v-for="recipe in Recipes"
+                :key="recipe.title"
+                class="transition hover:ring-4 hover:ring-secondary"
+                @click="selectRecipe(recipe)"
             >
-                <img
-                    v-if="recipe.img"
-                    :src="recipe.img"
-                    :alt="recipe.title"
-                    class="block h-full w-full object-cover"
-                />
-            </div>
+                <template #header>
+                    <h2
+                        class="text-center font-bold tracking-tight text-highlighted truncate"
+                    >
+                        {{ recipe.title }}
+                    </h2>
+                </template>
 
-            <template #footer>
-                {{ recipe.description }}
-            </template>
-        </UCard>
-    </UPageGrid>
+                <div
+                    class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-md bg-elevated"
+                >
+                    <img
+                        v-if="recipe.img"
+                        :src="recipe.img"
+                        :alt="recipe.title"
+                        class="block h-full w-full object-cover"
+                    />
+                </div>
 
-    <RecipeModal
-        v-model:open="isOpen"
-        :recipe="selected"
-    />
+                <template #footer>
+                    {{ recipe.description }}
+                </template>
+            </UCard>
+        </UPageGrid>
+
+        <RecipeModal
+            v-model:open="isOpen"
+            :recipe="selected"
+        />
+    </div>
 </template>
 
 <script setup lang="ts">

@@ -1,32 +1,34 @@
 <template>
-    <SlimyHero :hero-info="heroInfo" />
-    <UPagination
-        v-model:page="page"
-        :items-per-page="itemsPerPage"
-        :total="sortedBlogPosts.length"
-        show-edges
-    />
+    <div>
+        <SlimyHero :hero-info="heroInfo" />
+        <UPagination
+            v-model:page="page"
+            :items-per-page="itemsPerPage"
+            :total="sortedBlogPosts.length"
+            show-edges
+        />
 
-    <UBlogPost
-        v-for="post in paginatedBlogPosts"
-        :key="post.id"
-        :title="post.title"
-        :date="post.date"
-        class="transition hover:ring-4 hover:ring-secondary my-4"
-        @click="selectPost(post)"
-    />
+        <UBlogPost
+            v-for="post in paginatedBlogPosts"
+            :key="post.id"
+            :title="post.title"
+            :date="post.date"
+            class="transition hover:ring-4 hover:ring-secondary my-4"
+            @click="selectPost(post)"
+        />
 
-    <UPagination
-        v-model:page="page"
-        :items-per-page="itemsPerPage"
-        :total="sortedBlogPosts.length"
-        show-edges
-    />
+        <UPagination
+            v-model:page="page"
+            :items-per-page="itemsPerPage"
+            :total="sortedBlogPosts.length"
+            show-edges
+        />
 
-    <BlogPostModal
-        v-model:open="isOpen"
-        :blogPost="selected"
-    />
+        <BlogPostModal
+            v-model:open="isOpen"
+            :blogPost="selected"
+        />
+    </div>
 </template>
 
 <script setup lang="ts">
