@@ -1,24 +1,35 @@
 <template>
-    <UHeader toggle-side="left">
+    <UHeader
+        toggle-side="left"
+        :ui="{
+            root: 'bg-default/70 backdrop-blur-xl border-default/70',
+        }"
+    >
         <template #title>
             <span
-                class="font-bold px-5 py-2 text-2xl rounded transition hover:bg-primary/50"
+                class="group inline-flex items-center gap-2.5 rounded px-4 py-1.5 font-display text-2xl font-extrabold tracking-tight transition duration-300 hover:bg-primary/10"
             >
+                <span
+                    class="size-2.5 rounded bg-primary transition duration-300 group-hover:scale-150"
+                    aria-hidden="true"
+                />
                 Home
             </span>
         </template>
 
         <UNavigationMenu
-            :items="headerItems"
-            highlight
-            class="bg-muted/50 backdrop-blur rounded px-1.75 border border-muted/50"
-            :ui="{
-                link: 'px-3 py-1 text-md before:rounded hover:before:bg-primary/50',
-            }"
-        />
+    :items="headerItems"
+    class="rounded border border-default bg-muted/60 backdrop-blur"
+    :ui="{
+        list: 'gap-2 mx-2',
+        link: 'rounded px-8 py-1 text-md font-medium transition duration-300 before:rounded before:inset-y-0 hover:before:bg-primary/10',
+    }"
+/>
 
         <template #right>
-            <UColorModeButton class="hover:bg-primary/50" />
+            <UColorModeButton
+                class="rounded transition duration-300 hover:rotate-12 hover:bg-primary/10"
+            />
         </template>
 
         <template #body>
@@ -28,7 +39,7 @@
                 orientation="vertical"
                 :ui="{
                     list: 'gap-5 px-16',
-                    link: 'px-4 py-4 my-4 text-2xl justify-center text-center before:rounded before:bg-muted hover:before:bg-primary/50',
+                    link: 'px-4 py-4 my-4 font-display text-2xl justify-center text-center transition duration-300 before:rounded-2xl before:bg-muted/70 hover:before:bg-primary/15',
                 }"
             />
         </template>

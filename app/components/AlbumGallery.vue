@@ -6,7 +6,7 @@
         >
             <div
                 v-if="expandedAlbum === album.title"
-                class="col-span-full mb-6"
+                class="album-open col-span-full mb-6"
             >
                 <div class="mb-6 flex items-center gap-5">
                     <UButton
@@ -15,7 +15,7 @@
                         variant="link"
                         color="neutral"
                         size="xl"
-                        class="p-0 text-4xl font-bold"
+                        class="p-0 font-display text-4xl font-bold transition duration-300 hover:-translate-x-1"
                         :ui="{ leadingIcon: 'size-8 shrink-0' }"
                         @click="toggleAlbum(album.title)"
                     />
@@ -26,8 +26,9 @@
                     class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
                 >
                     <AlbumImageCard
-                        v-for="image in album.images"
+                        v-for="(image, i) in album.images"
                         :key="image.id"
+                        :style="{ '--i': Math.min(i, 18) }"
                         :title="album.title"
                         :image="image"
                         @click="openImage(album.title, image)"
@@ -45,7 +46,7 @@
     <UModal
         v-model:open="isOpen"
         :title="selectedImage?.title"
-        :ui="{ content: 'bg-0 backdrop-blur' }"
+        :ui="{ content: 'bg-default/80 backdrop-blur-xl' }"
         fullscreen
         @update:open="(value) => !value && closeImage()"
     >
@@ -58,7 +59,7 @@
                     v-if="selectedImage"
                     :src="selectedImage.imageFile.path"
                     :alt="`${selectedImage.title} photo ${selectedImage.imageFile.id}`"
-                    class="max-h-[85vh] max-w-full rounded-lg object-contain"
+                    class="lightbox-in max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl"
                     @click.stop
                 />
             </div>

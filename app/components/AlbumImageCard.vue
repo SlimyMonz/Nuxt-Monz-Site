@@ -4,12 +4,12 @@
             root: 'size-full',
             body: 'p-0 sm:p-0 size-full flex items-center justify-center',
         }"
-        class="group aspect-square w-full cursor-pointer overflow-hidden transition hover:ring-4 hover:ring-secondary"
+        class="group card-in lift aspect-square w-full cursor-pointer overflow-hidden hover:ring-2 hover:ring-secondary"
     >
         <img
             :src="image.thumbPath"
             :alt="`${title} photo ${image.id}`"
-            class="size-full object-cover"
+            class="size-full object-cover transition duration-700 ease-out group-hover:scale-110"
             loading="lazy"
             decoding="async"
         />

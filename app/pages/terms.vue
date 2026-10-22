@@ -1,15 +1,15 @@
 <template>
-    <UContainer class="py-12 max-w-3xl">
-        <div class="space-y-8">
+    <UContainer class="hero-in max-w-3xl py-12 [--i:0]">
+        <div class="space-y-8 leading-relaxed">
             <div class="space-y-2">
-                <h1 class="text-3xl font-bold">Terms of Use</h1>
-                <p>Last updated: October 21st, 2026</p>
+                <h1 class="text-4xl sm:text-5xl">Terms of Use</h1>
+                <p class="text-muted">Last updated: October 21st, 2026</p>
             </div>
 
             <USeparator />
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">1. Acceptance of Terms</h2>
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">1. Acceptance of Terms</h2>
                 <p>
                     This website is a personal, non-commercial site. By
                     accessing or using this website, you agree to be bound by
@@ -18,8 +18,8 @@
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">2. Nature of this website</h2>
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">2. Nature of this website</h2>
                 <p>
                     This website is provided for personal, informational, and
                     entertainment purposes only. It is not operated as a
@@ -28,8 +28,8 @@
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">
                     3. Open Source & Original Content
                 </h2>
                 <p>
@@ -45,8 +45,8 @@
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">
                     4. Third-Party Content & Trademarks
                 </h2>
                 <p>
@@ -62,8 +62,8 @@
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">5. External Links</h2>
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">5. External Links</h2>
                 <p>
                     This website may contain links to third-party websites that are
                     not owned or controlled by this website operator. Some
@@ -75,8 +75,8 @@
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">
                     6. Content Rating & Audience
                 </h2>
                 <p>
@@ -88,8 +88,8 @@
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">
                     7. Privacy & Data Collection
                 </h2>
                 <p>
@@ -99,8 +99,8 @@
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">8. Hosting</h2>
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">8. Hosting</h2>
                 <p>
                     This website is hosted using Cloudflare. Your use of this
                     website may also be subject to Cloudflare's own terms and
@@ -108,15 +108,15 @@
                     <ULink
                         to="https://www.cloudflare.com/website-terms/"
                         target="_blank"
-                        class="text-primary underline"
+                        class="text-primary underline underline-offset-4 decoration-primary/40 transition hover:decoration-primary"
                     >
                         cloudflare.com/website-terms </ULink
                     >.
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">9. No Warranty</h2>
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">9. No Warranty</h2>
                 <p>
                     This website is provided "as is" and "as available," without
                     warranty of any kind, express or implied. The operator makes
@@ -125,8 +125,8 @@
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">
                     10. Changes to These Terms
                 </h2>
                 <p>
@@ -136,13 +136,13 @@
                 </p>
             </section>
 
-            <section class="space-y-3">
-                <h2 class="text-xl font-semibold">11. Contact</h2>
+            <section class="space-y-3 text-toned">
+                <h2 class="text-xl text-highlighted">11. Contact</h2>
                 <p>
                     Questions about these terms can be directed to
                     <ULink
                         to="mailto:ragamuffkinz@gmail.com"
-                        class="text-primary underline"
+                        class="text-primary underline underline-offset-4 decoration-primary/40 transition hover:decoration-primary"
                         >ragamuffkinz@gmail.com</ULink
                     >
                 </p>

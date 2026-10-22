@@ -74,3 +74,9 @@ Each page in /pages also automatically routes and updates the header navigation.
 | Page layout / components | `app/components/`, `app/pages/`                                     |
 | Shared logic             | `app/composables/`                                                  |
 | Types                    | `app/types/`                                                        |
+
+## Look & Feel
+
+- **Fonts:** Bricolage Grotesque (headings) and Hanken Grotesk (body), set in `--font-display` / `--font-sans` at the top of `app/assets/css/main.css`. `@nuxt/fonts` (included with Nuxt UI) downloads and self-hosts them at build time, so the first `npm run dev` / `generate` needs internet access.
+- **Colors & surfaces:** palette plus light/dark surface tokens live in `app/assets/css/main.css`.
+- **Motion:** page transitions are the `.page-*` classes; the load sequence is `.hero-in` (order set with `[--i:N]`); scroll-in is the `v-reveal` directive in `app/plugins/reveal.ts`. All of it switches off under `prefers-reduced-motion`.

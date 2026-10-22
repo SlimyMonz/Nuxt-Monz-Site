@@ -1,5 +1,5 @@
 <template>
-    <UFooter class="backdrop-blur-sm">
+    <UFooter class="bg-default/60 backdrop-blur-xl">
         <template #left>
             <p class="text-muted text-sm">
                 Copyright Jessica Lovett © {{ new Date().getFullYear() }}
@@ -21,6 +21,7 @@
                     :icon="button.icon"
                     color="neutral"
                     variant="ghost"
+                    class="rounded-full transition duration-300 hover:-translate-y-0.5 hover:bg-primary/10 hover:text-primary"
                     :to="button.to"
                     target="_blank"
                     :aria-label="button.label"

@@ -1,7 +1,7 @@
 <template>
     <UCard
         :ui="{ body: 'p-0 sm:p-0', root: 'flex flex-col' }"
-        class="group cursor-pointer overflow-hidden text-left transition hover:ring-4 hover:ring-secondary"
+        class="group lift cursor-pointer overflow-hidden text-left hover:ring-2 hover:ring-secondary"
         @click="$emit('select')"
     >
         <div
@@ -15,7 +15,7 @@
                 <img
                     :src="thumb.thumbPath"
                     :alt="`${album.title} preview`"
-                    class="size-full object-cover"
+                    class="size-full object-cover transition duration-700 ease-out group-hover:scale-110"
                     loading="lazy"
                     decoding="async"
                 />
@@ -23,7 +23,7 @@
         </div>
 
         <div class="p-3">
-            <h3 class="truncate text-lg font-semibold">
+            <h3 class="truncate font-display text-xl font-bold">
                 {{ album.title }}
             </h3>
 

@@ -3,14 +3,15 @@
         v-model:open="isOpen"
         :title="product?.name"
         :description="categoryLabel"
+        :ui="{ content: 'rounded-3xl shadow-2xl' }"
     >
         <template #body>
             <div v-if="product" class="space-y-4">
-                <div class="relative overflow-hidden rounded-lg bg-elevated">
+                <div class="relative overflow-hidden rounded-2xl bg-elevated">
                     <img
                         :src="product.imageUrl"
                         :alt="product.name"
-                        class="w-full"
+                        class="lightbox-in w-full"
                     />
                     <UBadge
                         v-if="product.soldOut"
@@ -20,7 +21,7 @@
                     />
                 </div>
 
-                <p v-if="product.price" class="text-xl font-semibold">
+                <p v-if="product.price" class="font-display text-3xl font-bold tracking-tight">
                     {{ product.price }}
                 </p>
                 <p>{{ product.description }}</p>
@@ -32,6 +33,7 @@
                         :label="tag"
                         color="neutral"
                         variant="outline"
+                        class="rounded-full"
                     />
                 </div>
 
@@ -41,6 +43,7 @@
                     target="_blank"
                     trailing-icon="i-lucide-external-link"
                     size="lg"
+                    class="rounded-full px-6 transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                 >
                     Buy Here
                 </UButton>

@@ -1,5 +1,6 @@
 <template>
     <UApp>
+        <AmbientBackground />
         <Header />
         <UMain>
             <UContainer>
@@ -9,4 +10,3 @@
         <Footer />
     </UApp>
 </template>
-

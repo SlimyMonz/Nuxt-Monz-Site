@@ -9,9 +9,27 @@ export default defineNuxtConfig({
             scan: true,
         },
     },
+
+    fonts: {
+        families: [
+            {
+                name: "Bricolage Grotesque",
+                provider: "google",
+                weights: [500, 600, 700, 800],
+            },
+            {
+                name: "Hanken Grotesk",
+                provider: "google",
+                weights: [400, 500, 600, 700],
+            },
+        ],
+    },
+    // Soft cross-fade between routes (see .page-* in main.css)
     app: {
+        pageTransition: { name: "page", mode: "out-in" },
         head: {
             title: "Jessie Page",
+            htmlAttrs: { lang: "en" },
         },
     },
 });

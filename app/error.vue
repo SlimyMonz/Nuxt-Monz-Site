@@ -1,5 +1,6 @@
 <template>
     <UApp>
+        <AmbientBackground />
         <UMain>
             <UContainer>
                 <UPageHero
@@ -7,6 +8,12 @@
                     :title="error.status?.toString()"
                     :description="error.message"
                     :links="links"
+                    :ui="{
+                        headline: 'hero-in [--i:0]',
+                        title: 'hero-in [--i:1]',
+                        description: 'hero-in [--i:2]',
+                        links: 'hero-in [--i:3]',
+                    }"
                 >
                 </UPageHero>
             </UContainer>
