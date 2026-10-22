@@ -60,7 +60,7 @@ export const BlogPosts: BlogPost[] = [
     },
     {
         id: 3,
-        title: "SO MANY CODE CHANGES",
+        title: "Huge refactor of code.",
         date: "2026-08-23",
         body: `<p>I'm actually quite tired now, I spent my entire weekend writing up my website. Might take a break from work this upcoming week. Anyway, the new things!</p><br>
         <p>First off: I updated the About, Art, and Photos pages. They weren't great on mobile, but now they are!</p>
@@ -72,7 +72,7 @@ export const BlogPosts: BlogPost[] = [
     },
     {
         id: 4,
-        title: "Building the website still!",
+        title: "Progress report on the site.",
         date: "2026-08-25",
         body: `<p>Currently stuck in meetings at work. Instead of letting time slip by as people talk about information that isn't directly related to me, I felt the need to stay productive.</p>
         <p>Generally, I don't have a very strong "grindset-mindset" attitude, but I really don't like sitting around doing nothing when I know I can do literally anything else.</p>
@@ -83,14 +83,14 @@ export const BlogPosts: BlogPost[] = [
     },
     {
         id: 5,
-        title: "At last... almost!",
+        title: "Almost completed website.",
         date: "2026-08-26",
         body: `Created the books and movies pages!!! Gonna keep this a short post because I still have the ACTUAL HOME PAGE to complete. But all of the others done! Now I can make the home page look real nice.
         `,
     },
     {
         id: 6,
-        title: "It's done! I did it! Yay!",
+        title: "Website completion day and a victory lap!",
         date: "2026-08-27",
         body: `Here we go! My website is completed. At least, the basic bones of it is.
         I still plan to make some updates! For now, just little things like adding more books/movies/music to a page.
@@ -124,7 +124,7 @@ export const BlogPosts: BlogPost[] = [
     },
     {
         id: 8,
-        title: "Wow, it's the twin tower date!",
+        title: "Fully-loaded Mac mini, Android sucks now, Apple also kinda sucks, and romhacks.",
         date: "2026-09-11",
         body: `Haven't made a ton of updates to the website this time! I did some code cleanup and refactoring, but nothing crazy.
         Though, I haven't even added any new movies/music/books. TBF, that's because I haven't seen or listened to any worth adding, yet.
@@ -164,6 +164,41 @@ export const BlogPosts: BlogPost[] = [
         It does have a "new game plus" type of deal where you restart the game on a new-game difficulty called "true ending" that I need to play through and try. I think I'll give it a go!
         <br><br>
         That's all for now I suppose! Been nice catching up here and using my lil blog as a diary for today. Can't say I'll do this often, but it does feel relaxing to do. Take care~
+        `,
+    },
+    {
+        id: 9,
+        title: "Business trip, internet woes, iPhone Duo, and Control Resonant",
+        date: "2026-10-22",
+        body: `Last month I went on my first ever business trip! It was so boring. And they didn't even talk about anything I needed to be there for. I basically spent the entire time
+        reading the Three Body Problem trilogy's last two books. The food was good, but I wasn't happy about leaving home to be in a red-state area. At least I got some overtime pay out of it.
+        <br><br>
+        I recently decided to stop using an RSS reader entirely. Lately, it feels like almost all tech news outlets have become incredibly obnoxious, often just parroting strange,
+        coordinated campaigns pushing a pro-AI agenda. It's exhausting, and I'm completely done with it. Hearing about AI 24/7 since 2023 has been the worst.
+        <br><br>
+        The current state of the internet feels genuinely scary right now. Communities like FurAffinity are constantly at risk of shutting down due to pressure from ultra-conservative groups,
+        which is incredibly frustrating and disheartening. The internet is supposed to be weird! Leave us alone, please!
+        <br><br>
+        On a more positive note, I created another website based on this one over at  <a href="https://shader.gallery/" style="color: red; font-weight: bold;">ragamuffin.page</a> and you can really see the resemblence.
+        While working on their site, I also added some new animations to mine site! If you're here, you may have noticed that things slide/pop in real nicely. I still haven't figured out a good way to add animations to the
+        galleries, but that will come at another point. 
+        <br><br>
+        I also had a really nice job interview today! While I kinda flubbed a few of the technical questions, it really wasn't that bad overall. I usually manage to get by on my personality,
+        so I'm really hoping that carries me through this time, too! They asked weirdly easy questions at first and then it got intensely specific to where I basically had no idea what to say.
+        <br><br>
+        I've just been waiting for my custom office chair to come in. My Mac mini M6 finally arrived and it's fully loaded! That's what I'm using to code this site, btw~
+        <br><br>
+        Been keeping up with the iPhone Duo reviews coming out and... I dunno! Kinda interested, but not sure I'm really that into the idea of getting one. Maybe if I feel like wasting <a style="color: red; font-weight: bold;">$2000!?!</a> (+tax). Alright maybe not.
+        I think I'd rather pay off my student loans, car, and mortgage before I even consider dropping that number on a device... awh shit that's how much my Mac mini cost. Either way, it's gonna take
+        some time for developers to get the apps updated for the Duo. I remember when it went from iPhone 8 to X and it took forever just to adjust to the removal of the home button and chin. Hell, for you oldies out there
+        you probably remember going from the iPhone 4 to the 5 where apps just wouldn't fill the entire height. Apps were so weird back then. I miss weird. Maybe weird is justification enough for a Duo?? We'll see if I
+        get that job first.
+        <br><br>
+        Oh yeah I beat Control Resonant! Very fun game. I think I still prefer the first game, if not specifically becaused of the fact it was constantly oozing style. This second entry had a little bit less
+        of that artistic flair, due to being in a city setting. However, it made up for the difference in action gameplay! Definitely a lot more fun/smooth and action-y. Idk, both games are great with each one
+        having their own issues. I was hoping Dylan would have felt just a bit more powerful, but it never quite felt like it went off the rails as you levelled up. Eventually you situate into a playstyle and stick with it.
+        <br><br>
+        Guess that's all for now! I hope whoever reads this has the best day of their life!!!
         `,
     },
 ];

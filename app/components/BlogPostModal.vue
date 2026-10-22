@@ -3,6 +3,7 @@
         :title="blogPost?.title"
         :ui="{
             overlay: 'backdrop-blur-sm',
+            content: 'max-w-3xl',
         }"
     >
         <template #body>
