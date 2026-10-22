@@ -1,12 +1,12 @@
 <template>
     <UApp>
-        <SlimyHeader />
+        <Header />
         <UMain>
             <UContainer>
                 <NuxtPage />
             </UContainer>
         </UMain>
-        <SlimyFooter />
+        <Footer />
     </UApp>
 </template>
 

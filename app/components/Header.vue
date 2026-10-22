@@ -45,7 +45,6 @@
             .filter(
                 (route) =>
                     route.path !== "/" &&
-                    route.path !== "/terms" &&
                     route.path !== "/:all(.*)*" &&
                     route.path !== "/404",
             )

@@ -7,8 +7,8 @@
     />
     <UPageGrid class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <ULink
-            v-for="character in Characters"
-            :to="character.url"
+            v-for="product in Products"
+            :to="product.url"
             target="_blank"
             class="block"
         >
@@ -21,24 +21,21 @@
                         <h2
                             class="font-bold text-highlighted uppercase tracking-wide"
                         >
-                            {{ character.name }}
+                            {{ product.title }}
                         </h2>
                     </div>
                 </template>
                 <img
-                    :src="character.img"
-                    :alt="`${character.img}`"
+                    :src="product.img"
+                    :alt="`${product.img}`"
                     class="h-full object-cover block"
                 />
                 <template #footer>
                     <div class="flex flex-col text-center">
-                        <p class="font-bold tracking-wide">
-                            {{ character.species }}
-                        </p>
                         <p
                             class="mt-2 w-full leading-relaxed border-t border-default pt-2 px-2 text-left"
                         >
-                            {{ character.description }}
+                            {{ product.description }}
                         </p>
                     </div>
                 </template>
@@ -48,5 +45,5 @@
 </template>
 
 <script setup lang="ts">
-    import { Characters, heroInfo } from "~/data/characters";
+    import { Products, heroInfo } from "~/data/store";
 </script>
