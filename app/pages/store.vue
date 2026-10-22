@@ -10,7 +10,7 @@
 
     <UPageSection id="products">
         <!-- Filter bar -->
-        <div class="flex flex-wrap gap-2 mb-8">
+        <div class="flex flex-wrap gap-2">
             <UButton
                 v-for="cat in categories"
                 :key="cat.value"
