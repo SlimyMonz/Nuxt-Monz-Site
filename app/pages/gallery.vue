@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-    import { ImageManifest, heroInfo } from "~/data/art";
+    import { ImageManifest, heroInfo } from "~/data/gallery";
 </script>

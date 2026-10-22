@@ -81,15 +81,6 @@
     >
         <UPageGrid class="lg:grid-cols-2">
             <UPageCard
-                v-if="contactInfo.email"
-                :to="`mailto:${contactInfo.email}`"
-                title="Email"
-                :description="contactInfo.email"
-                icon="i-lucide-mail"
-                variant="soft"
-                class="lg:col-span-2"
-            />
-            <UPageCard
                 v-for="social in contactInfo.socials"
                 :key="social.platform"
                 :to="social.url"

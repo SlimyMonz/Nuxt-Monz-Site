@@ -2,39 +2,43 @@
 @import "@nuxt/ui";
 
 @theme static {
-    --color-grape-50: #fdf4ff;
-    --color-grape-100: #fae8ff;
-    --color-grape-200: #f3cffc;
-    --color-grape-300: #e7a8f7;
-    --color-grape-400: #d57fef;
-    --color-grape-500: #c15fe0;
-    --color-grape-600: #a544c4;
-    --color-grape-700: #8635a0;
-    --color-grape-800: #6d2c81;
-    --color-grape-900: #5a2569;
-    --color-grape-950: #3b1546;
+    
+    /* grape: dusky violet (Gengar / Digivice purples), softened */
+    --color-grape-50: #f6f4fc;
+    --color-grape-100: #ece8f8;
+    --color-grape-200: #dcd4f1;
+    --color-grape-300: #c3b6e6;
+    --color-grape-400: #a692d6;
+    --color-grape-500: #8c74c6;
+    --color-grape-600: #7759b0;
+    --color-grape-700: #644a93;
+    --color-grape-800: #543f78;
+    --color-grape-900: #473862;
+    --color-grape-950: #2c2142;
 
-    --color-ember-50: #fff1f1;
-    --color-ember-100: #ffe0e0;
-    --color-ember-200: #ffc7c7;
-    --color-ember-300: #ff9d9d;
-    --color-ember-400: #ff6161;
-    --color-ember-500: #f5303a;
-    --color-ember-600: #dc1f2c;
-    --color-ember-700: #b91627;
-    --color-ember-800: #971527;
-    --color-ember-900: #7d1526;
-    --color-ember-950: #440810;
+    /* ember: warm apricot-orange (Agumon / Charmander), softened */
+    --color-ember-50: #fff6ee;
+    --color-ember-100: #ffe9d6;
+    --color-ember-200: #fdd3b0;
+    --color-ember-300: #f9b782;
+    --color-ember-400: #f39a59;
+    --color-ember-500: #e8803f;
+    --color-ember-600: #d2672b;
+    --color-ember-700: #ad5125;
+    --color-ember-800: #8b4224;
+    --color-ember-900: #723921;
+    --color-ember-950: #3d1b0e;
 
-    --color-ink-50: #f7f7f8;
-    --color-ink-100: #ededf0;
-    --color-ink-200: #d8d8de;
-    --color-ink-300: #b7b7c1;
-    --color-ink-400: #8f8f9c;
-    --color-ink-500: #6b6b78;
-    --color-ink-600: #4e4e59;
-    --color-ink-700: #38383f;
-    --color-ink-800: #232327;
-    --color-ink-900: #131316;
-    --color-ink-950: #0a0a0c;
+    /* ink: cool blue-slate neutrals with a hint of indigo */
+    --color-ink-50: #f6f7fa;
+    --color-ink-100: #eceef3;
+    --color-ink-200: #d9dce6;
+    --color-ink-300: #b9bfcf;
+    --color-ink-400: #929ab1;
+    --color-ink-500: #6f7891;
+    --color-ink-600: #565e75;
+    --color-ink-700: #434a5e;
+    --color-ink-800: #2c3140;
+    --color-ink-900: #1a1d28;
+    --color-ink-950: #0d0f16;
 }

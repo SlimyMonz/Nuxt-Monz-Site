@@ -5,45 +5,72 @@
         :title="heroInfo.title"
         :description="heroInfo.description"
     />
-    <UPageGrid class="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <ULink
-            v-for="product in Products"
-            :to="product.url"
-            target="_blank"
-            class="block"
-        >
-            <UCard
-                class="h-full transition hover:ring-4 hover:ring-secondary block"
-                :ui="{ body: 'p-0 sm:p-0' }"
+
+    <USeparator />
+
+    <UPageSection id="products">
+        <!-- Filter bar -->
+        <div class="flex flex-wrap gap-2 mb-8">
+            <UButton
+                v-for="cat in categories"
+                :key="cat.value"
+                :variant="activeCategory === cat.value ? 'solid' : 'outline'"
+                color="primary"
+                @click="activeCategory = cat.value"
             >
-                <template #header>
-                    <div class="flex flex-col text-center">
-                        <h2
-                            class="font-bold text-highlighted uppercase tracking-wide"
-                        >
-                            {{ product.title }}
-                        </h2>
-                    </div>
-                </template>
-                <img
-                    :src="product.img"
-                    :alt="`${product.img}`"
-                    class="h-full object-cover block"
+                {{ cat.label }}
+                <UBadge
+                    :label="String(countFor(cat.value))"
+                    color="neutral"
+                    variant="subtle"
+                    size="sm"
                 />
-                <template #footer>
-                    <div class="flex flex-col text-center">
-                        <p
-                            class="mt-2 w-full leading-relaxed border-t border-default pt-2 px-2 text-left"
-                        >
-                            {{ product.description }}
-                        </p>
-                    </div>
-                </template>
-            </UCard>
-        </ULink>
-    </UPageGrid>
+            </UButton>
+        </div>
+
+        <!-- Product grid -->
+        <UPageGrid v-if="filteredProducts.length">
+            <ProductCard
+                v-for="product in filteredProducts"
+                :key="product.id"
+                :product="product"
+                @click="selected = product"
+            />
+        </UPageGrid>
+
+        <p v-else class="text-center text-muted py-16">
+            No products in this category yet.
+        </p>
+    </UPageSection>
+
+    <!-- Product detail modal -->
+    <ProductModal v-model="selected" />
 </template>
 
 <script setup lang="ts">
-    import { Products, heroInfo } from "~/data/store";
+import {
+    heroInfo,
+    categories,
+    products,
+} from "~/data/store";
+import type { Product, ProductCategory } from "~/types/contentTypes";
+
+type FilterValue = ProductCategory | "all";
+
+const activeCategory = ref<FilterValue>("all");
+const selected = ref<Product | null>(null);
+
+const filteredProducts = computed(() =>
+    activeCategory.value === "all"
+        ? products
+        : products.filter((p) => p.category === activeCategory.value),
+);
+
+const countFor = (value: FilterValue) =>
+    value === "all"
+        ? products.length
+        : products.filter((p) => p.category === value).length;
+
+const categoryLabel = (cat?: ProductCategory) =>
+    categories.find((c) => c.value === cat)?.label ?? "";
 </script>

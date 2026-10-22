@@ -10,9 +10,16 @@ export interface Badge {
     url: string;
 }
 
+export type ProductCategory = "pin" | "print" | "sticker" | "bundle" | "other";
+
 export interface Product {
-    title: string;
+    id: string;
+    name: string;
     description: string;
-    img: string;
-    url?: string;
+    imageUrl: string;
+    category: ProductCategory;
+    price?: string;
+    buyUrl?: string;
+    soldOut?: boolean;
+    tags?: string[];
 }

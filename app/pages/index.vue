@@ -5,42 +5,37 @@
         :title="heroInfo.title"
         :description="heroInfo.description"
         :links="HeroLinks"
-    />
-
-    <USeparator />
-
-    <UPageSection
-        id="badges"
-        title="Badges"
-        description="Links to other people's websites!"
-        class="-my-5"
     >
-        <div class="flex flex-wrap justify-center gap-2">
-            <UTooltip
-                v-for="(b, i) in badges"
-                :key="i"
-                :text="b.text"
+        <div class="space-y-6">
+            <div
+                class="bg-elevated overflow-hidden flex items-center justify-center"
             >
-                <a
-                    :href="b.url"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="block"
-                >
-                    <img
-                        :src="b.img"
-                        :alt="b.text"
-                        width="176"
-                        height="62"
-                        class="[image-rendering:pixelated] transition hover:ring-4 hover:ring-secondary"
-                        loading="lazy"
-                        decoding="async"
-                    />
-                </a>
-            </UTooltip>
+                <img
+                    :src="heroImage"
+                    alt="Featured artwork"
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Site nav, same routes as the header -->
+            <nav class="flex flex-wrap justify-center gap-5">
+                <UButton
+                    v-for="item in navItems"
+                    :key="item.to as string"
+                    :label="item.label"
+                    :to="item.to"
+                    color="neutral"
+                    variant="soft"
+                    size="lg"
+                    class="px-5 hover:bg-primary/20 text-2xl"
+                />
+            </nav>
         </div>
-    </UPageSection>
+    </UPageHero>
 </template>
+
 <script setup lang="ts">
-    import { badges, HeroLinks, heroInfo } from "~/data/index";
+import { HeroLinks, heroImage, heroInfo } from "~/data/index";
+
+const navItems = useNavItems();
 </script>

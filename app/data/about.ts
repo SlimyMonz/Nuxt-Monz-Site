@@ -10,7 +10,7 @@ export const heroInfo: HeroInfo = {
 };
 
 export const artistBio = `
-I'm an independent owner, designer, and creator with over a decade of
+I am an independent owner, designer, and creator with over a decade of
 end-to-end experience bringing creative products to market. Since the early 2010s,
 I've independently managed every stage of the product lifecycle: from initial
 concept and illustration to manufacturing, fulfillment, customer support, and
@@ -172,25 +172,18 @@ export const timelineItems = ref<TimelineItem[]>([
 ]);
 
 export const contactInfo = {
-    email: "hello@yourname.com",
     socials: [
         {
-            platform: "Instagram",
-            label: "@yourhandle",
-            url: "https://instagram.com/yourhandle",
-            icon: "simple-icons:instagram",
-        },
-        {
-            platform: "Twitter / X",
+            platform: "Bluesky",
             label: "@yourhandle",
             url: "https://x.com/yourhandle",
-            icon: "simple-icons:x",
+            icon: "simple-icons:bluesky",
         },
         {
-            platform: "TikTok",
-            label: "@yourhandle",
-            url: "https://tiktok.com/@yourhandle",
-            icon: "simple-icons:tiktok",
+            platform: "E-Mail",
+            label: "ragamuffkinz@gmail.com",
+            url: "mailto:ragamuffkinz@gmail.com",
+            icon: "lucide:mail"
         },
         {
             platform: "Etsy",
@@ -199,10 +192,23 @@ export const contactInfo = {
             icon: "simple-icons:etsy",
         },
         {
+            platform: "Instagram",
+            label: "@yourhandle",
+            url: "https://instagram.com/yourhandle",
+            icon: "simple-icons:instagram",
+        },
+
+        {
             platform: "Ko-fi",
             label: "ko-fi.com/yourname",
             url: "https://ko-fi.com/yourname",
             icon: "simple-icons:kofi",
+        },
+        {
+            platform: "TikTok",
+            label: "@yourhandle",
+            url: "https://tiktok.com/@yourhandle",
+            icon: "simple-icons:tiktok",
         },
     ],
 };

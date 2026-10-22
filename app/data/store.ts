@@ -1,39 +1,125 @@
-import type { Product, HeroInfo } from "~/types/contentTypes";
+import type { HeroInfo, Product, ProductCategory } from "~/types/contentTypes";
 
 export const heroInfo: HeroInfo = {
-    headline: "Yeah, they're all gay.",
-    title: "Character Page",
+    headline: "Shop",
+    title: "Products",
     description:
-        "Click on a character to view their FurAffinity gallery! Account is required and 18+ Only!",
+        'Enamel pins, art prints, stickers, and limited-run bundles. Click any item to see details, or follow the "Buy Here" link to the shop.',
 };
 
-export const Products: Product[] = [
+export const categories: { value: ProductCategory | "all"; label: string }[] = [
+    { value: "all", label: "All" },
+    { value: "pin", label: "Pins" },
+    { value: "print", label: "Prints" },
+    { value: "sticker", label: "Stickers" },
+    { value: "bundle", label: "Bundles" },
+    { value: "other", label: "Other" },
+];
+
+// NOTE: placeholder sunset photos from Unsplash (free to use under the Unsplash License).
+// Swap in real product photos from /public/store/ when ready.
+const sunset = (id: string) =>
+    `https://unsplash.com/photos/${id}/download?force=true&w=600`;
+
+const SHOP_URL = "https://www.ebay.com";
+export const products: Product[] = [
+    // Hard Enamel Pins
     {
-        title: "Alexandrite",
-        img: "/products/alexandrite.jpg",
+        id: "pin-001",
+        name: "Agumon Hard Enamel Pin",
         description:
-            "Middle-aged, muscle-gut, t-rex dinosaur. A big bottom that loves it when dudes play with his ass.",
-        url: "https://www.furaffinity.net/gallery/slimymonz/folder/1198506/Alexandrite",
+            '1.5" hard enamel pin with rubber clutch backing. Black nickel plating.',
+        imageUrl: sunset("NxEIAsIz8r8"),
+        category: "pin",
+        price: "$12.00",
+        buyUrl: SHOP_URL,
+        tags: ["digimon", "enamel pin"],
     },
     {
-        title: "Dan",
-        img: "/products/dan.jpg",
-        description:
-            "Full name is Dorothy Heaver, but his gym bros call him Dan. He's totally not gay! Unless...",
-        url: "https://www.furaffinity.net/gallery/slimymonz/folder/1198512/Dan",
+        id: "pin-002",
+        name: "Gengar Neon Pin",
+        description: '2" hard enamel pin, glow-in-the-dark fill. Gold plating.',
+        imageUrl: sunset("rds4H3nIM8s"),
+        category: "pin",
+        price: "$14.00",
+        buyUrl: SHOP_URL,
+        tags: ["pokemon", "enamel pin", "glow"],
     },
     {
-        title: "Monz",
-        img: "/products/monz.jpg",
+        id: "pin-003",
+        name: "Moth Study Pin",
         description:
-            "This is my official 'self' as an online persona. I am Monz! Monz is me!",
-        url: "https://www.furaffinity.net/gallery/slimymonz/folder/1198298/Monz",
+            '1.75" hard enamel pin. Rose gold plating, two rubber clutch backs.',
+        imageUrl: sunset("sN1cOV7wfCM"),
+        category: "pin",
+        price: "$13.00",
+        soldOut: true,
+        tags: ["original", "enamel pin"],
     },
     {
-        title: "Zenyth",
-        img: "/products/zenyth.jpg",
+        id: "pin-004",
+        name: "Eevee Silhouette Pin",
+        description: '1.5" soft enamel pin with epoxy coat. Silver plating.',
+        imageUrl: sunset("ltqoTUOwg58"),
+        category: "pin",
+        price: "$11.00",
+        buyUrl: SHOP_URL,
+        tags: ["pokemon", "enamel pin"],
+    },
+    // Prints
+    {
+        id: "print-001",
+        name: "Hollow Cartography — Art Print",
         description:
-            "A holy man transformed into a big, gay, red demon. He loves Ignacis, his demon partner~",
-        url: "https://www.furaffinity.net/gallery/slimymonz/folder/1198328/Zenyth",
+            '11x14" giclée print on 100lb matte paper. Signed and numbered edition of 50.',
+        imageUrl: sunset("JfQkGucZCrg"),
+        category: "print",
+        price: "$28.00",
+        buyUrl: SHOP_URL,
+        tags: ["original", "print", "limited edition"],
+    },
+    {
+        id: "print-002",
+        name: "Omnimon Rising — Art Print",
+        description: '8x10" giclée print on matte paper. Open edition.',
+        imageUrl: sunset("_fUTDbq1vqo"),
+        category: "print",
+        price: "$18.00",
+        buyUrl: SHOP_URL,
+        tags: ["digimon", "print"],
+    },
+    // Stickers
+    {
+        id: "sticker-001",
+        name: "Digimon Sticker Sheet",
+        description:
+            "Die-cut vinyl sticker sheet featuring 8 Digimon characters. Weather resistant.",
+        imageUrl: sunset("6fx4MkEMPto"),
+        category: "sticker",
+        price: "$8.00",
+        buyUrl: SHOP_URL,
+        tags: ["digimon", "sticker"],
+    },
+    {
+        id: "sticker-002",
+        name: "Moth Study — Holographic Sticker",
+        description: '3" holographic die-cut vinyl sticker.',
+        imageUrl: sunset("NxEIAsIz8r8"),
+        category: "sticker",
+        price: "$5.00",
+        buyUrl: SHOP_URL,
+        tags: ["original", "sticker", "holographic"],
+    },
+    // Bundles
+    {
+        id: "bundle-001",
+        name: "Digimon Collection Bundle",
+        description:
+            "Agumon Pin + Digimon Sticker Sheet + Omnimon Print. Packaged in branded kraft box.",
+        imageUrl: sunset("rds4H3nIM8s"),
+        category: "bundle",
+        price: "$34.00",
+        buyUrl: SHOP_URL,
+        tags: ["digimon", "bundle"],
     },
 ];

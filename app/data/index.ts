@@ -1,11 +1,14 @@
 import type { ButtonProps } from "@nuxt/ui";
-import type { Badge, HeroInfo } from "~/types/contentTypes";
+import type { HeroInfo } from "~/types/contentTypes";
+
+export const heroImage =
+    "https://unsplash.com/photos/6fx4MkEMPto/download?force=true&w=800";
 
 export const heroInfo: HeroInfo = {
-    headline: "NEW SLIME",
-    title: "Monster Website",
+    headline: "Artist · Designs · Products",
+    title: "Creations that live in your hands",
     description:
-        "Welcome! I hope you like my site. I put in a lot of time and effort to make something just for me. Feel free to click around and check things out!",
+        "Illustrations, enamel pins, prints, and limited-run goods - designed, produced, and shipped with care from first sketch to your door.",
 };
 
 export const HeroLinks = ref<ButtonProps[]>([
@@ -47,25 +50,5 @@ export const HeroLinks = ref<ButtonProps[]>([
     },
 ]);
 
-export const badges: Badge[] = [
-    {
-        text: "and Null",
-        img: "/badges/null_sheep.png",
-        url: "https://www.sheeeeeeeep.art/",
-    },
-    {
-        text: "Aks",
-        img: "/badges/akselmo.png",
-        url: "https://akselmo.dev/",
-    },
-    {
-        text: "Monz",
-        img: "/badges/monz.gif",
-        url: "/",
-    },
-    {
-        text: "Regal",
-        img: "/badges/cobra.monster.gif",
-        url: "https://cobra.monster/",
-    },
-];
+
+

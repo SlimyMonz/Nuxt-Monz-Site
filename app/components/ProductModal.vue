@@ -1,0 +1,71 @@
+<template>
+    <UModal
+        v-model:open="isOpen"
+        :title="product?.name"
+        :description="categoryLabel"
+    >
+        <template #body>
+            <div v-if="product" class="space-y-4">
+                <div class="relative overflow-hidden rounded-lg bg-elevated">
+                    <img
+                        :src="product.imageUrl"
+                        :alt="product.name"
+                        class="w-full"
+                    />
+                    <UBadge
+                        v-if="product.soldOut"
+                        label="Sold Out"
+                        color="neutral"
+                        class="absolute top-3 left-3"
+                    />
+                </div>
+
+                <p v-if="product.price" class="text-xl font-semibold">
+                    {{ product.price }}
+                </p>
+                <p>{{ product.description }}</p>
+
+                <div v-if="product.tags?.length" class="flex flex-wrap gap-2">
+                    <UBadge
+                        v-for="tag in product.tags"
+                        :key="tag"
+                        :label="tag"
+                        color="neutral"
+                        variant="outline"
+                    />
+                </div>
+
+                <UButton
+                    v-if="product.buyUrl && !product.soldOut"
+                    :to="product.buyUrl"
+                    target="_blank"
+                    trailing-icon="i-lucide-external-link"
+                    size="lg"
+                >
+                    Buy Here
+                </UButton>
+                <p v-else-if="product.soldOut" class="text-muted">Sold Out</p>
+                <p v-else class="text-muted">Not yet available online</p>
+            </div>
+        </template>
+    </UModal>
+</template>
+
+<script setup lang="ts">
+import { categories } from "~/data/store";
+import type { Product } from "~/types/contentTypes";
+
+// v-model holds the selected product; null means the modal is closed
+const product = defineModel<Product | null>({ required: true });
+
+const isOpen = computed({
+    get: () => !!product.value,
+    set: (open) => {
+        if (!open) product.value = null;
+    },
+});
+
+const categoryLabel = computed(
+    () => categories.find((c) => c.value === product.value?.category)?.label ?? "",
+);
+</script>

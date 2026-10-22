@@ -1,5 +1,5 @@
 <template>
-    <UPageGrid class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+    <UPageGrid>
         <template
             v-for="album in sortedImageManifest"
             :key="album.title"
