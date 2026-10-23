@@ -1,12 +1,87 @@
-import type { ButtonProps } from "@nuxt/ui";
+import type { PageFeatureProps, ButtonProps } from "@nuxt/ui";
 import type { Badge, HeroInfo } from "~/types/contentTypes";
 
 export const heroInfo: HeroInfo = {
-    headline: "NEW SLIME",
+    headline: "Made by Monz",
     title: "Monster Website",
     description:
         "Welcome! I hope you like my site. I put in a lot of time and effort to make something just for me. Feel free to click around and check things out!",
 };
+
+export const pageFeatureProps = ref<PageFeatureProps[]>([
+    {
+        title: "About",
+        description: `Learn more about who I am and my background!`,
+        icon: "lucide:user",
+        to: "/about",
+    },
+    {
+        title: "Art",
+        description: `Browse my digital artwork. Most of it was made on a computer with mouse/keyboard using stuff similar to Photoshop.`,
+        icon: "lucide:palette",
+        to: "/art",
+    },
+    {
+        title: "Blog",
+        description: `Read my latest posts, thoughts, and updates. Usually gets into ramblings and such.`,
+        icon: "lucide:newspaper",
+        to: "/blog",
+    },
+    {
+        title: "Books",
+        description: `Books I've been reading and that I've enjoyed. I'd recommend any of these if you're a fan of reading.`,
+        icon: "lucide:book",
+        to: "/books",
+    },
+    {
+        title: "Characters",
+        description: `A collection of my characters! Each one has a link to their FurAffinity gallery.`,
+        icon: "lucide:user-round-group",
+        to: "/characters",
+    },
+    {
+        title: "Error",
+        description: `Preview the error page, since sometimes things go wrong. Also a great way to view the animated background (dark mode only).`,
+        icon: "lucide:triangle-alert",
+        to: "/error",
+    },
+    {
+        title: "Movies",
+        description: `A collection of films I've watched, loved, and want to share. I consider these perfection.`,
+        icon: "lucide:film",
+        to: "/movies",
+    },
+    {
+        title: "Music",
+        description: `Favorite albums and artists of mine. Best way to get a peek at what my music tastes are~`,
+        icon: "lucide:eighth-notes",
+        to: "/music",
+    },
+    {
+        title: "Obituary",
+        description: `A quiet place to remember and honor those who are no longer with us. Rest in peace.`,
+        icon: "lucide:tombstone",
+        to: "/obituary",
+    },
+    {
+        title: "Photos",
+        description: `A gallery of photos I wanna share! Mostly and scenery.`,
+        icon: "lucide:images",
+        to: "/photos",
+    },
+    {
+        title: "Recipes",
+        description: `Dishes I love to make with ingredients and step-by-step instructions.`,
+        icon: "lucide:utensils",
+        to: "/recipes",
+    },
+    {
+        title: "Terms of Service",
+        description: `The terms and guidelines for using this site.`,
+        icon: "lucide:certificate",
+        to: "/terms",
+    },
+]);
 
 export const HeroLinks = ref<ButtonProps[]>([
     {

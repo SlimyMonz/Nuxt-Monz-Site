@@ -2,16 +2,18 @@
     <div>
         <SlimyHero
             :hero-info="heroInfo"
-            :links="HeroLinks" />
+            :links="HeroLinks"
+        />
 
         <USeparator />
 
         <UPageSection
             id="latestBlogPost"
             headline="New"
-            title="Latest from the Monster"
+            title="Latest Info"
             description="Thoughts, updates, and stuff."
-            class="-my-8">
+            class="-my-8"
+        >
             <div class="mx-auto w-full max-w-2xl">
                 <UBlogPost
                     :key="latestPost.id"
@@ -19,11 +21,13 @@
                     :date="latestPost.date"
                     variant="subtle"
                     class="transition hover:ring-4 hover:ring-secondary my-4"
-                    @click="selectBlogPost(latestPost)" />
+                    @click="selectBlogPost(latestPost)"
+                />
 
                 <BlogPostModal
                     v-model:open="blogPostIsOpen"
-                    :blogPost="selectedBlogPost" />
+                    :blogPost="selectedBlogPost"
+                />
 
                 <div class="mt-6 flex justify-center">
                     <UButton
@@ -31,17 +35,22 @@
                         to="/blog"
                         icon="lucide:arrow-right"
                         trailing
-                        variant="ghost" />
+                        variant="ghost"
+                    />
                 </div>
             </div>
         </UPageSection>
 
-        <!--
         <USeparator />
-        <UPageSection>
-            Put in some per-page hero-description boxes
-        </UPageSection>
-         -->
+
+        <UPageSection
+            id="pageFeatures"
+            headline="DIRECTORY"
+            title="All Pages"
+            description="These are the places that exist on my site! You can navigate (most) of them on the top navigation bar, too."
+            class="-my-8"
+            :features="pageFeatureProps"
+        />
 
         <USeparator />
 
@@ -49,17 +58,20 @@
             id="badges"
             title="Badges"
             description="Links to other people's websites!"
-            class="-my-5">
+            class="-my-5"
+        >
             <div class="flex flex-wrap justify-center gap-2">
                 <UTooltip
                     v-for="(b, i) in badges"
                     :key="i"
-                    :text="b.text">
+                    :text="b.text"
+                >
                     <a
                         :href="b.url"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="block">
+                        class="block"
+                    >
                         <img
                             :src="b.img"
                             :alt="b.text"
@@ -67,7 +79,8 @@
                             height="62"
                             class="[image-rendering:pixelated] transition hover:ring-4 hover:ring-secondary"
                             loading="lazy"
-                            decoding="async" />
+                            decoding="async"
+                        />
                     </a>
                 </UTooltip>
             </div>
@@ -75,7 +88,12 @@
     </div>
 </template>
 <script setup lang="ts">
-    import { badges, HeroLinks, heroInfo } from "~/data/index";
+    import {
+        badges,
+        HeroLinks,
+        heroInfo,
+        pageFeatureProps,
+    } from "~/data/index";
     import { heroInfo as aboutHeroInfo } from "~/data/about";
     import { heroInfo as artHeroInfo } from "~/data/art";
     import { heroInfo as blogHeroInfo } from "~/data/blog";
