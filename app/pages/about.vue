@@ -1,6 +1,17 @@
 <template>
     <div>
-        <SlimyHero :hero-info="heroInfo">
+        <UPageHero        
+        id="top"
+        :headline="heroInfo.headline"
+        :title="heroInfo.title"
+        :description="heroInfo.description"
+                class="-my-8"
+
+        :ui="{
+            headline: 'hero-in [--i:0]',
+            title: 'hero-in [--i:1]',
+            description: 'hero-in [--i:2]',
+        }">
             <div
                 class="bg-elevated rounded-3xl overflow-hidden flex items-center justify-center"
             >
@@ -10,7 +21,7 @@
                     class="w-full h-full object-cover"
                 />
             </div>
-        </SlimyHero>
+        </UPageHero>
 
         <USeparator />
 
