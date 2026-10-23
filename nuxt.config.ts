@@ -15,5 +15,4 @@ export default defineNuxtConfig({
             title: "Monz Site",
         },
     },
-
 });
