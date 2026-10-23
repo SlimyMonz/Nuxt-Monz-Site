@@ -61,7 +61,6 @@
                 <UTimeline
                     :items="timelineItems"
                     :default-value="3"
-                    color="secondary"
                     orientation="horizontal"
                     size="3xl"
                     class="min-w-max"
