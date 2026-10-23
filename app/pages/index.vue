@@ -8,27 +8,30 @@
 
         <UPageSection
             id="latestBlogPost"
-            headline="New!"
-            title="Latest Blog Post"
-            description="Click to see the full post!"
+            headline="New"
+            title="Latest from the Monster"
+            description="Thoughts, updates, and stuff."
             class="-my-8">
-            <div>
+            <div class="mx-auto w-full max-w-2xl">
                 <UBlogPost
                     :key="latestPost.id"
                     :title="latestPost.title"
                     :date="latestPost.date"
+                    variant="subtle"
                     class="transition hover:ring-4 hover:ring-secondary my-4"
                     @click="selectBlogPost(latestPost)" />
+
                 <BlogPostModal
                     v-model:open="blogPostIsOpen"
                     :blogPost="selectedBlogPost" />
-                <div class="flex justify-center">
+
+                <div class="mt-6 flex justify-center">
                     <UButton
-                        label="Click to See More Posts"
-                        target="_self"
+                        label="View all posts"
                         to="/blog"
-                        icon="lucide:newspaper"
-                        variant="outline" />
+                        icon="lucide:arrow-right"
+                        trailing
+                        variant="ghost" />
                 </div>
             </div>
         </UPageSection>
