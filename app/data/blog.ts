@@ -179,7 +179,7 @@ export const BlogPosts: BlogPost[] = [
         The current state of the internet feels genuinely scary right now. Communities like FurAffinity are constantly at risk of shutting down due to pressure from ultra-conservative groups,
         which is incredibly frustrating and disheartening. The internet is supposed to be weird! Leave us alone, please!
         <br><br>
-        On a more positive note, I created another website based on this one over at  <a href="https://shader.gallery/" style="color: red; font-weight: bold;">ragamuffin.page</a> and you can really see the resemblence.
+        On a more positive note, I created another website based on this one over at  <a href="https://ragamuffin.page/" style="color: red; font-weight: bold;">ragamuffin.page</a> and you can really see the resemblence.
         While working on their site, I also added some new animations to mine site! If you're here, you may have noticed that things slide/pop in real nicely. I still haven't figured out a good way to add animations to the
         galleries, but that will come at another point. 
         <br><br>
