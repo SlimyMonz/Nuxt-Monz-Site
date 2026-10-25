@@ -65,7 +65,7 @@ export const pageFeatureProps = ref<PageFeatureProps[]>([
     },
     {
         title: "Photos",
-        description: `A gallery of photos I wanna share! Mostly and scenery.`,
+        description: `A gallery of photos I wanna share! Mostly pets and scenery.`,
         icon: "lucide:images",
         to: "/photos",
     },

@@ -10,7 +10,7 @@
         <UPageSection
             id="latestBlogPost"
             headline="New"
-            title="Latest Info"
+            title="Latest Post"
             description="Thoughts, updates, and stuff."
             class="-my-8"
         >
@@ -36,6 +36,7 @@
                         icon="lucide:arrow-right"
                         trailing
                         variant="ghost"
+                        color="secondary"
                     />
                 </div>
             </div>
@@ -94,16 +95,6 @@
         heroInfo,
         pageFeatureProps,
     } from "~/data/index";
-    import { heroInfo as aboutHeroInfo } from "~/data/about";
-    import { heroInfo as artHeroInfo } from "~/data/art";
-    import { heroInfo as blogHeroInfo } from "~/data/blog";
-    import { heroInfo as booksHeroInfo } from "~/data/books";
-    import { heroInfo as charactersHeroInfo } from "~/data/characters";
-    import { heroInfo as moviesHeroInfo } from "~/data/movies";
-    import { heroInfo as musicHeroInfo } from "~/data/music";
-    import { heroInfo as obituaryHeroInfo } from "~/data/obituary";
-    import { heroInfo as photosHeroInfo } from "~/data/photos";
-    import { heroInfo as recipesHeroInfo } from "~/data/recipes";
 
     import { BlogPosts } from "~/data/blog";
     import type { BlogPost } from "~/types/contentTypes";
