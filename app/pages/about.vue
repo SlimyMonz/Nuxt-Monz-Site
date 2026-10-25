@@ -5,7 +5,7 @@
             :headline="heroInfo.headline"
             :title="heroInfo.title"
             :description="heroInfo.description"
-            class="-my-8"
+            class="-my-12"
             :ui="{
                 headline: 'hero-in [--i:0]',
                 title: 'hero-in [--i:1]',
