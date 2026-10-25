@@ -34,6 +34,15 @@ export const Movies: Movie[] = [
         url: "https://tv.apple.com/us/movie/nightcrawler/umc.cmc.1h8fjzqshxpg22pa0bm7iho27",
     },
     {
+        title: "Hereditary",
+        director: "Ari Aster",
+        date: "2018",
+        img: "/movies/hereditary.jpg",
+        description:
+            "Creepy, spooky, and downright upsetting. Make sure you keep your head on tight for this fantastically depressing ride.",
+        url: "https://tv.apple.com/sg/movie/hereditary/umc.cmc.1p8skf72cqba9t91v2rqjbeyv",
+    },
+    {
         title: "Upgrade",
         director: "Leigh Whannell",
         date: "2018",
@@ -48,6 +57,14 @@ export const Movies: Movie[] = [
         img: "/movies/midsommar.jpg",
         description: `Bright, colorful, and beautiful on the surface, yet somehow filled with dread at every turn. Florence Pugh is phenomenal.`,
         url: "https://tv.apple.com/us/movie/midsommar/umc.cmc.3btmmnmdi8cci3gb2qupxli8o",
+    },
+    {
+        title: "Late Night With the Devil",
+        director: "The Cairnes",
+        date: "2024",
+        img: "/movies/late_night_with_the_devil.jpg",
+        description: `It's time for a late night talk show! And with your favorite host, it's a special Halloween spook-tacular event! Uh-oh.`,
+        url: "https://tv.apple.com/us/movie/late-night-with-the-devil/umc.cmc.prb0czsivjhyev6dcwdwesde",
     },
     {
         title: "Project Hail Mary",
