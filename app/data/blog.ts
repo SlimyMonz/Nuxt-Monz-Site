@@ -91,7 +91,7 @@ export const BlogPosts: BlogPost[] = [
         id: 5,
         title: "Almost completed website.",
         date: "2026-08-26",
-        tags: [Tag.Personal, Tag.Tech],
+        tags: [Tag.Books, Tag.Movies],
         body: `Created the books and movies pages!!! Gonna keep this a short post because I still have the ACTUAL HOME PAGE to complete. But all of the others done! Now I can make the home page look real nice.
         `,
     },
@@ -113,7 +113,7 @@ export const BlogPosts: BlogPost[] = [
         id: 7,
         title: "Added a few more things...",
         date: "2026-08-29",
-        tags: [Tag.Personal, Tag.Tech],
+        tags: [Tag.Games, Tag.Personal, Tag.Tech],
         body: `...and started to actually enjoy my weekend! The website has a really cool background now. It came from <a href="https://shader.gallery/" style="color: red; font-weight: bold;">shader.gallery</a>.
         Getting the shader to work wasn't actually all that difficult. Many smarter people have done the hard work for me! What I did do is optimize it by restricting the resolution to 360p and FPS to 30. There's a 4-pixel blur to make it a lil smoother.
         <br>
@@ -135,7 +135,7 @@ export const BlogPosts: BlogPost[] = [
         id: 8,
         title: "Fully-loaded Mac mini, Android sucks now, Apple also kinda sucks, and romhacks.",
         date: "2026-09-11",
-        tags: [Tag.Opinion, Tag.Personal, Tag.Tech],
+        tags: [Tag.Books, Tag.Games, Tag.Opinion, Tag.Personal, Tag.Tech],
         body: `Haven't made a ton of updates to the website this time! I did some code cleanup and refactoring, but nothing crazy.
         Though, I haven't even added any new movies/music/books. TBF, that's because I haven't seen or listened to any worth adding, yet.
         I do plan to read the next book in the Three Body Problem series. I didn't even know it was a trilogy until my coworker told me.
@@ -180,7 +180,7 @@ export const BlogPosts: BlogPost[] = [
         id: 9,
         title: "Business trip, internet woes, iPhone Duo, and Control Resonant",
         date: "2026-10-22",
-        tags: [Tag.Opinion, Tag.Politics, Tag.Tech, Tag.Travel],
+        tags: [Tag.Games, Tag.Opinion, Tag.Politics, Tag.Tech, Tag.Travel, Tag.Work],
         body: `Last month I went on my first ever business trip! It was so boring. And they didn't even talk about anything I needed to be there for. I basically spent the entire time
         reading the Three Body Problem trilogy's last two books. The food was good, but I wasn't happy about leaving home to be in a red-state area. At least I got some overtime pay out of it.
         <br><br>

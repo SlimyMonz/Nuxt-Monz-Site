@@ -11,6 +11,35 @@
             class="mb-4"
         />
 
+        <div class="flex flex-wrap gap-2 mb-4">
+            <UButton
+                :variant="tags.length === 0 ? 'solid' : 'outline'"
+                color="primary"
+                class="rounded-full px-4"
+                @click="clearTags"
+            >
+                All
+            </UButton>
+
+            <UButton
+                v-for="tag in allTags"
+                :key="tag"
+                :variant="tags.includes(tag) ? 'solid' : 'outline'"
+                color="primary"
+                class="rounded-full px-4 transition duration-300 hover:-translate-y-0.5"
+                @click="toggleTag(tag)"
+            >
+                {{ tag }}
+                <UBadge
+                    :label="String(countFor(tag))"
+                    color="neutral"
+                    variant="subtle"
+                    size="sm"
+                    class="rounded-full"
+                />
+            </UButton>
+        </div>
+
         <UPagination
             v-model:page="page"
             :items-per-page="itemsPerPage"
@@ -25,7 +54,23 @@
             :date="post.date"
             class="transition hover:ring-4 hover:ring-secondary my-4"
             @click="selectPost(post)"
-        />
+        >
+            <template
+                v-if="post.tags?.length"
+                #description
+            >
+                <div class="flex flex-wrap my-1 gap-x-2">
+                    <UBadge
+                        v-for="tag in post.tags"
+                        :key="tag"
+                        :label="`#${tag}`"
+                        color="primary"
+                        variant="subtle"
+                        size="sm"
+                    />
+                </div>
+            </template>
+        </UBlogPost>
 
         <UPagination
             v-model:page="page"
@@ -43,38 +88,60 @@
 
 <script setup lang="ts">
     import { BlogPosts, heroInfo } from "~/data/blog";
-    import type { BlogPost, Tag } from "~/types/contentTypes";
+    import type { BlogPost } from "~/types/contentTypes";
+    import { Tag } from "~/types/contentTypes";
 
     const itemsPerPage = 10;
     const page = ref(1);
     const search = ref("");
     const tags = ref<Tag[]>([]);
 
-    const sortedBlogPosts = computed(() => {
-        return [...BlogPosts].sort((a, b) => b.id - a.id);
-    });
+    const allTags = Object.values(Tag);
 
-    const filteredBlogPosts = computed(() => {
+    const sortedBlogPosts = computed(() =>
+        [...BlogPosts].sort((a, b) => b.id - a.id),
+    );
+
+    function matchesSearch(post: BlogPost) {
         const query = search.value.trim().toLowerCase();
+        return (
+            !query || `${post.title} ${post.body}`.toLowerCase().includes(query)
+        );
+    }
 
-        return sortedBlogPosts.value.filter((post) => {
-            const matchesSearch =
-                !query ||
-                `${post.title} ${post.body}`.toLowerCase().includes(query);
-
+    const filteredBlogPosts = computed(() =>
+        sortedBlogPosts.value.filter((post) => {
             const matchesTags =
                 tags.value.length === 0 ||
-                tags.value.some((tag) => post.tags?.includes(tag));
+                tags.value.some((tag) => post.tags?.includes(tag)); // any selected tag
+            // use .every(...) instead if posts must have ALL selected tags
 
-            return matchesSearch && matchesTags;
-        });
-    });
+            return matchesSearch(post) && matchesTags;
+        }),
+    );
 
     const paginatedBlogPosts = computed(() => {
         const start = (page.value - 1) * itemsPerPage;
         const end = start + itemsPerPage;
         return filteredBlogPosts.value.slice(start, end);
     });
+
+    // Counts reflect the current search text
+    function countFor(tag: Tag) {
+        return sortedBlogPosts.value.filter(
+            (post) => matchesSearch(post) && post.tags?.includes(tag),
+        ).length;
+    }
+
+    function toggleTag(tag: Tag) {
+        tags.value = tags.value.includes(tag)
+            ? tags.value.filter((t) => t !== tag)
+            : [...tags.value, tag];
+    }
+
+    function clearTags() {
+        tags.value = [];
+    }
 
     // URL-based blog posts being opened and closed
     const route = useRoute();
