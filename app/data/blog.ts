@@ -1,3 +1,4 @@
+import { Tag } from "~/types/contentTypes";
 import type { BlogPost, HeroInfo } from "~/types/contentTypes";
 
 export const heroInfo: HeroInfo = {
@@ -11,6 +12,7 @@ export const BlogPosts: BlogPost[] = [
         id: 0,
         title: "First post!",
         date: "2026-08-20",
+        tags: [Tag.Personal],
         body: `This is my first blog post! I wanted to have this here for some data until I make more of the site. This should be good for now until I do more!"
         `,
     },
@@ -18,6 +20,7 @@ export const BlogPosts: BlogPost[] = [
         id: 1,
         title: "Second post!?",
         date: "2026-08-22",
+        tags: [Tag.Tech],
         body: `<p>Whoa! Second post! I created the <strong>Art page</strong> and now it's there! I went through a lot of iterations before I was happy with it.
         I tried having a fancy carousel of images, but it didn't look right and it was kinda repetitive visually.</p><br>
         <p>Using <strong>Nuxt/NuxtUI</strong> is nice, but after creating the manifest for all of the images... kinda feels silly to even use Nuxt when most of the work was done by hand.
@@ -41,6 +44,7 @@ export const BlogPosts: BlogPost[] = [
         id: 2,
         title: "Two posts in one day!",
         date: "2026-08-22",
+        tags: [Tag.Tech],
         body: `<p>I really REALLY wanted to get the Album Gallery thing working in the Photos section. You can check that out
         <a
             href="/photos"
@@ -62,6 +66,7 @@ export const BlogPosts: BlogPost[] = [
         id: 3,
         title: "Huge refactor of code.",
         date: "2026-08-23",
+        tags: [Tag.Music, Tag.Personal, Tag.Tech],
         body: `<p>I'm actually quite tired now, I spent my entire weekend writing up my website. Might take a break from work this upcoming week. Anyway, the new things!</p><br>
         <p>First off: I updated the About, Art, and Photos pages. They weren't great on mobile, but now they are!</p>
         <p>Second: Music page is pretty much done!
@@ -74,6 +79,7 @@ export const BlogPosts: BlogPost[] = [
         id: 4,
         title: "Progress report on the site.",
         date: "2026-08-25",
+        tags: [Tag.Food, Tag.Personal, Tag.Tech],
         body: `<p>Currently stuck in meetings at work. Instead of letting time slip by as people talk about information that isn't directly related to me, I felt the need to stay productive.</p>
         <p>Generally, I don't have a very strong "grindset-mindset" attitude, but I really don't like sitting around doing nothing when I know I can do literally anything else.</p>
         <br>
@@ -85,6 +91,7 @@ export const BlogPosts: BlogPost[] = [
         id: 5,
         title: "Almost completed website.",
         date: "2026-08-26",
+        tags: [Tag.Personal, Tag.Tech],
         body: `Created the books and movies pages!!! Gonna keep this a short post because I still have the ACTUAL HOME PAGE to complete. But all of the others done! Now I can make the home page look real nice.
         `,
     },
@@ -92,6 +99,7 @@ export const BlogPosts: BlogPost[] = [
         id: 6,
         title: "Website completion day and a victory lap!",
         date: "2026-08-27",
+        tags: [Tag.Personal, Tag.Tech],
         body: `Here we go! My website is completed. At least, the basic bones of it is.
         I still plan to make some updates! For now, just little things like adding more books/movies/music to a page.
         At some point I'd like to have an animated background. There's this really cool UI suite called 'Inspira-UI' that has a silky-wavy animation.
@@ -105,6 +113,7 @@ export const BlogPosts: BlogPost[] = [
         id: 7,
         title: "Added a few more things...",
         date: "2026-08-29",
+        tags: [Tag.Personal, Tag.Tech],
         body: `...and started to actually enjoy my weekend! The website has a really cool background now. It came from <a href="https://shader.gallery/" style="color: red; font-weight: bold;">shader.gallery</a>.
         Getting the shader to work wasn't actually all that difficult. Many smarter people have done the hard work for me! What I did do is optimize it by restricting the resolution to 360p and FPS to 30. There's a 4-pixel blur to make it a lil smoother.
         <br>
@@ -126,6 +135,7 @@ export const BlogPosts: BlogPost[] = [
         id: 8,
         title: "Fully-loaded Mac mini, Android sucks now, Apple also kinda sucks, and romhacks.",
         date: "2026-09-11",
+        tags: [Tag.Opinion, Tag.Personal, Tag.Tech],
         body: `Haven't made a ton of updates to the website this time! I did some code cleanup and refactoring, but nothing crazy.
         Though, I haven't even added any new movies/music/books. TBF, that's because I haven't seen or listened to any worth adding, yet.
         I do plan to read the next book in the Three Body Problem series. I didn't even know it was a trilogy until my coworker told me.
@@ -170,6 +180,7 @@ export const BlogPosts: BlogPost[] = [
         id: 9,
         title: "Business trip, internet woes, iPhone Duo, and Control Resonant",
         date: "2026-10-22",
+        tags: [Tag.Opinion, Tag.Politics, Tag.Tech, Tag.Travel],
         body: `Last month I went on my first ever business trip! It was so boring. And they didn't even talk about anything I needed to be there for. I basically spent the entire time
         reading the Three Body Problem trilogy's last two books. The food was good, but I wasn't happy about leaving home to be in a red-state area. At least I got some overtime pay out of it.
         <br><br>
@@ -199,6 +210,54 @@ export const BlogPosts: BlogPost[] = [
         having their own issues. I was hoping Dylan would have felt just a bit more powerful, but it never quite felt like it went off the rails as you levelled up. Eventually you situate into a playstyle and stick with it.
         <br><br>
         Guess that's all for now! I hope whoever reads this has the best day of their life!!!
+        `,
+    },
+    {
+        id: 10,
+        title: "Talking about my poor financial decisions and ice cream.",
+        date: "2026-10-24",
+        tags: [Tag.Food, Tag.Personal, Tag.Reviews, Tag.Tech],
+        body: `Sooooo I'm a slut for capitalism and ended up going for the iPhone 18 Pro Max 512GB in Black. HOWEVER! I decided I do NOT want the iPhone Duo at all for the first generation.
+        Has anyone see the awful L-shaped destruction of the inner screen going around? <a href="https://i.redd.it/7iz94t8vaixh1.jpeg" style="color: red; font-weight: bold;"> Like seriously look at this. </a>
+        My main reasoning to replace my iPhone Air boils down to the following:
+        <br><br>
+        <style>
+        .grid-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            list-style: none;
+            counter-reset: item;
+            padding: 0;
+        }
+        .grid-list li {
+            counter-increment: item;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .grid-list li::before {
+            content: counter(item) ") ";
+            font-weight: bold;
+        }
+        </style>
+
+        <ol class="grid-list">
+        <li>The iPhone Air battery sucks</li>
+        <li>The iPhone Air gets hot as fuck</li>
+        <li>The iPhone Air camera sucks</li>
+        <li>I was looking for a camera</li>
+        </ol>
+        <br>
+        For the 'looking for a camera' one, I mean I was specifically looking for a point-and-shoot or DSLR like back in the non-smartphone days with the Nikon and Canon and whatever.
+        The wild thing is that most point-and-shoots and cheaper DSLRs are <b>WORSE</b> than an iPhone camera! Insane, honestly. So this is how I justified my purchase.
+        And... damn I really do like the 18 Pro Max. It's not really a mega-upgrade (iPhones honestly haven't been since the 11/12/13 line), but it's unsurprisingly the best
+        version of an iPhone today. I'm glad Apple isn't afraid to let the Pro lineup be a bit chunky. The battery thickness and cooling makes a huge difference. The dynamic island
+        update is probably the most "okay" part. The camera? Wow, a variable aperature inside a phone is insane. 
+        <a href="https://www.cnet.com/tech/mobile/how-samsung-galaxy-s9-variable-aperture-camera-works-mwc-2018/" style="color: red; font-weight: bold;">Yeah, it's been done before</a>, but it's still really cool!
+        <br><br>
+        Anyway, today was also the last day for a local ice cream place. Getting colder so they gotta close for the season. So sad! At least I got a lil quart of chocolate ice cream with brownie bits.
+        Mmmmmmm~
         `,
     },
 ];

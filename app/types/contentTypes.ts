@@ -10,11 +10,25 @@ export interface Badge {
     url: string;
 }
 
+export enum Tag {
+  Food = "Food",
+  Health = "Health",
+  Music = "Music",
+  Opinion = "Opinion",
+  Personal = "Personal",
+  Politics = "Politics",
+  Reviews = "Reviews",
+  Tech = "Tech",
+  Travel = "Travel",
+  Work = "Work",
+}
+
 export interface BlogPost {
     id: number;
     title: string;
     date: string;
     body: string;
+    tags?: Tag[];
 }
 
 export interface Character {
