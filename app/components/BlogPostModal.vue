@@ -11,25 +11,24 @@
                 v-if="blogPost"
                 class="space-y-4"
             >
-                <div class="flex items-center justify-between gap-y-1">
-                    <p class="text-sm text-muted">{{ blogPost.date }}</p>
-                    <div class="flex flex-wrap justify-end gap-2">
-                        <UBadge
-                            v-for="tag in blogPost.tags"
-                            :key="tag"
-                            :label="`#${tag}`"
-                            color="neutral"
-                            variant="subtle"
-                            size="sm"
-                        />
-                    </div>
-                </div>
-
-                <USeparator />
+                <p class="text-sm text-muted justify-end">
+                    Posted on {{ blogPost.date }}
+                </p>
 
                 <ClientOnly>
                     <div v-html="blogPost.body"></div>
                 </ClientOnly>
+
+                <div class="flex flex-wrap gap-2">
+                    <UBadge
+                        v-for="tag in blogPost.tags"
+                        :key="tag"
+                        :label="`#${tag}`"
+                        color="primary"
+                        variant="outline"
+                        size="sm"
+                    />
+                </div>
             </div>
         </template>
     </UModal>

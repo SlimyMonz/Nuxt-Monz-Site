@@ -59,13 +59,13 @@
                 v-if="post.tags?.length"
                 #description
             >
-                <div class="flex flex-wrap my-1 gap-x-2">
+                <div class="flex flex-wrap mt-4 gap-x-2">
                     <UBadge
                         v-for="tag in post.tags"
                         :key="tag"
                         :label="`#${tag}`"
                         color="primary"
-                        variant="subtle"
+                        variant="outline"
                         size="sm"
                     />
                 </div>

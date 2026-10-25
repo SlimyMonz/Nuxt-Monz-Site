@@ -12,7 +12,7 @@
             headline="New"
             title="Latest Post"
             description="Thoughts, updates, and stuff."
-            class="-my-8"
+            class="-my-12"
         >
             <div class="mx-auto w-full max-w-2xl">
                 <UBlogPost
@@ -22,7 +22,23 @@
                     variant="subtle"
                     class="transition hover:ring-4 hover:ring-secondary my-4"
                     @click="selectBlogPost(latestPost)"
-                />
+                >
+                    <template
+                        v-if="latestPost.tags?.length"
+                        #description
+                    >
+                        <div class="flex flex-wrap mt-4 gap-x-2">
+                            <UBadge
+                                v-for="tag in latestPost.tags"
+                                :key="tag"
+                                :label="`#${tag}`"
+                                color="primary"
+                                variant="outline"
+                                size="sm"
+                            />
+                        </div>
+                    </template>
+                </UBlogPost>
 
                 <BlogPostModal
                     v-model:open="blogPostIsOpen"
@@ -49,7 +65,7 @@
             headline="DIRECTORY"
             title="All Pages"
             description="These are the places that exist on my site! You can navigate (most) of them on the top navigation bar, too."
-            class="-my-8"
+            class="-my-12"
             :features="pageFeatureProps"
         />
 
@@ -59,7 +75,7 @@
             id="badges"
             title="Badges"
             description="Links to other people's websites!"
-            class="-my-5"
+            class="-my-6"
         >
             <div class="flex flex-wrap justify-center gap-2">
                 <UTooltip
