@@ -12,7 +12,7 @@
             headline="New"
             title="Latest Post"
             description="Thoughts, updates, and stuff."
-            class="-my-12"
+            class="-my-8"
         >
             <div class="mx-auto w-full max-w-2xl">
                 <UBlogPost
@@ -65,7 +65,7 @@
             headline="DIRECTORY"
             title="All Pages"
             description="These are the places that exist on my site! You can navigate (most) of them on the top navigation bar, too."
-            class="-my-12"
+            class="-my-8"
             :features="pageFeatureProps"
         />
 
@@ -75,7 +75,7 @@
             id="badges"
             title="Badges"
             description="Links to other people's websites!"
-            class="-my-6"
+            class="-my-4"
         >
             <div class="flex flex-wrap justify-center gap-2">
                 <UTooltip
