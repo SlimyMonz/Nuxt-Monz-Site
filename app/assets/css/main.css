@@ -39,7 +39,6 @@
     --color-ink-950: #0a0a0c;
 }
 
-
 /* Page transitions (nuxt.config.ts -> app.pageTransition) */
 /* Each page must have a single root element for this to work: <div> */
 :root {
@@ -71,7 +70,6 @@
         transition-duration: 0.01ms !important;
     }
 }
-
 
 /* Hero page-load sequence: one staggered entrance per element */
 /* Set the order with [--i:N] on each element. */

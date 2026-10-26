@@ -180,7 +180,14 @@ export const BlogPosts: BlogPost[] = [
         id: 9,
         title: "Business trip, internet woes, iPhone Duo, and Control Resonant",
         date: "2026-10-22",
-        tags: [Tag.Games, Tag.Opinion, Tag.Politics, Tag.Tech, Tag.Travel, Tag.Work],
+        tags: [
+            Tag.Games,
+            Tag.Opinion,
+            Tag.Politics,
+            Tag.Tech,
+            Tag.Travel,
+            Tag.Work,
+        ],
         body: `Last month I went on my first ever business trip! It was so boring. And they didn't even talk about anything I needed to be there for. I basically spent the entire time
         reading the Three Body Problem trilogy's last two books. The food was good, but I wasn't happy about leaving home to be in a red-state area. At least I got some overtime pay out of it.
         <br><br>

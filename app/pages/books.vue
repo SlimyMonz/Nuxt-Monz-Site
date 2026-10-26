@@ -2,7 +2,8 @@
     <div>
         <SlimyHero :hero-info="heroInfo" />
         <UPageGrid
-            class="grid-cols-1 min-[440px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            class="grid-cols-1 min-[440px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
             <MediaCard
                 v-for="(book, i) in sortedBooks"
                 :key="i"
@@ -11,7 +12,8 @@
                 :creator="book.author"
                 :date="book.date"
                 :imagePath="book.img"
-                :textBody="book.description" />
+                :textBody="book.description"
+            />
         </UPageGrid>
     </div>
 </template>
