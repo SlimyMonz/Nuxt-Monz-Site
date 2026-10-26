@@ -11,19 +11,20 @@ export interface Badge {
 }
 
 export enum Tag {
-  Books = "Books",
-  Food = "Food",
-  Games = "Games",
-  Health = "Health",
-  Movies = "Movies",
-  Music = "Music",
-  Opinion = "Opinion",
-  Personal = "Personal",
-  Politics = "Politics",
-  Reviews = "Reviews",
-  Tech = "Tech",
-  Travel = "Travel",
-  Work = "Work",
+    Art = "Art",
+    Books = "Books",
+    Food = "Food",
+    Games = "Games",
+    Health = "Health",
+    Movies = "Movies",
+    Music = "Music",
+    Opinion = "Opinion",
+    Personal = "Personal",
+    Politics = "Politics",
+    Reviews = "Reviews",
+    Tech = "Tech",
+    Travel = "Travel",
+    Work = "Work",
 }
 
 export interface BlogPost {

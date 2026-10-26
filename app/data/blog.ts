@@ -20,7 +20,7 @@ export const BlogPosts: BlogPost[] = [
         id: 1,
         title: "Second post!?",
         date: "2026-08-22",
-        tags: [Tag.Tech],
+        tags: [Tag.Art, Tag.Tech],
         body: `<p>Whoa! Second post! I created the <strong>Art page</strong> and now it's there! I went through a lot of iterations before I was happy with it.
         I tried having a fancy carousel of images, but it didn't look right and it was kinda repetitive visually.</p><br>
         <p>Using <strong>Nuxt/NuxtUI</strong> is nice, but after creating the manifest for all of the images... kinda feels silly to even use Nuxt when most of the work was done by hand.
@@ -44,7 +44,7 @@ export const BlogPosts: BlogPost[] = [
         id: 2,
         title: "Two posts in one day!",
         date: "2026-08-22",
-        tags: [Tag.Tech],
+        tags: [Tag.Art, Tag.Tech],
         body: `<p>I really REALLY wanted to get the Album Gallery thing working in the Photos section. You can check that out
         <a
             href="/photos"
