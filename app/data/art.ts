@@ -28,7 +28,7 @@ const albumManifest: AlbumManifest = {
         { title: "2022", path: "2022", imageCount: 6 },
         { title: "2023", path: "2023", imageCount: 6 },
         { title: "2025", path: "2025", imageCount: 12 },
-        { title: "2026", path: "2026", imageCount: 1 },
+        { title: "2026", path: "2026", imageCount: 2 },
     ],
 };
 
