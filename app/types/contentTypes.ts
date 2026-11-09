@@ -43,6 +43,12 @@ export interface Character {
     url: string;
 }
 
+export interface Ingredient {
+    name: string;
+    quantity: number;
+    unit?: string;
+}
+
 export interface Kink {
     title: string;
     description: string;
@@ -57,10 +63,9 @@ export interface Obituary {
     img: string;
 }
 
-export interface Ingredient {
-    name: string;
-    quantity: number;
-    unit?: string;
+export interface QuestionsAndAnswers {
+    question: string;
+    answer: string;
 }
 
 export interface Recipe {
@@ -69,4 +74,9 @@ export interface Recipe {
     description: string;
     ingredients: Ingredient[];
     instructions: string[];
+}
+
+export interface Species {
+    title: string;
+    variants: string[];
 }
