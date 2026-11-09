@@ -154,6 +154,11 @@ export const yesKinks: Kink[] = [
 
 export const maybeKinks: Kink[] = [
     {
+        title: "Transformation",
+        description: "Changing from one form into another. I like it if it's not painful and not grotesque.",
+        rating: 6,
+    },
+    {
         title: "Musk",
         description:
             "Bodily scents. Preference in the lighter area, not the extreme/strong zone.",
