@@ -1,5 +1,4 @@
 import type { TimelineItem } from "@nuxt/ui";
-import type { HeroInfo } from "~/types/contentTypes";
 
 export const heroImage = "/about/monz_ref.jpg";
 export const sonaRef = "/about/monz_ref.png";

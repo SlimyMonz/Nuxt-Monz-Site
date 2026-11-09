@@ -48,7 +48,8 @@
                     route.path !== "/obituary" &&
                     route.path !== "/terms" &&
                     route.path !== "/:all(.*)*" &&
-                    route.path !== "/404",
+                    route.path !== "/404" &&
+                    route.path !== "/kinks",
             )
             .map((route) => ({
                 label: route.path

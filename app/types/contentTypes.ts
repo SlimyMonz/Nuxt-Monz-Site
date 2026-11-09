@@ -43,6 +43,12 @@ export interface Character {
     url: string;
 }
 
+export interface Kink {
+    title: string;
+    description: string;
+    rating: number;
+}
+
 export interface Obituary {
     name: string;
     dates: string;
