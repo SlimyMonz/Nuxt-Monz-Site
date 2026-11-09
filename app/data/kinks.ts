@@ -30,7 +30,7 @@ const favoriteSpecies = [
     },
     {
         title: "Monster",
-        variants: ["Goo Creature", "Cryptid", "Skullhead", "Skeletal"],
+        variants: ["Goo Creature", "Cryptid", "Skullhead", "Skeletal", "Golem"],
     },
     {
         title: "Others",
@@ -207,7 +207,7 @@ export const noKinks: Kink[] = [
         rating: 1,
     },
     {
-        title: "Baby",
+        title: "Infantilism",
         description: "Diapers/Age-play/Acting like a baby.",
         rating: 0,
     },
@@ -226,6 +226,12 @@ export const noKinks: Kink[] = [
         title: "Harm",
         description:
             "Pain/Injury/Abuse/Damage/Blood. Anything that causes harm to one's health.",
+        rating: 0,
+    },
+    {
+        title: "Infidelity",
+        description:
+            "Cheating/cuck behavior against a partner or love interest.",
         rating: 0,
     },
 ];
@@ -264,19 +270,20 @@ export const questionsAndAnswers: QuestionsAndAnswers[] = [
         answer: "Yeah, for real-life people. This is all for fantasy stuff.",
     },
     {
-        question: "I don't see [KINK] in a section! Does that mean you're [YES/MAYBE/NO]?",
-        answer: "No. Don't assume anything that's missing. Feel free to email if you're extremely curious."
+        question:
+            "I don't see [KINK] in a section! Does that mean you're [YES/MAYBE/NO]?",
+        answer: "No. Don't assume anything that's missing. Feel free to email if you're extremely curious.",
     },
     {
         question: "I have a kink that you don't like. Do you hate me?",
-        answer: "Most likely not! If you bother me with those, I won't like you very much for it."
+        answer: "Most likely not! If you bother me with those, I won't like you very much for it.",
     },
     {
         question: "Can I sexually harass you now that I've seen this?",
-        answer: "Please don't. At least wait until we're established as friends."
+        answer: "Please don't. At least wait until we're established as friends.",
     },
     {
         question: "Are you worried person/work/family will see this?",
-        answer: "I'm an adult and I don't care. You have to go out of your way to find this."
-    }
-]
+        answer: "I'm an adult and I don't care. You have to go out of your way to find this.",
+    },
+];
