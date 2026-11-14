@@ -267,4 +267,66 @@ export const BlogPosts: BlogPost[] = [
         Mmmmmmm~
         `,
     },
+    {
+        id: 11,
+        title: "New Job, New Game, New Juice",
+        date: "2026-11-14",
+        tags: [Tag.Food, Tag.Games, Tag.Health, Tag.Tech, Tag.Work],
+        body: `<b>Job Update! </b><br>
+        I've been low-key looking at new positions over the past year. Not really applying to jobs hardcore, but keeping an open mind.
+        Well, a recruiter reached out saying that Humana is hiring. They asked what I wanted, I gave a number at the highest on their pay range.
+        I didn't put much thought into it, but then an interview date was set. I had the interview and didn't get much of an update for a week or two.
+        After, they actually wanted a second interview! The recruiter gave me a bit of an ego: he hadn't had anyone get this far yet.
+        So we set up the second date. It was mostly the same as the previous interview, just with a few different people.
+        Immediately after, my recruiter said they wanted to bring me on! Okay, wow, I'm getting a max payout! Crazy. That's a 45% raise!!
+        Going from 3 days in-office to fully remote is gonna be so nice. I really hate working in an office. Too many distractions.
+        There is that feeling of missing the people I work with. Genuinely, I got along with everyone and kinda liked some of them.
+        But work is work no matter where one goes. I'm glad we had a good run, and I'm happy to be moving forward.
+        <br><br>
+        <b>iPhone Duo… No thanks!</b><br>
+        While I was heading over to pick up the Ocarina of Time Remake, I had a chance to check out the iPhone Duo in person.
+        Honestly? Not happy with it. The hinge IS incredible and tough to describe. However, I very much dislike the inner screen.
+        When I rub my fingers across the inner display, it's lumpy and has too much give. The sensation is very off-putting.
+        Unlike an iPad where the screen is hard and rigid, the inner Duo display is just so fragile, soft, and flimsy-feeling.
+        At least the matte finish is as good as the marketing says. I literally can't see the crease nor any imperfections.
+        Either way, I won't be getting an iPhone Duo until some indefinite generation. I cannot justify it, especially with all the issues.
+        Something I wish Apple did was just release the front of the Duo as a sort of funny-sized square-ish iPhone.
+        Basically, think of the front of the Duo without that asymmetric rounding of the edges and it can't open up.
+        I crave smart devices in awkward sizes and form factors!
+        <br><br>
+        <b>Gaming too much!</b><br>
+        Got the Legend of Zelda: Ocarina of Time remake! Considered a Switch 2 special edition, but… eh.
+        Only would have picked one up to give to a friend, but they ended up getting one in the end! Hooray for them~
+        Well, after only two days I 100% completed the game. Every single heart piece, item, and even gold skulltula. Everything!
+        One of my prouder achievements with the game is getting the final Biggoron sword before facing any of the five temples.
+        I didn't actually know that was possible, but it's really not that hard. I wonder how many quality-of-life changes there were.
+        The game is just so gorgeous, too. Like… wow. It's a must-have for the Switch 2. 10/10 honestly! Loved every minute.
+        <br><br>
+        <b>JUICY</b><br>
+        Amazon sent me over a juice press to review and I've already made soooo much juice! I refilled an empty container with it already.
+        It's really cool! Though, I quickly realized I've got an intolerance/allergy to kiwi. That makes me super sad! I love kiwi!!!
+        I might be able to drink kiwi juice if I cook it. I'm planning on taking the fruit juice I've made and just boiling it for a while.
+        Not sure if anyone else with allergies knows this, but sometimes cooking things can break down the allergens. I can have peanut-oil donuts for this reason!
+        Otherwise, Apples are the perfect fruit for the juicer. I love me some apple juice! And I can turn the pulp into a syrup infusion for tea. Mmmm~
+        I'm also trying to eat a lot less now. I've reduced my portions in half and I'm trying to be mindful of how full I feel.
+        And by full, I mean how not-hungry I am. One is not supposed to feel full, just not-starving. I've basically been eating until FULL my whole life.
+        Gotta reprogram myself to know that not-full doesn't mean hungry. It's a work in progress, but I think I'm getting it~
+        <br><br>
+        <b>Smart Home</b><br>
+        Last on my list is finally giving smart home stuff another shot. Why? Amazon sent me seven boxes of smart accessories.
+        The only thing missing was some way to control them. And the timing couldn't have been better: The Apple Home View just released!
+        So I went to BestBuy and picked up my new Home View. There was a huge line that Friday… of scalpers trying to buy Pokémon cards.
+        Fuck those people, btw. Hate scalpers. Also hated them for scalping all the Switch 2 editions. But I digress.
+        The Home View is a really neat device! I thought it would kinda suck and warrant a return, but it's honestly fantastic.
+        I don't think I'm ever going to fit the nuclear family aesthetic that Apple thinks I would, but as a home accessory I love it.
+        It actually feels like the missing “third pillar” from Apple in the smart home space. HomePods weren't a great Hub ever.
+        The only thing kinda silly about the Home View is that it doesn't have real FaceID. Why not?? That should have been an easy inclusion.
+        Anyway, now most of the first floor of my house has smart bulbs and lights. I decided against doing smart switches for a reason:
+        It's always a good idea to have something not-smart to turn off the “smart” stuff in case the network goes down. Like an emergency OFF.
+        Plus, I'd probably have to do some electrical work and pay a ridiculous amount just to replace our brand-new “dumb” light switches.
+        Really, all I have to do is remember not to flip the switches off. I think I can manage. Some of the lights aren't even connected to switches.
+        <br><br>
+        That's all for now! I'm really enjoying the colder weather and wearing layers. Gosh, I always miss how fashionable one can be when it's not hot out.
+        `,
+    },
 ];
