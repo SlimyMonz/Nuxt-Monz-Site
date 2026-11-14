@@ -13,6 +13,15 @@ export default defineNuxtConfig({
         pageTransition: { name: "page", mode: "out-in" },
         head: {
             title: "Monz Site",
+            meta: [
+                { name: "description", content: "Website created by Monz" },
+                { property: "og:type", content: "website" },
+                {
+                    property: "og:image",
+                    content: "https://www.monz.us/about/monz_ref.png",
+                },
+                { name: "twitter:card", content: "summary_large_image" },
+            ],
         },
     },
 });
