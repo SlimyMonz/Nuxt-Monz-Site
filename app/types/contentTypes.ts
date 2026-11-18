@@ -4,6 +4,12 @@ export interface HeroInfo {
     description: string;
 }
 
+export interface Achievement {
+    title: string;
+    description: string;
+    img: string;
+}
+
 export interface Badge {
     text: string;
     img: string;

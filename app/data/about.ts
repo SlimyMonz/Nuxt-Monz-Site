@@ -90,11 +90,16 @@ export const interestCards = [
     },
 ];
 
-export const achievements = [
+export const achievements: Achievement[] = [
     {
         title: "2Woke4U",
         description: "Human rights are important.",
         img: "/about/achievements/antinazi.gif",
+    },
+    {
+        title: "Apple",
+        description: "Has an Apple desktop, phone, watch...",
+        img: "/about/achievements/apple.gif"
     },
     {
         title: "Cozy Gaymer",
@@ -102,13 +107,33 @@ export const achievements = [
         img: "/about/achievements/bobbutton.gif",
     },
     {
+        title: "GameCube",
+        description: "Favorite console from childhood.",
+        img: "/about/achievements/gamecube.png",
+    },
+    {
         title: "Linux User",
-        description: "Main desktop runs KDE Fedora.",
+        description: "Gaming desktop runs KDE Fedora.",
         img: "/about/achievements/fedora.gif",
     },
     {
         title: "Microsoft Hater",
         description: "Avoids Microsoft at all costs.",
         img: "/about/achievements/stop_microsoft.gif",
+    },
+    {
+        title: "Monster Lover",
+        description: "Not quite a furry.",
+        img: "/about/achievements/monster_fucker.png",
+    },
+    {
+        title: "Non-Binary",
+        description: "Doesn't fit into the binary of society.",
+        img: "/about/achievements/no_biney.jpg",
+    },
+    {
+        title: "Wii U",
+        description: "Owns a working Wii U console!",
+        img: "/about/achievements/wii_u.png",
     },
 ];
